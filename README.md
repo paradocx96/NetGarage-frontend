@@ -1,9 +1,66 @@
-# Getting Started with Create React App
+# NetGarage (Frontend)
+## Software Project Management - SE3080  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Group Members  
+
+| Student ID | Student Name            | Github Username       |
+|------------|-------------------------|-----------------------|
+| IT19014128 | A.M.W.W.R.L. Wataketiya | RavinduLa             |
+| IT19180526 | S.A.N.L.D. Chandrasiri  | paradocx96            |
+| IT19240848 | H.G. Malwatta           | DeclanChirush         |  
+
+## Deployment  
+
+**Database** - _MongoDB_
+<!--
+**Heroku** : _https://icaf-codewave-backend-api.herokuapp.com_
+-->
+## Git Guide  
+<details> 
+  <summary>💻</summary>  
+  
+**Git Clone**  
+git clone https://github.com/paradocx96/NetGarage-frontend.git  
+cd NetGarage-frontend  
+
+**Create a Branch and Commit from that Branch**  
+git checkout -b BranchName  
+git add .  
+git commit -m "Commit Message"  
+git branch -M BranchName  
+git push -u origin BranchName  
+  
+**After Time**  
+git add .  
+git commit -m "Commit Message"  
+git branch -M BranchName  
+git push -u origin BranchName
+
+**Check available Branches**  
+git branch  
+
+**Switch between Branches**  
+git checkout BranchName  
+
+**Create New Branch**  
+git checkout -b BranchName  
+
+**Update current Branch**  
+git pull  
+
+**Check commit history**  
+git log  
+
+**Check availability for commit**  
+git status  
+
+**Check Git Repository Details**  
+git remote show origin  
+</details>
 
 ## Available Scripts
-
+<details> 
+  <summary>💻</summary>  
 In the project directory, you can run:
 
 ### `yarn start`
@@ -68,3 +125,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</details>  

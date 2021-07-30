@@ -4,11 +4,18 @@ import './App.css';
 
 //HOMEPAGE
 import Homepage from "./pages/Homepage";
+import Error404 from "./pages/Error404";
 
 
-//LOGIN
+//USER
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+
+
+//MOBILE
+
+
+//LAPTOP
 
 
 function App() {
@@ -18,13 +25,20 @@ function App() {
                 <Switch>
                     {/* HOMEPAGE */}
                     <Route exact path="/" component={Homepage}/>
+                    <Route path="/page-not-found" component={Error404}/>
 
-                    {/* LOGIN  */}
+                    {/* USER  */}
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Registration}/>
 
 
-                    <Redirect to="/"/>
+                    {/* MOBILE */}
+
+
+                    {/* LAPTOP */}
+
+
+                    <Redirect to="/page-not-found"/>
                 </Switch>
             </Router>
         </div>

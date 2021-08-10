@@ -9,6 +9,14 @@
 | IT19180526 | S.A.N.L.D. Chandrasiri  | paradocx96            |
 | IT19240848 | H.G. Malwatta           | DeclanChirush         |  
 
+## Member Functions  
+
+| Student ID | Student Name            | Functions               |
+|------------|-------------------------|-------------------------|
+| IT19014128 | A.M.W.W.R.L. Wataketiya | Mobile Phone Management |
+| IT19180526 | S.A.N.L.D. Chandrasiri  | Laptop Management       |
+| IT19240848 | H.G. Malwatta           | User Management         |  
+
 ## Deployment  
 
 **Database** - _MongoDB_

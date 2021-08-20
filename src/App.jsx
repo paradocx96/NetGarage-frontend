@@ -23,6 +23,10 @@ import Mobile from "./components/pages/Mobile";
 import Laptop from "./components/pages/Laptop";
 
 
+//DASHBOARD
+import Dashboard from "./components/pages/Dashboard";
+
+
 function App() {
     return (
         <div>
@@ -47,6 +51,9 @@ function App() {
                     {/* LAPTOP */}
                     <Route path="/laptops" component={Laptop}/>
 
+
+                    {/* DASHBOARD */}
+                    <Route path="/dashboard" component={Dashboard}/>
 
 
                     <Redirect to="/page-not-found"/>

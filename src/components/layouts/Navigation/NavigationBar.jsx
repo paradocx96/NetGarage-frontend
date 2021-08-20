@@ -4,10 +4,16 @@ import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class NavigationBar extends Component {
+
+    backColor = {
+        'background-color' : '#4CAF50',
+        color: 'white'
+    }
+
     render() {
         return (
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
                     <Container>
                         <Navbar.Brand href="/">HOME</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -6,10 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from './../../../assets/images/Header/logo.svg';
 
 class HeaderBar extends Component {
+
+    backColor = {
+        'background-color': '#4CAF50',
+        color: 'white'
+    }
+
     render() {
         return (
             <div>
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
                     <Container>
                         <Navbar.Brand href="/">
                             <img
@@ -21,7 +27,7 @@ class HeaderBar extends Component {
                             />{' '}
                             NetGarage
                         </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                             </Nav>
@@ -32,7 +38,7 @@ class HeaderBar extends Component {
                                     className="mr-2"
                                     aria-label="Search"
                                 />
-                                <Button variant="outline-success">Search</Button>
+                                <Button variant="outline-light">Search</Button>
                             </Form>
                             <Nav>
                                 <Nav.Link href="/register">REGISTER</Nav.Link>

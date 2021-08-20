@@ -5,7 +5,7 @@ const API_BASE_URL = "http://localhost:5000";
 const SERVICE_URL = "/laptop";
 const URL = API_BASE_URL + SERVICE_URL;
 
-export default class ServiceLaptop {
+export default new class ServiceLaptop {
 
     postLaptop(value) {
         return axios.post(URL + "/add", value);

@@ -200,58 +200,55 @@ class LaptopAdd extends Component {
         let value = {
             user: "Admin",
             status: "Deactivate",
-            name: '',
-            type: '',
-            year: '',
-            brand: '',
-            os: '',
-            model: '',
-            processorname: '',
-            processordetails: '',
-            processorgeneration: '',
-            chipset: '',
-            ramtype: '',
-            ramcapacity: '',
-            ramslotstype: '',
-            ramslotscount: '',
-            storagefirst: '',
-            storagefirstcapacity: '',
-            storagesecond: '',
-            storagesecondcapacity: '',
-            displaysizeresolution: '',
-            displayrefreshrate: '',
-            displaytype: '',
-            graphicbrand: '',
-            graphicmodel: '',
-            graphiccapacity: '',
-            graphicdetails: '',
-            webcam: '',
-            keyboard: '',
-            communication: '',
-            audio: '',
-            ioports: '',
-            battery: '',
-            dimension: '',
-            weight: '',
-            color: ''
+            name: this.state.name,
+            type: this.state.type,
+            year: this.state.year,
+            brand: this.state.brand,
+            os: this.state.os,
+            model: this.state.model,
+            processorname: this.state.processorname,
+            processordetails: this.state.processordetails,
+            processorgeneration: this.state.processorgeneration,
+            chipset: this.state.chipset,
+            ramtype: this.state.ramtype,
+            ramcapacity: this.state.ramcapacity,
+            ramslotstype: this.state.ramslotstype,
+            ramslotscount: this.state.ramslotscount,
+            storagefirst: this.state.storagefirst,
+            storagefirstcapacity: this.state.storagefirstcapacity,
+            storagesecond: this.state.storagesecond,
+            storagesecondcapacity: this.state.storagesecondcapacity,
+            displaysizeresolution: this.state.displaysizeresolution,
+            displayrefreshrate: this.state.displayrefreshrate,
+            displaytype: this.state.displaytype,
+            graphicbrand: this.state.graphicbrand,
+            graphicmodel: this.state.graphicmodel,
+            graphiccapacity: this.state.graphiccapacity,
+            graphicdetails: this.state.graphicdetails,
+            webcam: this.state.webcam,
+            keyboard: this.state.keyboard,
+            communication: this.state.communication,
+            audio: this.state.audio,
+            ioports: this.state.ioports,
+            battery: this.state.battery,
+            dimension: this.state.dimension,
+            weight: this.state.weight,
+            color: this.state.color
         }
 
-        console.log(this.state.brand);
-        console.log(this.state.graphicbrand);
-        console.log(this.state.os);
-        console.log(this.state.processorname);
+        console.log(value);
 
         // TODO: Save value in database
-        // await ServiceLaptop.postLaptop(value)
-        //     .then(response => response.data)
-        //     .then((data) => {
-        //         console.log(data);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error.message);
-        //     });
+        await ServiceLaptop.postLaptop(value)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
 
-        // this.onReset();
+        this.onReset();
     }
 
     // TODO: Reset form values
@@ -500,6 +497,7 @@ class LaptopAdd extends Component {
                                     <option>120GB</option>
                                     <option>64GB</option>
                                     <option>32GB</option>
+                                    <option>-</option>
                                 </Form.Control>
                             </Col>
                         </Form.Group>

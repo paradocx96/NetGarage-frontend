@@ -1,26 +1,31 @@
 import React, {Component} from 'react';
+import {Button, Col, Form, Row} from "react-bootstrap";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopAddBodyWall from "./LaptopAddBodyWall";
-import {Button, Col, Form, Row} from "react-bootstrap";
+import ServiceLaptop from "../../../services/ServiceLaptop";
 
 class LaptopAdd extends Component {
 
     divBack = {
-        'background-color': '#212121'
+        backgroundColor: '#212121'
     }
 
     divSection = {
         margin: '20px',
         padding: '20px',
         borderRadius: '25px',
-        'background-color': '#ffffff'
+        backgroundColor: '#ffffff'
     }
 
     textStyleH1 = {
         textAlign: 'center',
         marginBottom: '50px',
         marginTop: '50px',
+    }
+
+    divBox = {
+        height: '10px'
     }
 
     // TODO: Initializing state values and functions
@@ -39,42 +44,42 @@ class LaptopAdd extends Component {
 
     // TODO: Initializing default values
     initialState = {
-        user : "Admin",
-        status : "Deactivate",
-        name : '',
-        type : '',
-        year : 2000,
-        brand : '',
-        os : '',
-        model : '',
-        processorname : '',
-        processordetails : '',
-        processorgeneration : '',
-        chipset : '',
-        ramtype : '',
-        ramcapacity : '',
-        ramslotstype : '',
-        ramslotscount : 0,
-        storagefirst : '',
-        storagefirstcapacity : '',
-        storagesecond : '',
-        storagesecondcapacity : '',
-        displaysizeresolution : '',
-        displayrefreshrate : '',
-        displaytype : '',
-        graphicbrand : '',
-        graphicmodel : '',
-        graphiccapacity : '',
-        graphicdetails : '',
-        webcam : '',
-        keyboard : '',
-        communication : '',
-        audio : '',
-        ioports : '',
-        battery : '',
-        dimension : '',
-        weight : '',
-        color : ''
+        user: "Admin",
+        status: "Deactivate",
+        name: '',
+        type: '',
+        year: 2000,
+        brand: '',
+        os: '',
+        model: '',
+        processorname: '',
+        processordetails: '',
+        processorgeneration: '',
+        chipset: '',
+        ramtype: '',
+        ramcapacity: '',
+        ramslotstype: '',
+        ramslotscount: 0,
+        storagefirst: '',
+        storagefirstcapacity: '',
+        storagesecond: '',
+        storagesecondcapacity: '',
+        displaysizeresolution: '',
+        displayrefreshrate: '',
+        displaytype: '',
+        graphicbrand: '',
+        graphicmodel: '',
+        graphiccapacity: '',
+        graphicdetails: '',
+        webcam: '',
+        keyboard: '',
+        communication: '',
+        audio: '',
+        ioports: '',
+        battery: '',
+        dimension: '',
+        weight: '',
+        color: ''
     }
 
     componentDidMount = async () => {
@@ -116,12 +121,10 @@ class LaptopAdd extends Component {
     onSubmit = async (event) => {
         event.preventDefault();
 
-        let value = {
-
-        }
+        let value = {}
 
         // TODO: Save value in database
-        // await ServiceTeacher.postTeacher(value)
+        // await ServiceLaptop.postLaptop(value)
         //     .then(response => response.data)
         //     .then((data) => {
         //         console.log(data);
@@ -418,14 +421,96 @@ class LaptopAdd extends Component {
 
                     <section style={this.divSection}>
                         <h3>Others</h3>
+
+                        <Form.Group as={Row} controlId="other1" className={'pt-3'}>
+                            <Col>
+                                <Form.Control placeholder="Webcam"
+                                              name="webcam"
+                                              value={this.state.webcam}
+                                              onChange={this.onChange}/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Keyboard"
+                                              name="keyboard"
+                                              value={this.state.keyboard}
+                                              onChange={this.onChange}/>
+                            </Col>
+                        </Form.Group>
+
+
+                        <Form.Group as={Row} controlId="other2" className={'pt-3'}>
+                            <Col>
+                                <Form.Control placeholder="Communication"
+                                              name="communication"
+                                              value={this.state.communication}
+                                              onChange={this.onChange}/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Audio"
+                                              name="audio"
+                                              value={this.state.audio}
+                                              onChange={this.onChange}/>
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} controlId="other3" className={'pt-3'}>
+                            <Col>
+                                <Form.Control placeholder="Battery"
+                                              name="battery"
+                                              value={this.state.battery}
+                                              onChange={this.onChange}/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Dimension"
+                                              name="dimension"
+                                              value={this.state.dimension}
+                                              onChange={this.onChange}/>
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} controlId="other4" className={'pt-3'}>
+                            <Col>
+                                <Form.Control placeholder="Weight"
+                                              name="weight"
+                                              value={this.state.weight}
+                                              onChange={this.onChange}/>
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Color"
+                                              name="color"
+                                              value={this.state.color}
+                                              onChange={this.onChange}/>
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} controlId="other5" className={'pt-3'}>
+                            <Col>
+                                <Form.Control placeholder="I/O Port"
+                                              name="ioports"
+                                              required
+                                              as="textarea"
+                                              rows={5}
+                                              value={this.state.ioports}
+                                              onChange={this.onChange}/>
+                            </Col>
+                            <Col>
+                            </Col>
+                        </Form.Group>
                     </section>
 
                     <section style={this.divSection}>
-                        <Button>Add</Button>
+                        <Form.Group as={Row} className={'pt-2'}>
+                            <Col>
+                                <Button type="submit" className="btn-success">SAVE</Button>{'\u00A0'}
+                                <Button type="reset" className="btn-danger">RESET</Button>{'\u00A0'}
+                                <Button className="btn-secondary">^</Button>{'\u00A0'}
+                            </Col>
+                        </Form.Group>
                     </section>
 
 
                 </Form>
+                <div style={this.divBox}/>
             </div>
         );
     }

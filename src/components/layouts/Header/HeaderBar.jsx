@@ -8,7 +8,7 @@ import Logo from './../../../assets/images/Header/logo.svg';
 class HeaderBar extends Component {
 
     backColor = {
-        'background-color': '#4CAF50',
+        backgroundColor: '#4CAF50',
         color: 'white'
     }
 

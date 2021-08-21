@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class NavigationBar extends Component {
 
     backColor = {
-        'background-color' : '#4CAF50',
+        backgroundColor : '#4CAF50',
         color: 'white'
     }
 

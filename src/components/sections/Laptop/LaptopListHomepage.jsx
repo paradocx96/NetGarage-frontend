@@ -17,8 +17,7 @@ class LaptopListHomepage extends Component {
     }
 
     componentDidMount = async () => {
-        // await ServiceLaptop.getLaptopByStatus('Activate')
-        await ServiceLaptop.getLaptop()
+        await ServiceLaptop.getLaptopByStatus('Activated')
             .then(response => response.data)
             .then((data) => {
                 this.setState({laptopList: data});

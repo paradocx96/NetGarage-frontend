@@ -22,6 +22,7 @@ import Mobile from "./components/pages/Mobile";
 //LAPTOP
 import Laptop from "./components/pages/Laptop";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
+import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
 
 
 //DASHBOARD
@@ -51,6 +52,7 @@ function App() {
 
                     {/* LAPTOP */}
                     <Route path="/laptops" component={Laptop}/>
+                    <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
 
 

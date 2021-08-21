@@ -4,6 +4,10 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopAddBodyWall from "./LaptopAddBodyWall";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
+import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
+import ServiceLaptopOS from "../../../services/ServiceLaptopOS";
+import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 
 class LaptopAdd extends Component {
 
@@ -33,22 +37,32 @@ class LaptopAdd extends Component {
         super(props);
         this.state = this.initialState;
         this.state = {
-            getSubject: [],
-            options: []
+            getBrand: [],
+            getGraphic: [],
+            getOS: [],
+            getProcessor: []
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.onSelectSubject = this.onSelectSubject.bind(this);
+
+        this.onSelectBrand = this.onSelectBrand.bind(this);
+        this.onSelectGraphic = this.onSelectGraphic.bind(this);
+        this.onSelectOS = this.onSelectOS.bind(this);
+        this.onSelectProcessor = this.onSelectProcessor.bind(this);
+        this.onSelectRamType = this.onSelectRamType.bind(this);
+        this.onSelectRamCapacity = this.onSelectRamCapacity.bind(this);
+        this.onSelectStorageFirstCapacity = this.onSelectStorageFirstCapacity.bind(this);
+        this.onSelectStorageSecondCapacity = this.onSelectStorageSecondCapacity.bind(this);
+        this.onSelectDisplayRefreshRate = this.onSelectDisplayRefreshRate.bind(this);
+        this.onSelectGraphicCapacity = this.onSelectGraphicCapacity.bind(this);
     }
 
     // TODO: Initializing default values
     initialState = {
-        user: "Admin",
-        status: "Deactivate",
         name: '',
         type: '',
-        year: 2000,
+        year: '',
         brand: '',
         os: '',
         model: '',
@@ -59,7 +73,7 @@ class LaptopAdd extends Component {
         ramtype: '',
         ramcapacity: '',
         ramslotstype: '',
-        ramslotscount: 0,
+        ramslotscount: '',
         storagefirst: '',
         storagefirstcapacity: '',
         storagesecond: '',
@@ -83,24 +97,93 @@ class LaptopAdd extends Component {
     }
 
     componentDidMount = async () => {
-        // await ServiceSubject.getSubjectAll()
-        //     .then(response => {
-        //         this.setState({getSubject: response.data}, () => {
-        //             let dt = [];
-        //             this.state.getSubject.map((item, index) => {
-        //                 let sub = {
-        //                     value: item.id,
-        //                     label: item.name
-        //                 }
-        //                 dt.push(sub)
-        //             });
-        //             this.setState({
-        //                 options: dt
-        //             });
-        //         })
-        //     }).catch(error => {
-        //         console.log(error.message);
-        //     })
+
+        // TODO: GET ALL LAPTOP BRAND
+        await ServiceLaptopBrand.getLaptopBrand()
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({getBrand: data});
+            }).catch(error =>
+                console.log(error.message)
+            );
+
+        // TODO: GET ALL LAPTOP GRAPHIC
+        await ServiceLaptopGraphic.getLaptopGraphic()
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({getGraphic: data});
+            }).catch(error =>
+                console.log(error.message)
+            );
+
+        // TODO: GET ALL LAPTOP OS
+        await ServiceLaptopOS.getLaptopOS()
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({getOS: data});
+            }).catch(error =>
+                console.log(error.message)
+            );
+
+        // TODO: GET ALL LAPTOP PROCESSOR
+        await ServiceLaptopProcessor.getLaptopProcessor()
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({getProcessor: data});
+            }).catch(error =>
+                console.log(error.message)
+            );
+
+    }
+
+    // TODO: Assign Brand values to State variables
+    onSelectBrand = (event) => {
+        this.setState({brand: event.target.value});
+    }
+
+    // TODO: Assign Graphic values to State variables
+    onSelectGraphic = (event) => {
+        this.setState({graphicbrand: event.target.value});
+    }
+
+    // TODO: Assign OS values to State variables
+    onSelectOS = (event) => {
+        this.setState({os: event.target.value});
+    }
+
+    // TODO: Assign Processor values to State variables
+    onSelectProcessor = (event) => {
+        this.setState({processorname: event.target.value});
+    }
+
+    // TODO: Assign RAM Type values to State variables
+    onSelectRamType = (event) => {
+        this.setState({ramtype: event.target.value});
+    }
+
+    // TODO: Assign RAM Capacity values to State variables
+    onSelectRamCapacity = (event) => {
+        this.setState({ramcapacity: event.target.value});
+    }
+
+    // TODO: Assign 1 Storage Capacity values to State variables
+    onSelectStorageFirstCapacity = (event) => {
+        this.setState({storagefirstcapacity: event.target.value});
+    }
+
+    // TODO: Assign 2 Storage Capacity values to State variables
+    onSelectStorageSecondCapacity = (event) => {
+        this.setState({storagesecondcapacity: event.target.value});
+    }
+
+    // TODO: Assign Display Refresh Rate values to State variables
+    onSelectDisplayRefreshRate = (event) => {
+        this.setState({displayrefreshrate: event.target.value});
+    }
+
+    // TODO: Assign Graphic Capacity values to State variables
+    onSelectGraphicCapacity = (event) => {
+        this.setState({graphiccapacity: event.target.value});
     }
 
     // TODO: Assign form values to State variables
@@ -110,18 +193,53 @@ class LaptopAdd extends Component {
         })
     }
 
-    // TODO: Assign form values to State variables
-    onSelectSubject(event) {
-        this.setState({
-            subjects: event ? event.map(item => item.label) : []
-        });
-    }
-
     // TODO: Submit form values
     onSubmit = async (event) => {
         event.preventDefault();
 
-        let value = {}
+        let value = {
+            user: "Admin",
+            status: "Deactivate",
+            name: '',
+            type: '',
+            year: '',
+            brand: '',
+            os: '',
+            model: '',
+            processorname: '',
+            processordetails: '',
+            processorgeneration: '',
+            chipset: '',
+            ramtype: '',
+            ramcapacity: '',
+            ramslotstype: '',
+            ramslotscount: '',
+            storagefirst: '',
+            storagefirstcapacity: '',
+            storagesecond: '',
+            storagesecondcapacity: '',
+            displaysizeresolution: '',
+            displayrefreshrate: '',
+            displaytype: '',
+            graphicbrand: '',
+            graphicmodel: '',
+            graphiccapacity: '',
+            graphicdetails: '',
+            webcam: '',
+            keyboard: '',
+            communication: '',
+            audio: '',
+            ioports: '',
+            battery: '',
+            dimension: '',
+            weight: '',
+            color: ''
+        }
+
+        console.log(this.state.brand);
+        console.log(this.state.graphicbrand);
+        console.log(this.state.os);
+        console.log(this.state.processorname);
 
         // TODO: Save value in database
         // await ServiceLaptop.postLaptop(value)
@@ -133,7 +251,7 @@ class LaptopAdd extends Component {
         //         console.log(error.message);
         //     });
 
-        this.onReset();
+        // this.onReset();
     }
 
     // TODO: Reset form values
@@ -155,13 +273,23 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Laptop Name"
                                               name="name"
+                                              required
                                               value={this.state.name}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'brand'}
+                                              value={this.state.brand}
+                                              onChange={this.onSelectBrand}>
+
                                     <option>Brand</option>
-                                </Form.Select>
+                                    {this.state.getBrand.map(item => (
+                                        <option key={item.id} value={item.name}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </Form.Control>
                             </Col>
                         </Form.Group>
 
@@ -169,12 +297,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Model"
                                               name="model"
+                                              required
                                               value={this.state.model}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Manufactured Year"
                                               name="year"
+                                              required
                                               value={this.state.year}
                                               onChange={this.onChange}/>
                             </Col>
@@ -182,28 +312,50 @@ class LaptopAdd extends Component {
 
                         <Form.Group as={Row} controlId="BasicDetails3" className={'pt-3'}>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'os'}
+                                              value={this.state.os}
+                                              onChange={this.onSelectOS}>
+
                                     <option>Operating System</option>
-                                </Form.Select>
+                                    {this.state.getOS.map(item => (
+                                        <option key={item.id} value={item.name}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </Form.Control>
                             </Col>
                             <Col>
+                                <Form.Control placeholder="Major Type"
+                                              name="type"
+                                              required
+                                              value={this.state.type}
+                                              onChange={this.onChange}/>
                             </Col>
                         </Form.Group>
-
                     </section>
 
                     <section style={this.divSection}>
                         <h3>CPU & Chipset</h3>
-
                         <Form.Group as={Row} controlId="cpu&chipset1" className={'pt-3'}>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'processorname'}
+                                              value={this.state.processorname}
+                                              onChange={this.onSelectProcessor}>
+
                                     <option>Processor</option>
-                                </Form.Select>
+                                    {this.state.getProcessor.map(item => (
+                                        <option key={item.id} value={item.name}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </Form.Control>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Processor Details"
                                               name="processordetails"
+                                              required
                                               value={this.state.processordetails}
                                               onChange={this.onChange}/>
                             </Col>
@@ -213,12 +365,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Generation"
                                               name="processorgeneration"
+                                              required
                                               value={this.state.processorgeneration}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Chipset"
                                               name="chipset"
+                                              required
                                               value={this.state.chipset}
                                               onChange={this.onChange}/>
                             </Col>
@@ -229,7 +383,11 @@ class LaptopAdd extends Component {
                         <h3>Memory</h3>
                         <Form.Group as={Row} controlId="memory1" className={'pt-3'}>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'ramtype'}
+                                              value={this.state.ramtype}
+                                              onChange={this.onSelectRamType}>
+
                                     <option>Memory Type</option>
                                     <option>DDR4-2400 PC4-19200</option>
                                     <option>DDR4-2666 PC4-21300</option>
@@ -245,10 +403,13 @@ class LaptopAdd extends Component {
                                     <option>DDR3-1600 PC3-12800</option>
                                     <option>DDR2-800 PC2-6400</option>
                                     <option>DDR2-1000 PC2-8000</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'ramcapacity'}
+                                              value={this.state.ramcapacity}
+                                              onChange={this.onSelectRamCapacity}>
                                     <option>Maximum Memory Capacity</option>
                                     <option>1TB</option>
                                     <option>512GB</option>
@@ -259,19 +420,21 @@ class LaptopAdd extends Component {
                                     <option>16GB</option>
                                     <option>8GB</option>
                                     <option>4GB</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} controlId="memory2" className={'pt-3'}>
                             <Col>
                                 <Form.Control placeholder="Memory Slot Type"
                                               name="ramslotstype"
+                                              required
                                               value={this.state.ramslotstype}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="No Of Memory Slot"
                                               name="ramslotscount"
+                                              required
                                               value={this.state.ramslotscount}
                                               onChange={this.onChange}/>
                             </Col>
@@ -285,11 +448,15 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Bootable Storage Type"
                                               name="storagefirst"
+                                              required
                                               value={this.state.storagefirst}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'storagefirstcapacity'}
+                                              value={this.state.storagefirstcapacity}
+                                              onChange={this.onSelectStorageFirstCapacity}>
                                     <option>Bootable Storage Capacity</option>
                                     <option>10TB</option>
                                     <option>4TB</option>
@@ -303,7 +470,7 @@ class LaptopAdd extends Component {
                                     <option>120GB</option>
                                     <option>64GB</option>
                                     <option>32GB</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
                         </Form.Group>
 
@@ -311,11 +478,15 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Secondary Storage Type"
                                               name="storagesecond"
+                                              required
                                               value={this.state.storagesecond}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'storagesecondcapacity'}
+                                              value={this.state.storagesecondcapacity}
+                                              onChange={this.onSelectStorageSecondCapacity}>
                                     <option>Secondary Storage Capacity</option>
                                     <option>10TB</option>
                                     <option>4TB</option>
@@ -329,7 +500,7 @@ class LaptopAdd extends Component {
                                     <option>120GB</option>
                                     <option>64GB</option>
                                     <option>32GB</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
                         </Form.Group>
                     </section>
@@ -341,11 +512,15 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Display Size & Resolution"
                                               name="displaysizeresolution"
+                                              required
                                               value={this.state.displaysizeresolution}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'displayrefreshrate'}
+                                              value={this.state.displayrefreshrate}
+                                              onChange={this.onSelectDisplayRefreshRate}>
                                     <option>Display Refresh Rate</option>
                                     <option>30Hz</option>
                                     <option>60Hz</option>
@@ -353,7 +528,7 @@ class LaptopAdd extends Component {
                                     <option>144Hz</option>
                                     <option>240Hz</option>
                                     <option>300Hz</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
                         </Form.Group>
 
@@ -361,6 +536,7 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Display Type"
                                               name="displaytype"
+                                              required
                                               value={this.state.displaytype}
                                               onChange={this.onChange}/>
                             </Col>
@@ -375,14 +551,24 @@ class LaptopAdd extends Component {
 
                         <Form.Group as={Row} controlId="graphic1" className={'pt-3'}>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'graphicbrand'}
+                                              value={this.state.graphicbrand}
+                                              onChange={this.onSelectGraphic}>
+
                                     <option>Graphic Brand</option>
-                                </Form.Select>
+                                    {this.state.getGraphic.map(item => (
+                                        <option key={item.id} value={item.name}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </Form.Control>
                             </Col>
 
                             <Col>
                                 <Form.Control placeholder="Model"
                                               name="graphicmodel"
+                                              required
                                               value={this.state.graphicmodel}
                                               onChange={this.onChange}/>
                             </Col>
@@ -390,7 +576,10 @@ class LaptopAdd extends Component {
 
                         <Form.Group as={Row} controlId="graphic2" className={'pt-3'}>
                             <Col>
-                                <Form.Select>
+                                <Form.Control required as="select"
+                                              name={'graphiccapacity'}
+                                              value={this.state.graphiccapacity}
+                                              onChange={this.onSelectGraphicCapacity}>
                                     <option>Memory Capacity</option>
                                     <option>32MB</option>
                                     <option>64MB</option>
@@ -407,12 +596,13 @@ class LaptopAdd extends Component {
                                     <option>11GB</option>
                                     <option>12GB</option>
                                     <option>24GB</option>
-                                </Form.Select>
+                                </Form.Control>
                             </Col>
 
                             <Col>
                                 <Form.Control placeholder="Graphic Card Details"
                                               name="graphicdetails"
+                                              required
                                               value={this.state.graphicdetails}
                                               onChange={this.onChange}/>
                             </Col>
@@ -426,12 +616,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Webcam"
                                               name="webcam"
+                                              required
                                               value={this.state.webcam}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Keyboard"
                                               name="keyboard"
+                                              required
                                               value={this.state.keyboard}
                                               onChange={this.onChange}/>
                             </Col>
@@ -442,12 +634,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Communication"
                                               name="communication"
+                                              required
                                               value={this.state.communication}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Audio"
                                               name="audio"
+                                              required
                                               value={this.state.audio}
                                               onChange={this.onChange}/>
                             </Col>
@@ -457,12 +651,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Battery"
                                               name="battery"
+                                              required
                                               value={this.state.battery}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Dimension"
                                               name="dimension"
+                                              required
                                               value={this.state.dimension}
                                               onChange={this.onChange}/>
                             </Col>
@@ -472,12 +668,14 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Weight"
                                               name="weight"
+                                              required
                                               value={this.state.weight}
                                               onChange={this.onChange}/>
                             </Col>
                             <Col>
                                 <Form.Control placeholder="Color"
                                               name="color"
+                                              required
                                               value={this.state.color}
                                               onChange={this.onChange}/>
                             </Col>

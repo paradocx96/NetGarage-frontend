@@ -301,6 +301,7 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="Manufactured Year"
                                               name="year"
+                                              type="number"
                                               required
                                               value={this.state.year}
                                               onChange={this.onChange}/>
@@ -431,6 +432,7 @@ class LaptopAdd extends Component {
                             <Col>
                                 <Form.Control placeholder="No Of Memory Slot"
                                               name="ramslotscount"
+                                              type="number"
                                               required
                                               value={this.state.ramslotscount}
                                               onChange={this.onChange}/>

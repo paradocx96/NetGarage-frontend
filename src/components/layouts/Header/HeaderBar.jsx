@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from './../../../assets/images/Header/logo.svg';
 import ServiceUser from "../../../services/ServiceUser";
 import {Link} from "react-router-dom";
+import "react-icons/bs";
+
 class HeaderBar extends Component {
 
     backColor = {
@@ -22,7 +24,6 @@ class HeaderBar extends Component {
     }
     componentDidMount() {
         const user = ServiceUser.getCurrentUser();
-
         if (user) {
             this.setState({
                 currentUser: user,
@@ -71,25 +72,22 @@ class HeaderBar extends Component {
 
                                 {currentUser ? (
                                     <div className="navbar-nav ml-auto">
-
-                                        <li className="nav-item">
-                                            <Link to={'/'} className={'nav-link'} > {currentUser.username}</Link>
+                                        <li className="nav-item text-uppercase">
+                                            <Link to={'/view-profile'} className={'nav-link BsBackspaceReverse'} > {currentUser.username}</Link>
                                         </li>
-
-                                        <li className="nav-item">
+                                        <li className="nav-item text-uppercase">
                                             <a href="/" className="nav-link" onClick={this.logout}>
                                                 Logout
                                             </a>
                                         </li>
                                     </div>
                                 ) : (
-
                                     <div className="navbar-nav ml-auto">
-                                        <li className="nav-item">
-                                            <Link to={"/register"} className="nav-link"> Register </Link>
+                                        <li className="nav-item text-uppercase">
+                                            <Link to={"/register"} className="nav-link BsBackspaceReverse"> REGISTER </Link>
                                         </li>
-                                        <li className="nav-item">
-                                            <Link to={"/login"} className="nav-link"> Sign in </Link>
+                                        <li className="nav-item text-uppercase">
+                                            <Link to={"/login"} className="nav-link"> LOGIN </Link>
                                         </li>
                                     </div>
                                 )}

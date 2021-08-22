@@ -23,6 +23,7 @@ import Mobile from "./components/pages/Mobile";
 import Laptop from "./components/pages/Laptop";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
 import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
+import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
 
 
 //DASHBOARD
@@ -54,6 +55,7 @@ function App() {
                     <Route path="/laptops" component={Laptop}/>
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
+                    <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
 
 
                     {/* DASHBOARD */}

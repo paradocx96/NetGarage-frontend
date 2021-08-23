@@ -6,6 +6,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopDashboardBodyWall from "./LaptopDashboardBodyWall";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+import {Link} from "react-router-dom";
 
 class LaptopDashboard extends Component {
 
@@ -151,6 +152,7 @@ class LaptopDashboard extends Component {
                             <th> </th>
                             <th> </th>
                             <th> </th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -172,6 +174,11 @@ class LaptopDashboard extends Component {
                                         <td>
                                             <Button onClick={this.handleDeactivate.bind(this, item.id)}
                                                     className="btn-warning">Unpublished</Button>
+                                        </td>
+                                        <td>
+                                            <Link to={`/laptops-admin-image-upload/`+ item.id} className={'btn btn-success'}>
+                                                Upload Image
+                                            </Link>
                                         </td>
                                         <td>
                                             <Button onClick={this.handleEdit.bind(this, item.id)}

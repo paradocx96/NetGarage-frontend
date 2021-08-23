@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {storage} from '../../../firebase/FirebaseLaptop';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
-import {v1 as uuidv1} from 'uuid';
+import {storage} from '../../../firebase/FirebaseLaptop';
+import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import LaptopAddBodyWall from "./LaptopAddBodyWall";
 
-function LaptopImageUpload(props) {
+function LaptopImageUpload() {
     const params = useParams();
     console.log(params);
 
@@ -16,9 +18,6 @@ function LaptopImageUpload(props) {
         for (let i = 0; i < e.target.files.length; i++) {
             const newImage = e.target.files[i];
             newImage["id"] = Math.random();
-            // newImage["name"] = uuidv1();
-            console.log(newImage["id"]);
-            console.log(newImage["name"]);
             setImages((prevState) => [...prevState, newImage]);
         }
     };
@@ -52,58 +51,93 @@ function LaptopImageUpload(props) {
         });
 
         Promise.all(promises)
-            .then(() => console.log("All images uploaded"))
-            .catch((err) => console.log(err));
+            .then(() => {
+                console.log("All images uploaded");
+                // setTimeout(() => {
+                //     handleSaveImageAPI().then(r => console.log('Images Saved In Backend API'));
+                // }, 2000);
+            }).catch((err) => console.log(err));
     };
 
-    console.log("images: ", images);
-    console.log("urls:", urls);
+    const handleSaveImageAPI = async () => {
+        const value = {
+            lid: params.lid,
+            link: urls,
+            user: 'Admin'
+        }
+
+        console.log('IMAGE VALUE : ', value);
+
+        await ServiceLaptopImage.postLaptopImage(value)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+    }
 
     const divBox = {
         height: '50px'
     }
 
+    const divBack = {
+        backgroundColor: '#212121'
+    }
+
+    const conBox = {
+        color:'#ffffff'
+    }
+
     return (
-        <Container>
+        <div style={divBack}>
+            <Container style={conBox}>
+                <NavigationBarDashboard/>
+                <LaptopAddBodyWall/>
 
-            <div style={divBox}/>
+                <div style={divBox}/>
 
-            <ProgressBar animated now={progress}/>
-            <br/>
+                <h3>Laptop ID : {params.lid}</h3>
 
-            <Form.Group controlId="formFileMultiple" className="mb-3">
-                <Form.Label>Select Laptops Images</Form.Label>
-                <Form.Control type="file" multiple onChange={handleChange}/>
-            </Form.Group>
+                <ProgressBar animated now={progress}/>
+                <br/>
 
-            <Button onClick={handleUpload} className={'btn-success'}>Upload</Button>
+                <Form.Group controlId="formFileMultiple" className="mb-3">
+                    <Form.Label>Select Laptops Images</Form.Label>
+                    <Form.Control type="file" multiple onChange={handleChange}/>
+                </Form.Group>
 
-            <br/>
+                <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>
+                <Button onClick={handleSaveImageAPI} className={'btn-success'}>Save</Button>
 
-            <div>
-                {urls.map((url, i) => (
-                    <div key={i}>
-                        <a href={url} target="_blank">
-                            {url}
-                        </a>
-                    </div>
-                ))}
-            </div>
+                <br/>
 
-            <br/>
+                <div>
+                    {urls.map((url, i) => (
+                        <div key={i}>
+                            <a href={url} target="_blank">
+                                {url}
+                            </a>
+                        </div>
+                    ))}
+                </div>
 
-            <div>
-                {urls.map((url, i) => (
-                    <img
-                        key={i}
-                        style={{width: "500px"}}
-                        src={url || "http://via.placeholder.com/300"}
-                        alt="firebase-image"
-                    />
-                ))}
-            </div>
+                <br/>
 
-        </Container>
+                <div>
+                    {urls.map((url, i) => (
+                        <img
+                            key={i}
+                            style={{width: "500px"}}
+                            src={url || "http://via.placeholder.com/300"}
+                            alt="firebase-image"
+                        />
+                    ))}
+                </div>
+
+            </Container>
+        </div>
     );
 }
 

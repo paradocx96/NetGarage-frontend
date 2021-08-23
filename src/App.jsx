@@ -13,6 +13,7 @@ import Contact from "./components/pages/Contact";
 //USER
 import Login from "./components/pages/Login";
 import Registration from "./components/pages/Registration";
+import UserProfile from "./components/pages/UserProfile";
 
 
 //MOBILE
@@ -45,6 +46,7 @@ function App() {
                     {/* USER  */}
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Registration}/>
+                    <Route path="/user-profile" component={UserProfile}/>
 
 
                     {/* MOBILE */}

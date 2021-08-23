@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Card, Col, Container, Image, Row} from "react-bootstrap";
+import {Card, Col, Container, Row} from "react-bootstrap";
 
-import LaptopWall from './../../../assets/images/Laptop/LaptopWall.jpg';
+import LaptopWall from '../../../assets/images/Laptop/LaptopWall.jpg';
 
-class LaptopBodyWall extends Component {
+class LaptopDashboardBodyWall extends Component {
 
     divBack = {
-        'background-color' : '#212121',
+        backgroundColor : '#212121',
         color : 'white'
     }
 
@@ -21,7 +21,7 @@ class LaptopBodyWall extends Component {
                 <Container style={this.divBack}>
                     <Row>
                         <Col sm={4}>
-                            <h1>Laptops</h1>
+                            <h1>All Laptop</h1>
                         </Col>
                         <Col sm={8}>
                             <Card>
@@ -38,4 +38,4 @@ class LaptopBodyWall extends Component {
     }
 }
 
-export default LaptopBodyWall;
+export default LaptopDashboardBodyWall;

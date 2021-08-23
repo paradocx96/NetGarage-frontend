@@ -1,6 +1,5 @@
 //Name : Malwatta H.G.
 //ID : IT19240848
-//Group : REG_WE_03
 
 
 import React, {Component} from "react";
@@ -8,7 +7,7 @@ import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 import {isEmail} from "validator";
-import {Link} from "react-router-dom"
+//import {Link} from "react-router-dom"
 import ServiceUser from "../../../services/ServiceUser";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -69,7 +68,7 @@ const userConfirmPassword = (value, props) => {
     }
 };
 
-export default class UpdateProfile extends Component {
+export default class ViewProfile extends Component {
     backColor = {
         'background-color' : '#4CAF50',
         color: 'white'
@@ -86,7 +85,7 @@ export default class UpdateProfile extends Component {
         this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this);
 
         this.state = {
-            id:"6120a8ac89d55c22c3ee52a8",
+            id:"",
             username: "",
             email: "",
             password: "",
@@ -94,11 +93,23 @@ export default class UpdateProfile extends Component {
             successful: false,
             message: "",
             loading: false,
+            currentUser:undefined,
         };
     }
 
-    componentDidMount() {
+    componentDidMount () {
+        const user = ServiceUser.getCurrentUser();
+        console.log("User Data : " + user.id);
+        if (user) {
+            this.setState({
+                currentUser: user,
+                id: user.id,
+                username: user.username,
+                password: user.email,
+                email: user.email,
+            });
 
+        }
     }
 
     // TODO: Set Values for state variables
@@ -188,7 +199,7 @@ export default class UpdateProfile extends Component {
                         this.form = check;
                     }}>
 
-                        <h3 className={"text-dark"}>Sign Up</h3>
+                        <h3 className={"text-dark"}>Update Profile</h3>
 
                         {!this.state.successful && (
                             <div>

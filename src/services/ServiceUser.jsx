@@ -33,22 +33,22 @@ class StudentService extends Component{
             username,
             password
         }).then(response =>{
-            console.log(response.data.username);
-            console.log(response.data.email);
-            if(response.data.accessToken){
-                sessionStorage.setItem("user", JSON.stringify(response.data));
+            if(response.data){
+                localStorage.setItem("user", JSON.stringify(response.data));
+                console.log(JSON.stringify(response.data));
             }
+            console.log(response.data);
             return response.data;
         });
     }
     //TODO: Get current user
     getCurrentUser() {
-        return JSON.parse(sessionStorage.getItem('user'));
+        return JSON.parse(localStorage.getItem('user'));
     }
 
     //TODO: Remove current user
     logout() {
-        sessionStorage.removeItem("user");
+        localStorage.removeItem("user");
     }
 }
 

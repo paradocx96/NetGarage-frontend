@@ -25,8 +25,8 @@ export default new class ServiceLaptopImage {
         return axios.get(URL + "/get-by-id/" + id);
     }
 
-    getLaptopImageByLaptopId(id) {
-        return axios.get(URL + "/get-by-lid/" + id);
+    getLaptopImageByLaptopId(lid) {
+        return axios.get(URL + "/get-by-lid/" + lid);
     }
 
     // TODO: PUT IMAGE

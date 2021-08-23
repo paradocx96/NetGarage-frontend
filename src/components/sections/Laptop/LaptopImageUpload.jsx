@@ -1,18 +1,46 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopAddBodyWall from "./LaptopAddBodyWall";
+import LaptopImageUploadBodyWall from "./LaptopImageUploadBodyWall";
+import ServiceLaptop from "../../../services/ServiceLaptop";
 
 function LaptopImageUpload() {
+
+    const divBox = {
+        height: '50px'
+    }
+
+    const divBack = {
+        backgroundColor: '#212121'
+    }
+
+    const conBox = {
+        color: '#ffffff',
+        backgroundColor: '#263238'
+    }
+
     const params = useParams();
     console.log(params);
 
     const [images, setImages] = useState([]);
     const [urls, setUrls] = useState([]);
     const [progress, setProgress] = useState(0);
+    const [brand, setBrand] = useState('');
+    const [name, setName] = useState('');
+
+    useEffect(async () => {
+        await ServiceLaptop.getLaptopObjectById(params.lid)
+            .then(response => {
+                setBrand(response.data.brand);
+                setName(response.data.name);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+    });
 
     const handleChange = (e) => {
         for (let i = 0; i < e.target.files.length; i++) {
@@ -51,12 +79,8 @@ function LaptopImageUpload() {
         });
 
         Promise.all(promises)
-            .then(() => {
-                console.log("All images uploaded");
-                // setTimeout(() => {
-                //     handleSaveImageAPI().then(r => console.log('Images Saved In Backend API'));
-                // }, 2000);
-            }).catch((err) => console.log(err));
+            .then(() => console.log("All images uploaded"))
+            .catch((err) => console.log(err));
     };
 
     const handleSaveImageAPI = async () => {
@@ -65,8 +89,6 @@ function LaptopImageUpload() {
             link: urls,
             user: 'Admin'
         }
-
-        console.log('IMAGE VALUE : ', value);
 
         await ServiceLaptopImage.postLaptopImage(value)
             .then(response => response.data)
@@ -78,52 +100,34 @@ function LaptopImageUpload() {
             });
     }
 
-    const divBox = {
-        height: '50px'
-    }
-
-    const divBack = {
-        backgroundColor: '#212121'
-    }
-
-    const conBox = {
-        color:'#ffffff'
-    }
-
     return (
         <div style={divBack}>
+            <NavigationBarDashboard/>
+            <LaptopImageUploadBodyWall/>
             <Container style={conBox}>
-                <NavigationBarDashboard/>
-                <LaptopAddBodyWall/>
-
                 <div style={divBox}/>
-
-                <h3>Laptop ID : {params.lid}</h3>
-
+                <h5>ID : {params.lid}</h5>
+                <h5>Name : {brand + ' ' + name}</h5>
                 <ProgressBar animated now={progress}/>
                 <br/>
-
                 <Form.Group controlId="formFileMultiple" className="mb-3">
                     <Form.Label>Select Laptops Images</Form.Label>
-                    <Form.Control type="file" multiple onChange={handleChange}/>
+                    <Form.Control type="file" required multiple onChange={handleChange}/>
                 </Form.Group>
-
-                <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>
+                <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>{' '}
                 <Button onClick={handleSaveImageAPI} className={'btn-success'}>Save</Button>
-
                 <br/>
 
-                <div>
-                    {urls.map((url, i) => (
-                        <div key={i}>
-                            <a href={url} target="_blank">
-                                {url}
-                            </a>
-                        </div>
-                    ))}
-                </div>
-
-                <br/>
+                {/*<div>*/}
+                {/*    {urls.map((url, i) => (*/}
+                {/*        <div key={i}>*/}
+                {/*            <a href={url} target="_blank">*/}
+                {/*                {url}*/}
+                {/*            </a>*/}
+                {/*        </div>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
+                {/*<br/>*/}
 
                 <div>
                     {urls.map((url, i) => (
@@ -135,8 +139,9 @@ function LaptopImageUpload() {
                         />
                     ))}
                 </div>
-
+                <div style={divBox}/>
             </Container>
+            <div style={divBox}/>
         </div>
     );
 }

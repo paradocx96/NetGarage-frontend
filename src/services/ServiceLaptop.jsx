@@ -31,6 +31,10 @@ export default new class ServiceLaptop {
         return axios.get(URL + "/get-by-id/" + id);
     }
 
+    getLaptopObjectById(id) {
+        return axios.get(URL + "/get-object-by-id/" + id);
+    }
+
     updateLaptop(value) {
         return axios.put(URL + "/update/", value);
     }

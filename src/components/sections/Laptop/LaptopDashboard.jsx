@@ -4,7 +4,7 @@ import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopDashboardBodyWall from "./LaptopDashboardBodyWall";
+import LaptopDashboardBodyWall from "../../layouts/Laptop/LaptopDashboardBodyWall";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import {Link} from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Card, Col, Container, Image, Row} from "react-bootstrap";
+import {Card, Col, Container, Row} from "react-bootstrap";
 
-import LaptopWall from './../../../assets/images/Laptop/LaptopWall.jpg';
+import LaptopWall from '../../../assets/images/Laptop/LaptopWall.jpg';
 
 class LaptopAddBodyWall extends Component {
 

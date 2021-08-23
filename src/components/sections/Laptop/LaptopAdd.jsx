@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopAddBodyWall from "./LaptopAddBodyWall";
+import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";

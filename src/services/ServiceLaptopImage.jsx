@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000";
-// const API_BASE_URL_REMOTE = "";
+// const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL_REMOTE = "https://netgarage-api.herokuapp.com";
 const SERVICE_URL = "/laptop-image";
-const URL = API_BASE_URL + SERVICE_URL;
+const URL = API_BASE_URL_REMOTE + SERVICE_URL;
 
 export default new class ServiceLaptopImage {
 

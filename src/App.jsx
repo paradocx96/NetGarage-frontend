@@ -2,6 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router, Redirect, Switch, Route} from 'react-router-dom';
 import './App.css';
 
+//Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.css';
+
 //HOMEPAGE
 import Homepage from "./components/pages/Homepage";
 import Error404 from "./components/pages/Error404";
@@ -19,6 +23,15 @@ import EditProfile from "./components/pages/EditProfile";
 
 //MOBILE
 import Mobile from "./components/pages/Mobile";
+import Phones from "./components/pages/Phones";
+import ViewAllChipsets from "./components/sections/Phone/Chipset/ViewAllChipsets";
+import AddChipset from "./components/sections/Phone/Chipset/AddChipset";
+import DeleteChipset from "./components/sections/Phone/Chipset/DeleteChipset";
+import ViewAllOS from "./components/sections/Phone/OS/ViewAllOS";
+import AddOS from "./components/sections/Phone/OS/AddOS";
+import DeleteOS from "./components/sections/Phone/OS/DeleteOS";
+import EditChipset from "./components/sections/Phone/Chipset/EditChipset";
+import EditOS from "./components/sections/Phone/OS/EditOS";
 
 
 //LAPTOP
@@ -54,6 +67,17 @@ function App() {
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
+                    <Route path="/phones" component={Phones}/>
+                    <Route path="/chipsets/viewAll" component={ViewAllChipsets}/>
+                    <Route path="/chipsets/addChipset" component={AddChipset}/>
+                    <Route path="/chipsets/deleteChipset" component={DeleteChipset}/>
+                    <Route path="/chipsets/editChipset/:id" component={EditChipset}/>
+
+                    <Route path="/phone/os/viewAll" component={ViewAllOS}/>
+                    <Route path="/phone/os/addOS" component={AddOS}/>
+                    <Route path="/phone/os/deleteOS" component={DeleteOS}/>
+                    <Route path="/phone/os/editOs/:id" component={EditOS}/>
+
 
 
                     {/* LAPTOP */}

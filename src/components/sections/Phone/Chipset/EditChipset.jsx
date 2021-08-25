@@ -1,6 +1,6 @@
 import React from "react";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";

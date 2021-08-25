@@ -4,7 +4,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 
 class DeleteOS extends React.Component{
     constructor(props) {

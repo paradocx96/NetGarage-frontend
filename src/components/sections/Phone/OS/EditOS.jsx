@@ -3,7 +3,7 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 
 class EditOS extends React.Component{
     constructor(props) {

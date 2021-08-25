@@ -4,7 +4,6 @@ import './App.css';
 
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import 'bootstrap/dist/css/bootstrap.css';
 
 //HOMEPAGE
 import Homepage from "./components/pages/Homepage";
@@ -57,6 +56,7 @@ function App() {
                     <Route exact path="/" component={Homepage}/>
                     <Route path="/page-not-found" component={Error404}/>
                     <Route path="/contact" component={Contact}/>
+
 
                     {/* USER  */}
                     <Route path="/login" component={Login}/>

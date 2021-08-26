@@ -33,7 +33,7 @@ class StudentService extends Component{
             username,
             password
         }).then(response =>{
-            if(response.data){
+            if(response.data.accessToken){
                 localStorage.setItem("user", JSON.stringify(response.data));
                 console.log(JSON.stringify(response.data));
             }

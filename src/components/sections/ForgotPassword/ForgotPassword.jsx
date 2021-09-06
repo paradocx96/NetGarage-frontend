@@ -4,6 +4,8 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import {isEmail} from "validator";
 
+import ServiceUser from "../../../services/ServiceUser";
+
 // TODO: create to validate form fields
 const requiredField = data => {
     if (!data) {
@@ -55,8 +57,34 @@ class ForgotPassword extends Component {
             successful: false,
             loading: true
         });
-    }
 
+        // TODO: Validate forgot password form field
+        this.form.validateAll();
+
+        // TODO: Calling Forgot password service function and check if user is available or not
+        if (this.checkBtn.context._errors.length === 0) {
+            ServiceUser.forgotPassword(this.state.email)
+                .then(response => {
+                    this.setState({
+                        message: response.data.message,
+                        successful: true
+                    });
+                }, error => {
+                    const resMessage =
+                        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+
+                    this.setState({
+                        successful: false,
+                        message: resMessage,
+                        loading: false,
+                    });
+                });
+        } else {
+            this.setState({
+                loading: false,
+            });
+        }
+    }
     render() {
         return (
                 <div className="auth-wrapper-login">

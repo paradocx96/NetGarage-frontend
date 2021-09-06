@@ -1,5 +1,30 @@
 import React, {Component} from 'react';
 import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import {isEmail} from "validator";
+
+// TODO: create to validate form fields
+const requiredField = data => {
+    if (!data) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+
+// TODO: Validating registration Email fields
+const userEmail = value => {
+    if (!isEmail(value)) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This is not a valid email.
+            </div>
+        );
+    }
+};
 
 class ForgotPassword extends Component {
     constructor(props) {

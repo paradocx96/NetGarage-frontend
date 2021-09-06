@@ -50,6 +50,13 @@ class StudentService extends Component{
     logout() {
         sessionStorage.removeItem("user");
     }
+
+    //TODO: Forgot user password
+    forgotPassword(email){
+        return axios.post(API_STUDENT_BACKEND_URL+"forgot-password",{
+            email
+        });
+    }
 }
 
 export default new StudentService();

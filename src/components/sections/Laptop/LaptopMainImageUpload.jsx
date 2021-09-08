@@ -54,6 +54,7 @@ function LaptopMainImageUpload(props) {
         }
     };
 
+    // UPLOAD IMAGE TO FIREBASE
     const handleUpload = () => {
         const uploadTask = storage.ref(`main-images/${image.name}`).put(image);
         uploadTask.on(
@@ -79,17 +80,23 @@ function LaptopMainImageUpload(props) {
         );
     };
 
+    // SAVE IMAGE LINK IN BACKEND API
     const handleSaveMainImageAPI = async () => {
         const value = {
             lid: params.lid,
-            link: url,
+            mainlink: url,
             user: 'Admin'
         }
 
-        console.log(value);
+        await ServiceLaptopImage.updateLaptopMainImageByLaptopId(value)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
     }
-
-    console.log("image: ", image);
 
     return (
         <div style={divBack}>
@@ -111,7 +118,7 @@ function LaptopMainImageUpload(props) {
                 <br/>
 
                 <img style={{width: "500px"}}
-                     src={url || "http://via.placeholder.com/400"}
+                     src={url || "http://via.placeholder.com/100"}
                      alt="firebase-image" />
 
                 <div style={divBox}/>

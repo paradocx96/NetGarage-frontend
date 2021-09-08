@@ -3,9 +3,10 @@ import {useParams} from 'react-router-dom';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
+import ServiceLaptop from "../../../services/ServiceLaptop";
+
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
-import ServiceLaptop from "../../../services/ServiceLaptop";
 
 function LaptopImageUpload() {
 

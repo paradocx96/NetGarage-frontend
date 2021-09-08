@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import {useParams} from "react-router-dom";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
+import ServiceLaptop from "../../../services/ServiceLaptop";
+import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 
 function LaptopMainImageUpload(props) {
 
+    // TODO: CUSTOM STYLE
     const divBox = {
         height: '50px'
     }
@@ -20,13 +24,30 @@ function LaptopMainImageUpload(props) {
         backgroundColor: '#263238'
     }
 
+    // GETTING LAPTOP ID
     const params = useParams();
     console.log(params);
 
+    // INITIALIZED VARIABLES
     const [image, setImage] = useState(null);
     const [url, setUrl] = useState('');
     const [progress, setProgress] = useState(0);
+    const [name, setName] = useState('');
+    const [brand, setBrand] = useState('');
 
+    // GETTING LAPTOP DETAILS
+    useEffect(async () => {
+        await ServiceLaptop.getLaptopObjectById(params.lid)
+            .then(response => {
+                setBrand(response.data.brand);
+                setName(response.data.name);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+    });
+
+    // IMAGE UPLOAD METHODS
     const handleChange = e => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
@@ -58,18 +79,40 @@ function LaptopMainImageUpload(props) {
         );
     };
 
+    const handleSaveMainImageAPI = async () => {
+        const value = {
+            lid: params.lid,
+            link: url,
+            user: 'Admin'
+        }
+
+        console.log(value);
+    }
+
     console.log("image: ", image);
 
     return (
         <div style={divBack}>
             <NavigationBarDashboard/>
-
+            <LaptopImageUploadBodyWall/>
             <Container style={conBox}>
                 <div style={divBox}/>
-
                 <h5>ID : {params.lid}</h5>
+                <h5>Name : {brand + ' ' + name}</h5>
+                <ProgressBar animated now={progress}/>
+                <br/>
+                <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>Select Laptop Main Image</Form.Label>
+                    <Form.Control type="file" required onChange={handleChange}/>
+                </Form.Group>
+                <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>{' '}
+                <Button onClick={handleSaveMainImageAPI} className={'btn-success'}>Save</Button>
+                <br/>
+                <br/>
 
-
+                <img style={{width: "500px"}}
+                     src={url || "http://via.placeholder.com/400"}
+                     alt="firebase-image" />
 
                 <div style={divBox}/>
             </Container>

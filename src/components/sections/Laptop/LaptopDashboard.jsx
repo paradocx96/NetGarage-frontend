@@ -184,7 +184,7 @@ class LaptopDashboard extends Component {
                                         </td>
                                         <td>
                                             <Link to={`/laptops-admin-image-upload/`+ item.id} className={'btn btn-light'}>
-                                                Upload Image
+                                                Upload Gallery Images
                                             </Link>
                                         </td>
                                         <td>

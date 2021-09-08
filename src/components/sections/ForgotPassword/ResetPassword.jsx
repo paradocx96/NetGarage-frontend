@@ -1,4 +1,39 @@
 import React, {Component} from 'react';
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+
+// TODO: Validating registration form fields
+const requiredField = data => {
+    if (!data) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+
+// TODO: Validating registration Password fields
+const userPassword = value => {
+    if (value.length < 6 || value.length > 40) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The password must be between 6 and 40 characters.
+            </div>
+        );
+    }
+};
+
+const userConfirmPassword = (value, props) => {
+    if (props.expectedvalue !== value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The password is not matched!
+            </div>
+        );
+    }
+};
 
 class ResetPassword extends Component {
     constructor(props) {

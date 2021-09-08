@@ -39,6 +39,16 @@ export default new class ServiceLaptopImage {
         return axios.put(URL + "/update", value);
     }
 
+    // TODO: PUT IMAGE
+    //  {
+    //     "lid" : "",
+    //     "mainlink" : ["",""],
+    //     "user" : ""
+    //  }
+    updateLaptopMainImageByLaptopId(value) {
+        return axios.put(URL + "/update-main", value);
+    }
+
     deleteLaptopImageByLaptopId(id) {
         return axios.delete(URL + "/delete/" + id);
     }

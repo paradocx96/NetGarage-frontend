@@ -38,6 +38,7 @@ import Laptop from "./components/pages/Laptop";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
 import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
 import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
+import LaptopMainImageUpload from "./components/sections/Laptop/LaptopMainImageUpload";
 import LaptopImageViewAdmin from "./components/sections/Laptop/LaptopImageViewAdmin";
 
 
@@ -85,6 +86,7 @@ function App() {
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
                     <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
+                    <Route path="/laptops-admin-main-image-upload/:lid" component={LaptopMainImageUpload}/>
                     <Route path="/laptops-admin-image-view/:lid" component={LaptopImageViewAdmin}/>
 
 

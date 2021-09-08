@@ -154,6 +154,7 @@ class LaptopDashboard extends Component {
                             <th> </th>
                             <th> </th>
                             <th> </th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -177,8 +178,13 @@ class LaptopDashboard extends Component {
                                                     className="btn-warning">Unpublished</Button>
                                         </td>
                                         <td>
+                                            <Link to={`/laptops-admin-main-image-upload/`+ item.id} className={'btn btn-light'}>
+                                                Upload Main Image
+                                            </Link>
+                                        </td>
+                                        <td>
                                             <Link to={`/laptops-admin-image-upload/`+ item.id} className={'btn btn-light'}>
-                                                Upload Image
+                                                Upload Gallery Images
                                             </Link>
                                         </td>
                                         <td>

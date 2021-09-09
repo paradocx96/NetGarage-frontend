@@ -1,28 +1,25 @@
 # NetGarage (Frontend)
 ## Software Project Management - SE3080  
 
-## Group Members  
-
-| Student ID | Student Name            | Github Username       |
-|------------|-------------------------|-----------------------|
-| IT19014128 | A.M.W.W.R.L. Wataketiya | RavinduLa             |
-| IT19180526 | S.A.N.L.D. Chandrasiri  | paradocx96            |
-| IT19240848 | H.G. Malwatta           | DeclanChirush         |  
-
-## Member Functions  
-
-| Student ID | Student Name            | Functions               |
-|------------|-------------------------|-------------------------|
-| IT19014128 | A.M.W.W.R.L. Wataketiya | Mobile Phone Management |
-| IT19180526 | S.A.N.L.D. Chandrasiri  | Laptop Management       |
-| IT19240848 | H.G. Malwatta           | User Management         |  
+## Group Members & Functions  
+| Student ID | Student Name            | Github Username       | Functions               |
+|------------|-------------------------|-----------------------|-------------------------|
+| IT19014128 | A.M.W.W.R.L. Wataketiya | RavinduLa             | Mobile Phone Management |
+| IT19180526 | S.A.N.L.D. Chandrasiri  | paradocx96            | Laptop Management       |
+| IT19240848 | H.G. Malwatta           | DeclanChirush         | User Management         |  
 
 ## Deployment  
 
-**Database** - _MongoDB_
-<!--
-**Heroku** : _https://icaf-codewave-backend-api.herokuapp.com_
--->
+| **Frontend** | Link                                      |
+|--------------|-------------------------------------------|
+| Homepage     | _https://net-garage.vercel.app_           |
+| Dashboard    | _https://net-garage.vercel.app/dashboard_ |  
+
+| #               | @                                     |
+|-----------------|---------------------------------------|
+| **Database**    | _MongoDB_                             |
+| **Backend API** | _https://netgarage-api.herokuapp.com_ |  
+
 ## Git Guide  
 <details> 
   <summary>💻</summary>  

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import LaptopBodyWall from "../sections/Laptop/LaptopBodyWall";
+import LaptopBodyWall from "../layouts/Laptop/LaptopBodyWall";
 import LaptopListHomepage from "../sections/Laptop/LaptopListHomepage";
 
 class Laptop extends Component {
 
     divBack = {
-        'background-color': '#212121'
+        backgroundColor: '#212121'
     }
 
     render() {

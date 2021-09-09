@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000";
-// const API_BASE_URL_REMOTE = "";
+// const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL_REMOTE = "https://netgarage-api.herokuapp.com";
 const SERVICE_URL = "/laptop";
-const URL = API_BASE_URL + SERVICE_URL;
+const URL = API_BASE_URL_REMOTE + SERVICE_URL;
 
 export default new class ServiceLaptop {
 
@@ -31,7 +31,15 @@ export default new class ServiceLaptop {
         return axios.get(URL + "/get-by-id/" + id);
     }
 
+    getLaptopObjectById(id) {
+        return axios.get(URL + "/get-object-by-id/" + id);
+    }
+
     updateLaptop(value) {
         return axios.put(URL + "/update/", value);
+    }
+
+    updateLaptopImage(value) {
+        return axios.put(URL + "/update-image/", value);
     }
 }

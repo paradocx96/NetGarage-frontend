@@ -52,6 +52,14 @@ class ResetPassword extends Component {
         };
 
     }
+    componentDidMount() {
+        const {match: {params}} = this.props;
+
+        this.setState({
+            id: params.id
+        })
+        console.log(this.state.id);
+    }
     onChangePassword(event) {
         this.setState({
             password: event.target.value

@@ -15,7 +15,7 @@ import Login from "./components/pages/Login";
 import Registration from "./components/pages/Registration";
 import UserProfile from "./components/pages/UserProfile";
 import ForgotPassword from "./components/pages/ForgotPassword";
-import ResetPassword from "./components/pages/ResetPassword";
+import ResetPassword from "./components/sections/ForgotPassword/ResetPassword";
 
 //MOBILE
 import Mobile from "./components/pages/Mobile";
@@ -46,7 +46,7 @@ function App() {
                     <Route path="/register" component={Registration}/>
                     <Route path="/user-profile" component={UserProfile}/>
                     <Route path= "/forgot-password" component={ForgotPassword}/>
-                    <Route path="/reset-password" component={ResetPassword}/>
+                    <Route path="/reset-password/:id" component={ResetPassword}/>
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>

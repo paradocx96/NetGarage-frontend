@@ -57,6 +57,14 @@ class StudentService extends Component{
             email
         });
     }
+
+    //TODO: Reset user password
+    resetPassword(id,password) {
+        return axios.post(API_STUDENT_BACKEND_URL+"reset-password",{
+            id,
+            password
+        });
+    }
 }
 
 export default new StudentService();

@@ -9,6 +9,8 @@ import Form from "react-validation/build/form";
 import {isEmail} from "validator";
 //import {Link} from "react-router-dom"
 import ServiceUser from "../../../services/ServiceUser";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
@@ -68,7 +70,7 @@ const userConfirmPassword = (value, props) => {
     }
 };
 
-export default class ViewProfile extends Component {
+class EditProfile extends Component {
     backColor = {
         'background-color' : '#4CAF50',
         color: 'white'
@@ -292,3 +294,5 @@ export default class ViewProfile extends Component {
         );
     }
 }
+
+export default CommonCheckAuth(EditProfile);

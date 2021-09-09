@@ -8,6 +8,7 @@ import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 //import {Link} from "react-router-dom"
 import ServiceUser from "../../../services/ServiceUser";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,7 @@ import "../../../assets/style/Registration.css";
 import {Link} from "react-router-dom";
 
 
-export default class ViewProfile extends Component {
+class ViewProfile extends Component {
     backColor = {
         'background-color' : '#4CAF50',
         color: 'white'
@@ -106,3 +107,4 @@ export default class ViewProfile extends Component {
     }
 }
 
+export default CommonCheckAuth(ViewProfile);

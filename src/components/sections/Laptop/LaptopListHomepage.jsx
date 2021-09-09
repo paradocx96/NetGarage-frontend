@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Container} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import '../../../assets/style/laptop/LaptopList.css';
 
 import ServiceLaptop from "../../../services/ServiceLaptop";
@@ -19,7 +20,6 @@ class LaptopListHomepage extends Component {
         await ServiceLaptop.getLaptopByStatus('Activated')
             .then(response => response.data)
             .then((data) => {
-                console.log(data);
                 this.setState({laptopList: data});
             }).catch(error =>
                 console.log(error.message)
@@ -27,7 +27,7 @@ class LaptopListHomepage extends Component {
     }
 
     divBack = {
-        'background-color': '#263238',
+        backgroundColor: '#263238',
         color: 'white'
     }
 
@@ -54,12 +54,16 @@ class LaptopListHomepage extends Component {
                             <p>Loading...</p>
                             :
                             this.state.laptopList.map((laptop) => (
-                                <div className="cardItem" key={laptop.id}>
-                                    <img style={{height: "280px"}} src={laptop.image} alt={'LaptopImage'}/>
-                                    <div className="content">
-                                        <h5>{laptop.brand + ' ' + laptop.name + ' ' + laptop.graphicmodel}</h5>
+                                <Link to={`/laptops-view/` + laptop.id}
+                                      key={laptop.id}
+                                      style={{textDecoration: 'none'}}>
+                                    <div className="cardItem">
+                                        <img style={{height: "280px"}} src={laptop.image} alt={'LaptopImage'}/>
+                                        <div className="content">
+                                            <h5>{laptop.brand + ' ' + laptop.name + ' ' + laptop.graphicmodel}</h5>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                                 // <Card style={this.divLap} key={laptop.id}>
                                 //     <Card.Body>
                                 //         <Card.Img variant="top" src={LaptopArt}/>

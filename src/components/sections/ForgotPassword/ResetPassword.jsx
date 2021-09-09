@@ -3,6 +3,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+import ServiceUser from "../../../services/ServiceUser";
+
 // TODO: Validating registration form fields
 const requiredField = data => {
     if (!data) {
@@ -80,6 +82,30 @@ class ResetPassword extends Component {
         });
         // TODO: Validate register form fields
         this.form.validateAll();
+
+        // TODO: Calling Reset password Service function and check if there is any error
+        if (this.checkBtn.context._errors.length === 0) {
+            ServiceUser.resetPassword(this.state.id,this.state.password)
+                .then(response => {
+                    this.setState({
+                        message: response.data.message,
+                        successful: true
+                    });
+                }, error => {
+                    const resMessage =
+                        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+
+                    this.setState({
+                        successful: false,
+                        message: resMessage,
+                        loading: false,
+                    });
+                });
+        } else {
+            this.setState({
+                loading: false,
+            });
+        }
     }
 
     render() {

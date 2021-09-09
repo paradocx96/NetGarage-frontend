@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Button, Container, Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopDashboardBodyWall from "../../layouts/Laptop/LaptopDashboardBodyWall";
-import ServiceLaptop from "../../../services/ServiceLaptop";
-import {Link} from "react-router-dom";
 
 class LaptopDashboard extends Component {
 
@@ -166,7 +166,12 @@ class LaptopDashboard extends Component {
                                 :
                                 this.state.laptopList.map((item) => (
                                     <tr key={item.id}>
-                                        <td>#</td>
+                                        <td>
+                                            <img style={{width: "100px"}}
+                                                src={item.image || "http://via.placeholder.com/50"}
+                                                alt="firebase-image"
+                                            />
+                                        </td>
                                         <td>{item.brand + ' ' + item.name}</td>
                                         <td>{item.status}</td>
                                         <td>

@@ -3,7 +3,6 @@ import {Container} from "react-bootstrap";
 import '../../../assets/style/laptop/LaptopList.css';
 
 import ServiceLaptop from "../../../services/ServiceLaptop";
-import LaptopArt from './../../../assets/images/Laptop/laptopSample.jpg';
 
 class LaptopListHomepage extends Component {
 
@@ -20,6 +19,7 @@ class LaptopListHomepage extends Component {
         await ServiceLaptop.getLaptopByStatus('Activated')
             .then(response => response.data)
             .then((data) => {
+                console.log(data);
                 this.setState({laptopList: data});
             }).catch(error =>
                 console.log(error.message)
@@ -55,7 +55,7 @@ class LaptopListHomepage extends Component {
                             :
                             this.state.laptopList.map((laptop) => (
                                 <div className="cardItem" key={laptop.id}>
-                                    <img src={LaptopArt} alt={'LaptopImage'}/>
+                                    <img style={{height: "280px"}} src={laptop.image} alt={'LaptopImage'}/>
                                     <div className="content">
                                         <h5>{laptop.brand + ' ' + laptop.name + ' ' + laptop.graphicmodel}</h5>
                                     </div>

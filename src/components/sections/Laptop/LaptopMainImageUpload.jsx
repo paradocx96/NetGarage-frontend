@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import {useParams} from "react-router-dom";
+import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
-import ServiceLaptop from "../../../services/ServiceLaptop";
-import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 
 function LaptopMainImageUpload(props) {
 
@@ -83,12 +82,11 @@ function LaptopMainImageUpload(props) {
     // SAVE IMAGE LINK IN BACKEND API
     const handleSaveMainImageAPI = async () => {
         const value = {
-            lid: params.lid,
-            mainlink: url,
-            user: 'Admin'
+            id: params.lid,
+            image: url
         }
 
-        await ServiceLaptopImage.updateLaptopMainImageByLaptopId(value)
+        await ServiceLaptop.updateLaptopImage(value)
             .then(response => response.data)
             .then((data) => {
                 console.log(data);

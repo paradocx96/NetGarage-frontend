@@ -83,9 +83,8 @@ function LaptopMainImageUpload(props) {
     // SAVE IMAGE LINK IN BACKEND API
     const handleSaveMainImageAPI = async () => {
         const value = {
-            lid: params.lid,
-            mainlink: url,
-            user: 'Admin'
+            id: params.lid,
+            image: url
         }
 
         await ServiceLaptopImage.updateLaptopMainImageByLaptopId(value)

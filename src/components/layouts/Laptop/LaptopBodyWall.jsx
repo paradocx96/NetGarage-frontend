@@ -6,7 +6,7 @@ import LaptopWall from '../../../assets/images/Laptop/LaptopWall.jpg';
 class LaptopBodyWall extends Component {
 
     divBack = {
-        'background-color' : '#212121',
+        backgroundColor : '#212121',
         color : 'white'
     }
 

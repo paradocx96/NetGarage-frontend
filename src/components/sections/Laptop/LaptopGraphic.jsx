@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
-import {Button, Container, Table} from "react-bootstrap";
 
 class LaptopGraphic extends Component {
 
@@ -13,9 +14,9 @@ class LaptopGraphic extends Component {
             getAllGraphic: []
         }
 
-        // this.onSubmit = this.onSubmit.bind(this);
-        // this.onReset = this.onReset.bind(this);
-        // this.onNameHandle = this.onNameHandle.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onReset = this.onReset.bind(this);
+        this.onNameHandle = this.onNameHandle.bind(this);
     }
 
     // TODO: Initializing default values
@@ -34,14 +35,61 @@ class LaptopGraphic extends Component {
             );
     }
 
+    // TODO: Assign Name to State variables
+    onNameHandle = (event) => {
+        this.setState({name: event.target.value});
+    }
+
+    // TODO: Submit form values
+    onSubmit = async (event) => {
+        event.preventDefault();
+
+        let value = {
+            name: this.state.name,
+            user: 'Admin'
+        }
+
+        // TODO: Save value in database
+        await ServiceLaptopGraphic.postLaptopGraphic(value)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+
+        this.onReset();
+        await this.componentDidMount();
+    }
+
+    // TODO: Reset form values
+    onReset = () => {
+        this.setState(() => this.initialState)
+    }
+
     render() {
         return (
             <div>
                 <Container>
-                <h3>Laptop Graphic</h3>
+                    <h3>Laptop Graphic</h3>
 
-                    <section>
-
+                    <section className={'pt-3 pb-3'}>
+                        <Form onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
+                            <Form.Group as={Row} controlId="Name">
+                                <Col sm={4}>
+                                    <Form.Control placeholder="New Graphic Name"
+                                                  name="name"
+                                                  required
+                                                  value={this.state.name}
+                                                  onChange={this.onNameHandle.bind(this)}/>
+                                </Col>
+                                <Col>
+                                    <Button type="submit" className="btn-success">SAVE</Button>{'\u00A0'}
+                                    <Button type="reset" className="btn-danger">RESET</Button>{'\u00A0'}
+                                </Col>
+                            </Form.Group>
+                        </Form>
                     </section>
 
                     <section className={'pt-3 pb-3'}>
@@ -52,8 +100,8 @@ class LaptopGraphic extends Component {
                                 <th>Name</th>
                                 <th>User</th>
                                 <th>Date & Time</th>
-                                <th> </th>
-                                <th> </th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>

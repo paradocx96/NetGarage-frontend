@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 
-class LaptopSubCategories extends Component {
+class LaptopBrand extends Component {
 
     render() {
         return (
             <div>
-
-                <h1>Laptop Sub Categories</h1>
+                <h1>Laptop Brand</h1>
 
             </div>
         );
     }
 }
 
-export default LaptopSubCategories;
+export default LaptopBrand;

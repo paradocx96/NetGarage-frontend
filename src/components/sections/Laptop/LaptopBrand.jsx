@@ -3,7 +3,6 @@ import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
-import ServiceLaptop from "../../../services/ServiceLaptop";
 
 class LaptopBrand extends Component {
 

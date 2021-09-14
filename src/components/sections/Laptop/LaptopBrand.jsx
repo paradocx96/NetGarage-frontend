@@ -72,7 +72,7 @@ class LaptopBrand extends Component {
         return (
             <div>
                 <Container>
-                    <h1>Laptop Brand</h1>
+                    <h3>Laptop Brand</h3>
 
                     <section className={'pt-3 pb-3'}>
                         <Form onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>

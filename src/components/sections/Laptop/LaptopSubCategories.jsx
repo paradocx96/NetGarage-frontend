@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+
 import LaptopBrand from "./LaptopBrand";
 import LaptopProcessor from "./LaptopProcessor";
 import LaptopOs from "./LaptopOS";
 import LaptopGraphic from "./LaptopGraphic";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
+import LaptopSubCategoriesBodyWall from "../../layouts/Laptop/LaptopSubCategoriesBodyWall";
+import {Container} from "react-bootstrap";
 
 class LaptopSubCategories extends Component {
 
@@ -17,8 +19,7 @@ class LaptopSubCategories extends Component {
         return (
             <div style={this.divBack}>
                 <NavigationBarDashboard/>
-
-                <h1>Laptop Sub Categories</h1>
+                <LaptopSubCategoriesBodyWall/>
 
                 <section>
                     <LaptopBrand/>

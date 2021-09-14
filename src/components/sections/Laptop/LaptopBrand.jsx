@@ -35,7 +35,7 @@ class LaptopBrand extends Component {
             );
     }
 
-    // TODO: Assign Brand values to State variables
+    // TODO: Assign Name to State variables
     onNameHandle = (event) => {
         this.setState({name: event.target.value});
     }
@@ -92,7 +92,7 @@ class LaptopBrand extends Component {
                         </Form>
                     </section>
 
-                    <section>
+                    <section className={'pt-3 pb-3'}>
                         <Table striped bordered hover variant="dark" size="sm">
                             <thead>
                             <tr>

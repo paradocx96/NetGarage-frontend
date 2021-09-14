@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Button, Container, Table} from "react-bootstrap";
+import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 
@@ -12,9 +13,9 @@ class LaptopProcessor extends Component {
         this.state = {
             getAllProcessor: []
         }
-        // this.onSubmit = this.onSubmit.bind(this);
-        // this.onReset = this.onReset.bind(this);
-        // this.onNameHandle = this.onNameHandle.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onReset = this.onReset.bind(this);
+        this.onNameHandle = this.onNameHandle.bind(this);
     }
 
     // TODO: Initializing default values
@@ -33,17 +34,64 @@ class LaptopProcessor extends Component {
             );
     }
 
+    // TODO: Assign Name to State variables
+    onNameHandle = (event) => {
+        this.setState({name: event.target.value});
+    }
+
+    // TODO: Submit form values
+    onSubmit = async (event) => {
+        event.preventDefault();
+
+        let value = {
+            name: this.state.name,
+            user: 'Admin'
+        }
+
+        // TODO: Save value in database
+        await ServiceLaptopProcessor.postLaptopProcessor(value)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error.message);
+            });
+
+        this.onReset();
+        await this.componentDidMount();
+    }
+
+    // TODO: Reset form values
+    onReset = () => {
+        this.setState(() => this.initialState)
+    }
+
     render() {
         return (
             <div>
                 <Container>
                     <h1>Laptop Processor</h1>
 
-                    <section>
-
+                    <section className={'pt-3 pb-3'}>
+                        <Form onSubmit={this.onSubmit.bind(this)} onReset={this.onReset.bind(this)}>
+                            <Form.Group as={Row} controlId="Name">
+                                <Col sm={4}>
+                                    <Form.Control placeholder="New Processor Name"
+                                                  name="name"
+                                                  required
+                                                  value={this.state.name}
+                                                  onChange={this.onNameHandle.bind(this)}/>
+                                </Col>
+                                <Col>
+                                    <Button type="submit" className="btn-success">SAVE</Button>{'\u00A0'}
+                                    <Button type="reset" className="btn-danger">RESET</Button>{'\u00A0'}
+                                </Col>
+                            </Form.Group>
+                        </Form>
                     </section>
 
-                    <section>
+                    <section className={'pt-3 pb-3'}>
                         <Table striped bordered hover variant="dark" size="sm">
                             <thead>
                             <tr>

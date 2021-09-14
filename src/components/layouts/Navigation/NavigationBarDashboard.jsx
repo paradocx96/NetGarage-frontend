@@ -27,6 +27,7 @@ class NavigationBarDashboard extends Component {
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">
                                     <NavDropdown.Item href="/laptops-admin">Laptops</NavDropdown.Item>
                                     <NavDropdown.Item href="/laptops-admin-add">Add Laptop</NavDropdown.Item>
+                                    <NavDropdown.Item href="/laptops-admin-categories">Sub Categories</NavDropdown.Item>
                                 </NavDropdown>
 
                                 <NavDropdown title="USER" id="collasible-nav-dropdown">

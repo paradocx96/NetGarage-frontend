@@ -43,6 +43,7 @@ import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
 import LaptopMainImageUpload from "./components/sections/Laptop/LaptopMainImageUpload";
 import LaptopImageViewAdmin from "./components/sections/Laptop/LaptopImageViewAdmin";
 import LaptopHomepageSingleView from "./components/sections/Laptop/LaptopHomepageSingleView";
+import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategories";
 
 
 //DASHBOARD
@@ -94,6 +95,7 @@ function App() {
                     <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
                     <Route path="/laptops-admin-main-image-upload/:lid" component={LaptopMainImageUpload}/>
                     <Route path="/laptops-admin-image-view/:lid" component={LaptopImageViewAdmin}/>
+                    <Route path="/laptops-admin-categories" component={LaptopSubCategories}/>
 
 
                     {/* DASHBOARD */}

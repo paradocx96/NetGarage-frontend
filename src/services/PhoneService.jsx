@@ -34,6 +34,9 @@ class PhoneService extends Component{
         return axios.delete(BACKEND_BASE_URL + PHONE_URL + "deletePhone/"+id);
    }
 
+   isPhoneAvailable(phone){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "isPhoneAvailable/" + phone);
+   }
 
 }
 export default new PhoneService();

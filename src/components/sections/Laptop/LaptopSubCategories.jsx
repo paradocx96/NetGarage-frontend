@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+import {Tab, Tabs} from "react-bootstrap";
 
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import LaptopSubCategoriesBodyWall from "../../layouts/Laptop/LaptopSubCategoriesBodyWall";
 import LaptopBrand from "./LaptopBrand";
 import LaptopProcessor from "./LaptopProcessor";
 import LaptopOs from "./LaptopOS";
 import LaptopGraphic from "./LaptopGraphic";
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopSubCategoriesBodyWall from "../../layouts/Laptop/LaptopSubCategoriesBodyWall";
-import {Container} from "react-bootstrap";
 
 class LaptopSubCategories extends Component {
 
@@ -21,21 +21,20 @@ class LaptopSubCategories extends Component {
                 <NavigationBarDashboard/>
                 <LaptopSubCategoriesBodyWall/>
 
-                <section>
-                    <LaptopBrand/>
-                </section>
-
-                <section>
-                    <LaptopProcessor/>
-                </section>
-
-                <section>
-                    <LaptopOs/>
-                </section>
-
-                <section>
-                    <LaptopGraphic/>
-                </section>
+                <Tabs defaultActiveKey="brand" id="uncontrolled-tab-example" className="mb-3 m-5">
+                    <Tab eventKey="brand" title="Brand">
+                        <LaptopBrand/>
+                    </Tab>
+                    <Tab eventKey="processor" title="Processor">
+                        <LaptopProcessor/>
+                    </Tab>
+                    <Tab eventKey="os" title="OS">
+                        <LaptopOs/>
+                    </Tab>
+                    <Tab eventKey="graphic" title="Graphic">
+                        <LaptopGraphic/>
+                    </Tab>
+                </Tabs>
             </div>
         );
     }

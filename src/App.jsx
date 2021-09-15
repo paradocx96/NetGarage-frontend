@@ -50,6 +50,8 @@ import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategorie
 import Dashboard from "./components/pages/Dashboard";
 import ViewAllPhones from "./components/sections/Phone/Phones/ViewAllPhones";
 import AddBrand from "./components/sections/Phone/Brands/AddBrand";
+import ViewAllBrands from "./components/sections/Phone/Brands/ViewAllBrands";
+import DeleteBrands from "./components/sections/Phone/Brands/DeleteBrands";
 
 
 function App() {
@@ -92,6 +94,8 @@ function App() {
 
                     {/* Phone Brand*/}
                     <Route path="/phone/brand/addBrand" component={AddBrand}/>
+                    <Route path="/phone/brand/viewAll" component={ViewAllBrands}/>
+                    <Route path="/phone/brand/deleteBrand" component={DeleteBrands}/>
 
                     {/*phones*/}
                     <Route path="/phones/viewAllPhones" exact component={ViewAllPhones}/>

@@ -31,8 +31,8 @@ class Phones extends React.Component{
 
                     <Col>
                         <Link to={'/phone/brand/addBrand'}> Add Brand</Link> <br />
-                        <Link to={'/phone/os/addOS'}> Add OS</Link> <br />
-                        <Link to={'/phone/os/deleteOS'}> Delete OS</Link> <br />
+                        <Link to={'/phone/brand/viewAll'}> View All Brands</Link> <br />
+                        <Link to={'/phone/brand/deleteBrand'}> Delete Brands</Link> <br />
                     </Col>
 
                     <Col>

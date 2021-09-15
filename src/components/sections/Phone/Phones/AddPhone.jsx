@@ -263,7 +263,21 @@ class AddPhone extends React.Component{
     }
 
     render() {
-        const {brandmodel, brand, network, dimensions, weight} =  this.state;
+        const {brandmodel, brand, network,
+            dimensions, weight,sim,
+            displaytype, displaysize, displayresolution, displayprotection,
+            os, softwarefeatures,
+            chipset,
+            memorystorage,card,
+            maincamera, maincameraDetails, maincameraVideo, maincameraFeatures,
+            selfcamera, selfcameraDetails, selfcameraVideo, selfcameraFeatures,
+            loudspeaker, headphonejack,
+            wlan, bluetooth, gps, nfc, radio,
+            sensors,
+            batterytype, charging,
+            colors,models,sar
+        }
+            =  this.state;
         return (
             <div>
                 <div style={{"display": this.state.show ? "block" : "none"}}>

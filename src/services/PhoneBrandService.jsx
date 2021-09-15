@@ -42,5 +42,9 @@ class PhoneBrandService extends Component{
         return axios.delete(BACKEND_BASE_URL + BRAND_URL + "deleteBrandById/"+ id);
     }
 
+    isBrandAvailable(brand){
+        return axios.get(BACKEND_BASE_URL + BRAND_URL + "isBrandAvailable/" + brand);
+    }
+
 }
 export default new PhoneBrandService();

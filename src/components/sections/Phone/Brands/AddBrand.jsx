@@ -17,6 +17,7 @@ class AddBrand extends React.Component{
         this.onChange = this.onChange.bind(this);
         this.submitBrand = this.submitBrand.bind(this);
         this.checkBrandNameAvailability = this.checkBrandNameAvailability.bind(this);
+        this.resetForm = this.resetForm.bind(this);
 
     }
     initialState={
@@ -74,6 +75,12 @@ class AddBrand extends React.Component{
             })
     }
 
+    resetForm = () =>{
+        //setting state to initial state
+        this.setState({name:''});
+    }
+
+
     render() {
         const {name} =  this.state;
         return (
@@ -106,7 +113,7 @@ class AddBrand extends React.Component{
                 </div>
 
                 <h2>Add Brand</h2>
-                <Form onSubmit={this.submitBrand}>
+                <Form onSubmit={this.submitBrand} onReset={this.resetForm}>
                     <Card className={'bg-transparent'}>
                         <Card.Header className={'bg-success text-white'}>Add brand</Card.Header>
                         <Card.Body>
@@ -124,6 +131,10 @@ class AddBrand extends React.Component{
                         </Card.Body>
                         <Card.Footer>
                             <Row>
+                                <Col>
+                                    <Button type={'reset'} className={'btn btn-warning'}>Clear</Button>
+                                </Col>
+
                                 <Col>
                                     <Button type={'submit'} className={'btn btn-success'}>Add Brand</Button>
                                 </Col>

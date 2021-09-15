@@ -2,6 +2,7 @@ import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
+import PhoneBrandService from "../../../../services/PhoneBrandService";
 
 class AddPhone extends React.Component{
     constructor(props) {
@@ -80,9 +81,17 @@ class AddPhone extends React.Component{
         models:'',
         sar:'',
 
-        isPhoneAvailable:''
+        isPhoneAvailable:'',
+
+        brands:[],
+        chipsets:[],
+        oslist:[]
 
     }
+
+    componentDidMount() {
+    }
+
     onChange = (event) => {
         this.setState({[event.target.name] : event.target.value});
     }

@@ -9,6 +9,7 @@ import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopUpdateBodyWall from "../../layouts/Laptop/LaptopUpdateBodyWall";
+import LaptopImageUploadEdit from "./LaptopImageUploadEdit";
 
 class LaptopEdit extends Component {
 
@@ -322,8 +323,8 @@ class LaptopEdit extends Component {
                 <NavigationBarDashboard/>
                 <LaptopUpdateBodyWall/>
 
-                <section>
-
+                <section style={this.divSection}>
+                    <LaptopImageUploadEdit LaptopId={this.state.lid}/>
                 </section>
 
                 <section>

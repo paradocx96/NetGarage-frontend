@@ -324,6 +324,12 @@ class LaptopEdit extends Component {
                 <LaptopUpdateBodyWall/>
 
                 <section style={this.divSection}>
+                    <h2>
+                        {this.state.brand + ' ' + this.state.name}
+                    </h2>
+                </section>
+
+                <section style={this.divSection}>
                     <LaptopImageUploadEdit LaptopId={this.state.lid}/>
                 </section>
 

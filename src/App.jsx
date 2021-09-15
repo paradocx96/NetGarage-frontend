@@ -49,6 +49,7 @@ import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategorie
 //DASHBOARD
 import Dashboard from "./components/pages/Dashboard";
 import ViewAllPhones from "./components/sections/Phone/Phones/ViewAllPhones";
+import AddBrand from "./components/sections/Phone/Brands/AddBrand";
 
 
 function App() {
@@ -76,16 +77,23 @@ function App() {
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
                     <Route path="/phones/main" component={Phones}/>
+
+                    {/*Phone chipset*/}
                     <Route path="/chipsets/viewAll" component={ViewAllChipsets}/>
                     <Route path="/chipsets/addChipset" component={AddChipset}/>
                     <Route path="/chipsets/deleteChipset" component={DeleteChipset}/>
                     <Route path="/chipsets/editChipset/:id" component={EditChipset}/>
 
+                    {/*Phone OS*/}
                     <Route path="/phone/os/viewAll" component={ViewAllOS}/>
                     <Route path="/phone/os/addOS" component={AddOS}/>
                     <Route path="/phone/os/deleteOS" component={DeleteOS}/>
                     <Route path="/phone/os/editOs/:id" component={EditOS}/>
 
+                    {/* Phone Brand*/}
+                    <Route path="/phone/brand/addBrand" component={AddBrand}/>
+
+                    {/*phones*/}
                     <Route path="/phones/viewAllPhones" exact component={ViewAllPhones}/>
 
 

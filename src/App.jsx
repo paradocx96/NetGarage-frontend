@@ -13,6 +13,10 @@ import NavigationBar from "./components/layouts/Navigation/NavigationBar";
 import Contact from "./components/pages/Contact";
 
 
+//DASHBOARD
+import Dashboard from "./components/pages/Dashboard";
+
+
 //USER
 import Login from "./components/pages/Login";
 import Registration from "./components/pages/Registration";
@@ -44,10 +48,7 @@ import LaptopMainImageUpload from "./components/sections/Laptop/LaptopMainImageU
 import LaptopImageViewAdmin from "./components/sections/Laptop/LaptopImageViewAdmin";
 import LaptopHomepageSingleView from "./components/sections/Laptop/LaptopHomepageSingleView";
 import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategories";
-
-
-//DASHBOARD
-import Dashboard from "./components/pages/Dashboard";
+import LaptopEdit from "./components/sections/Laptop/LaptopEdit";
 
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
                     <Route path="/laptops-admin-main-image-upload/:lid" component={LaptopMainImageUpload}/>
                     <Route path="/laptops-admin-image-view/:lid" component={LaptopImageViewAdmin}/>
                     <Route path="/laptops-admin-categories" component={LaptopSubCategories}/>
+                    <Route path="/laptops-admin-edit/:lid" component={LaptopEdit}/>
 
 
                     {/* DASHBOARD */}

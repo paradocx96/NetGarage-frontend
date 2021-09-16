@@ -42,4 +42,8 @@ export default new class ServiceLaptop {
     updateLaptopImage(value) {
         return axios.put(URL + "/update-image/", value);
     }
+
+    deleteLaptopSelected(value) {
+        return axios.delete(URL + "/delete-selected/", value);
+    }
 }

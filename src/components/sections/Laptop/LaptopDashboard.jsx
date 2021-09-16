@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Container, Table} from "react-bootstrap";
+import {Button, Container, Form, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -35,6 +35,9 @@ class LaptopDashboard extends Component {
         super(props);
         this.state = this.initialState;
 
+        this.handleCheckBox = this.handleCheckBox.bind(this);
+        this.submitDeleteSelected = this.submitDeleteSelected.bind(this);
+        this.handleDeleteSelected = this.handleDeleteSelected.bind(this);
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDeactivate = this.handleDeactivate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
@@ -42,7 +45,9 @@ class LaptopDashboard extends Component {
     }
 
     initialState = {
-        laptopList: []
+        laptopList: [],
+        selectedId: [],
+        isChecked: false
     }
 
     componentDidMount = async () => {
@@ -55,10 +60,57 @@ class LaptopDashboard extends Component {
             );
     }
 
+    // TODO: Assign values to State variables
+    handleCheckBox = (event) => {
+        this.state.selectedId.push(event.target.id);
+        console.log(this.state.selectedId);
+        // this.setState({selectedId: event.target.id});
+    }
+
+    // TODO: Function for confirm delete operation
+    submitDeleteSelected = () => {
+        confirmAlert({
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete selected Laptops.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDeleteSelected();
+                        console.log('Delete Operation Proceed!');
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
+        });
+    };
+
+    // TODO: Function for Delete
+    handleDeleteSelected = async () => {
+
+        console.log(this.state.selectedId);
+        // await ServiceLaptop.deleteLaptopById(id)
+        //     .then(response => response.data)
+        //     .then((data) => {
+        //         console.log(data)
+        //     }).catch(error => {
+        //         console.log(error.message);
+        //     });
+
+        await this.componentDidMount();
+    }
+
     //TODO: Function for activate
     handleActivate = async (id) => {
         let value = {
-            id : id,
+            id: id,
             status: 'Activated'
         }
 
@@ -76,7 +128,7 @@ class LaptopDashboard extends Component {
     //TODO: Function for deactivate
     handleDeactivate = async (id) => {
         let value = {
-            id : id,
+            id: id,
             status: 'Deactivated'
         }
 
@@ -140,15 +192,16 @@ class LaptopDashboard extends Component {
                         <thead>
                         <tr>
                             <th>#</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Status</th>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
-                            <th> </th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -161,9 +214,19 @@ class LaptopDashboard extends Component {
                                 this.state.laptopList.map((item) => (
                                     <tr key={item.id}>
                                         <td>
+                                            <Form>
+                                                <Form.Check inline
+                                                            name="group1"
+                                                            type="checkbox"
+                                                            id={item.id}
+                                                            onChange={this.handleCheckBox}
+                                                />
+                                            </Form>
+                                        </td>
+                                        <td>
                                             <img style={{width: "100px"}}
-                                                src={item.image || "http://via.placeholder.com/50"}
-                                                alt="firebase-image"
+                                                 src={item.image || "http://via.placeholder.com/50"}
+                                                 alt="firebase-image"
                                             />
                                         </td>
                                         <td>{item.brand + ' ' + item.name}</td>
@@ -177,22 +240,25 @@ class LaptopDashboard extends Component {
                                                     className="btn-warning">Unpublished</Button>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-main-image-upload/`+ item.id} className={'btn btn-light'}>
+                                            <Link to={`/laptops-admin-main-image-upload/` + item.id}
+                                                  className={'btn btn-light'}>
                                                 Upload Main Image
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-image-upload/`+ item.id} className={'btn btn-light'}>
+                                            <Link to={`/laptops-admin-image-upload/` + item.id}
+                                                  className={'btn btn-light'}>
                                                 Upload Gallery Images
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-image-view/`+ item.id} className={'btn btn-info'}>
+                                            <Link to={`/laptops-admin-image-view/` + item.id}
+                                                  className={'btn btn-info'}>
                                                 View Image
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-edit/`+ item.id} className={'btn btn-primary'}>
+                                            <Link to={`/laptops-admin-edit/` + item.id} className={'btn btn-primary'}>
                                                 Edit
                                             </Link>
                                         </td>
@@ -205,6 +271,11 @@ class LaptopDashboard extends Component {
                         }
                         </tbody>
                     </Table>
+
+                    <div>
+                        <Button onClick={this.submitDeleteSelected}
+                                className="btn-danger">Delete Selected</Button>
+                    </div>
                 </Container>
                 <div style={this.divBox}/>
             </div>

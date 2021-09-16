@@ -53,6 +53,7 @@ import AddBrand from "./components/sections/Phone/Brands/AddBrand";
 import ViewAllBrands from "./components/sections/Phone/Brands/ViewAllBrands";
 import DeleteBrands from "./components/sections/Phone/Brands/DeleteBrands";
 import AddPhone from "./components/sections/Phone/Phones/AddPhone";
+import DeletePhones from "./components/sections/Phone/Phones/DeletePhones";
 
 
 function App() {
@@ -101,6 +102,7 @@ function App() {
                     {/*phones*/}
                     <Route path="/phones/viewAllPhones" exact component={ViewAllPhones}/>
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
+                    <Route path="/phones/deletePhones" exact component={DeletePhones}/>
 
 
 

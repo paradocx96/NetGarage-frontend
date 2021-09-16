@@ -28,6 +28,10 @@ class ViewAllPhones extends React.Component{
         window.location = `/phones/editPhone/${id}`;
     }
 
+    navigateToUpload = (event,id) =>{
+        window.location = `/phones/uploadMainImage/${id}`;
+    }
+
 
     render() {
         return (
@@ -41,7 +45,7 @@ class ViewAllPhones extends React.Component{
                         <td>Brand and Model</td>
                         <td>Brand</td>
                         <td>Network</td>
-                        <td>SIM</td>
+                        {/*<td>SIM</td>*/}
                     </tr>
                     </thead>
                     <tbody>
@@ -56,13 +60,21 @@ class ViewAllPhones extends React.Component{
                                     <td>{e.brandmodel}</td>
                                     <td>{e.brand}</td>
                                     <td>{e.network}</td>
-                                    <td>{e.sim}</td>
+                                    {/*<td>{e.sim}</td>*/}
 
                                     <td>
                                         <Button className={'btn btn-warning'}
                                                 onClick={event => this.navigateToEdit(this,e.id)}
                                         >
                                             Edit
+                                        </Button>
+                                    </td>
+
+                                    <td>
+                                        <Button className={'btn btn-info'}
+                                                onClick={event => this.navigateToUpload(this,e.id)}
+                                        >
+                                            Upload Image
                                         </Button>
                                     </td>
                                 </tr>

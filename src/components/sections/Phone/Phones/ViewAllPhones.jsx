@@ -1,6 +1,6 @@
 import React from "react";
 import PhoneService from "../../../../services/PhoneService";
-import {Table} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 
 class ViewAllPhones extends React.Component{
 
@@ -22,6 +22,12 @@ class ViewAllPhones extends React.Component{
                 console.log("Error in getting all phones. Error: ",error);
         })
     }
+    navigateToEdit = (event,id) => {
+        console.log("Running navigate");
+        console.log("Id received : ",id);
+        window.location = `/phones/editPhone/${id}`;
+    }
+
 
     render() {
         return (
@@ -51,6 +57,14 @@ class ViewAllPhones extends React.Component{
                                     <td>{e.brand}</td>
                                     <td>{e.network}</td>
                                     <td>{e.sim}</td>
+
+                                    <td>
+                                        <Button className={'btn btn-warning'}
+                                                onClick={event => this.navigateToEdit(this,e.id)}
+                                        >
+                                            Edit
+                                        </Button>
+                                    </td>
                                 </tr>
                             ))
                     }

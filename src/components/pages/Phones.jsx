@@ -37,7 +37,7 @@ class Phones extends React.Component{
 
                     <Col>
                         <Link to={'/phones/viewAllPhones'}> View All Phones</Link> <br />
-                        <Link to={'/phone/os/addOS'}> Add OS</Link> <br />
+                        <Link to={'/phones/addPhone'}> Add Phone</Link> <br />
                         <Link to={'/phone/os/deleteOS'}> Delete OS</Link> <br />
                     </Col>
                 </Row>

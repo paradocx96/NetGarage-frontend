@@ -55,15 +55,15 @@ class ViewAllPhonesInternal extends React.Component{
                                             <Card.Header>Display</Card.Header>
                                             <Card.Body>{e.displaysize}</Card.Body>
 
-                                            <Card.Header>Display</Card.Header>
-                                            <Card.Body>{e.displaysize}</Card.Body>
+                                            <Card.Header>Chipset</Card.Header>
+                                            <Card.Body>{e.chipset}</Card.Body>
                                         </Col>
                                         <Col>
-                                            <Card.Header>Display</Card.Header>
-                                            <Card.Body>{e.displaysize}</Card.Body>
+                                            <Card.Header>Storage</Card.Header>
+                                            <Card.Body>{e.memorystorage}</Card.Body>
 
-                                            <Card.Header>Display</Card.Header>
-                                            <Card.Body>{e.displaysize}</Card.Body>
+                                            <Card.Header>Battery</Card.Header>
+                                            <Card.Body>{e.batterytype}</Card.Body>
                                         </Col>
                                     </Row>
                                 </Card.Body>

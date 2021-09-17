@@ -235,7 +235,7 @@ class EditPhone extends React.Component{
                 brandmodel:this.state.brandmodel,
                 brand:this.state.brand,
                 image:this.state.image,
-                publishstatus:this.state.publishstatus,
+                publishstatus: this.state.publishstatus,
 
                 //network
                 network:this.state.network,

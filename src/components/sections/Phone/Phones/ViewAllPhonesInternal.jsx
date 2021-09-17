@@ -3,6 +3,7 @@ import PhoneService from "../../../../services/PhoneService";
 import {Card, Col, Row} from "react-bootstrap";
 import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
+import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 
 class ViewAllPhonesInternal extends React.Component{
 
@@ -10,6 +11,8 @@ class ViewAllPhonesInternal extends React.Component{
         super(props);
         this.state = this.initialState;
         this.state.isOpen = false;
+
+        this.getChipsetNameForId = this.getChipsetNameForId.bind(this);
 
     }
     initialState={
@@ -28,6 +31,12 @@ class ViewAllPhonesInternal extends React.Component{
 
     navigateToSinglePhoneView = (event, id) =>{
         window.location = `/phones/viewSinglePhone/${id}`;
+    }
+
+    getChipsetNameForId(id){
+        let chipsetName = ''
+        chipsetName = PhoneChipsetService.getChipsetById(id);
+        return chipsetName;
     }
 
 
@@ -60,7 +69,11 @@ class ViewAllPhonesInternal extends React.Component{
                                             <Card.Body>{e.displaysize}</Card.Body>
 
                                             <Card.Header>Chipset</Card.Header>
-                                            <Card.Body>{e.chipset}</Card.Body>
+                                            <Card.Body>
+                                                {/*{this.getChipsetNameForId(e.chipset)}*/}
+                                                {/*(event) => {this.getChipsetNameForId(e.chipset)}*/}
+                                                {e.chipset}
+                                            </Card.Body>
                                         </Col>
                                         <Col>
                                             <Card.Header>Storage</Card.Header>

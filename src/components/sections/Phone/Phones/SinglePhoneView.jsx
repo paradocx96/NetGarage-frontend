@@ -16,7 +16,8 @@ class SinglePhoneView extends React.Component{
     initialState={
         id:'',
         phone:'',
-        chipset:''
+        chipset:'',
+        chipsetArray:[]
     }
 
     componentDidMount = async () => {
@@ -34,11 +35,22 @@ class SinglePhoneView extends React.Component{
 
 
 
-        /*await PhoneChipsetService.getChipsetByBrandModel(this.state.phone.brandmodel)
+        await PhoneChipsetService.getChipsetByBrandModel(this.state.phone.chipset)
             .then(response => response.data)
             .then((data) => {
-                this.setState({chipset:data});
-            })*/
+                this.setState({chipsetArray:data});
+
+                if (this.state.chipsetArray.length != 0){
+                    console.log("Array is not empty");
+                    this.setState({chipset:data[0]});
+                    console.log(this.state.chipset.brandmodel);
+                }
+                else {
+                    console.log("Array is Empty");
+                }
+            }).catch(error => {
+                console.log("Cannot get chipset for brand. Error : ",error);
+            })
 
     }
 
@@ -223,10 +235,18 @@ class SinglePhoneView extends React.Component{
                                 <td>Chipset Brand and Model</td>
                                 <td>{chipset}</td>
                             </tr>
-                            {/*<tr>
+                            <tr>
                                 <td>CPU</td>
                                 <td>{this.state.chipset.cpu}</td>
-                            </tr>*/}
+                            </tr>
+                            <tr>
+                                <td>GPU</td>
+                                <td>{this.state.chipset.gpu}</td>
+                            </tr>
+                            <tr>
+                                <td>LithoGraphy</td>
+                                <td>{this.state.chipset.lithography}</td>
+                            </tr>
                             </tbody>
                         </Table>
                     </Card.Body>

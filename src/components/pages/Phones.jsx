@@ -36,9 +36,14 @@ class Phones extends React.Component{
                     </Col>
 
                     <Col>
-                        <Link to={'/phones/viewAllPhones'}> View All Phones</Link> <br />
+                        <Link to={'/phones/phoneActions'}> Phone Actions</Link> <br />
+                        {/*<Link to={'/phones/viewAllPhonesInternal'}> View All Phones</Link> <br />*/}
+                        <Link to={'/phones/viewAllPhonesInternal1'}> View All Phones </Link> <br />
                         <Link to={'/phones/addPhone'}> Add Phone</Link> <br />
                         <Link to={'/phones/deletePhones'}> Delete Phones</Link> <br />
+                        <Link to={'/phones/filter/publishedBrandFilter'}> Phone Brand Filter Published</Link> <br />
+                        <Link to={'/phones/filter/publishedChipsetFilter'}> Phone Chipset Filter Published</Link> <br />
+                        <Link to={'/phones/filter/publishedOsFilter'}> Phone OS Filter Published</Link> <br />
                     </Col>
                 </Row>
 

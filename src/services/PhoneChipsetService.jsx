@@ -41,6 +41,10 @@ class PhoneChipsetService extends Component{
         return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "isChipsetAvailable/" + brandModel);
     }
 
+    getChipsetByBrandModel (brandModel){
+        return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "getByBrandModel/" + brandModel);
+    }
+
 }
 
 export default new PhoneChipsetService();

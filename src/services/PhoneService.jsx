@@ -44,5 +44,38 @@ class PhoneService extends Component{
         return axios.put(BACKEND_BASE_URL + PHONE_URL + "updateImage",updateRequest);
     }
 
+    //publish a phone entry
+    publishPhone(id){
+        return axios.put(BACKEND_BASE_URL + PHONE_URL + "publishPhone/" + id);
+    }
+
+    unpublishPhone(id){
+        return axios.put(BACKEND_BASE_URL + PHONE_URL + "unpublishPhone/" + id);
+    }
+
+    getPhonesByBrand(brand){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPhonesByBrand/" + brand);
+    }
+
+    getPublishedPhonesByBrand(brand){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPublishedPhonesByBrand/" + brand);
+    }
+
+    getPhonesByChipset(chipset){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPhonesByChipset/" + chipset);
+    }
+
+    getPublishedPhonesByChipset(chipset){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPublishedPhonesByChipset/" + chipset);
+    }
+
+    getPhonesByOS(os){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPhonesByOs/" +os);
+    }
+
+    getPublishedPhonesByOS(os){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPublishedPhonesByOs/" + os);
+    }
+
 }
 export default new PhoneService();

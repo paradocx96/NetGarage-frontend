@@ -49,7 +49,7 @@ import LaptopEdit from "./components/sections/Laptop/LaptopEdit";
 
 //DASHBOARD
 import Dashboard from "./components/pages/Dashboard";
-import ViewAllPhones from "./components/sections/Phone/Phones/ViewAllPhones";
+import PhoneActions from "./components/sections/Phone/Phones/PhoneActions";
 import AddBrand from "./components/sections/Phone/Brands/AddBrand";
 import ViewAllBrands from "./components/sections/Phone/Brands/ViewAllBrands";
 import DeleteBrands from "./components/sections/Phone/Brands/DeleteBrands";
@@ -57,6 +57,13 @@ import AddPhone from "./components/sections/Phone/Phones/AddPhone";
 import DeletePhones from "./components/sections/Phone/Phones/DeletePhones";
 import EditPhone from "./components/sections/Phone/Phones/EditPhone";
 import PhoneMainImageUpload from "./components/sections/Phone/Phones/PhoneMainImageUpload";
+import ViewAllPhonesInternal from "./components/sections/Phone/Phones/ViewAllPhonesInternal";
+import ViewAllPhonesInternal2 from "./components/sections/Phone/Phones/ViewAllPhonesInternal2";
+import SinglePhoneView from "./components/sections/Phone/Phones/SinglePhoneView";
+import PhoneBrandFilterPublished from "./components/sections/Phone/Phones/PhoneBrandFilterPublished";
+import PhoneChipsetFilterPublished from "./components/sections/Phone/Phones/PhoneChipsetFilterPublished";
+import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFilterPublished";
+import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
 
 
 
@@ -104,11 +111,20 @@ function App() {
                     <Route path="/phone/brand/deleteBrand" component={DeleteBrands}/>
 
                     {/*phones*/}
-                    <Route path="/phones/viewAllPhones" exact component={ViewAllPhones}/>
+                    <Route path="/phones/phoneActions" exact component={PhoneActions}/>
+                    <Route path="/phones/viewAllPhonesInternal1" exact component={ViewAllPhonesInternal}/>
+                    <Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
                     <Route path="/phones/deletePhones" exact component={DeletePhones}/>
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>
                     <Route path="/phones/uploadMainImage/:id" exact component={PhoneMainImageUpload}/>
+                    <Route path="/phones/viewSinglePhone/:id" exact component={SinglePhoneView}/>
+
+                    {/*Phone Filters*/}
+                    <Route path="/phones/filter/publishedBrandFilter" exact component={PhoneBrandFilterPublished}/>
+                    <Route path="/phones/filter/publishedChipsetFilter" exact component={PhoneChipsetFilterPublished}/>
+                    <Route path="/phones/filter/publishedOsFilter" exact component={PhoneOsFilterPublished}/>
+                    <Route path="/phones/filter/publishedFilterMain" exact component={PhoneMainFilterPublished}/>
 
 
 

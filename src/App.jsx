@@ -62,6 +62,7 @@ import SinglePhoneView from "./components/sections/Phone/Phones/SinglePhoneView"
 import PhoneBrandFilterPublished from "./components/sections/Phone/Phones/PhoneBrandFilterPublished";
 import PhoneChipsetFilterPublished from "./components/sections/Phone/Phones/PhoneChipsetFilterPublished";
 import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFilterPublished";
+import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
 
 
 function App() {
@@ -121,6 +122,7 @@ function App() {
                     <Route path="/phones/filter/publishedBrandFilter" exact component={PhoneBrandFilterPublished}/>
                     <Route path="/phones/filter/publishedChipsetFilter" exact component={PhoneChipsetFilterPublished}/>
                     <Route path="/phones/filter/publishedOsFilter" exact component={PhoneOsFilterPublished}/>
+                    <Route path="/phones/filter/publishedFilterMain" exact component={PhoneMainFilterPublished}/>
 
 
 

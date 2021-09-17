@@ -24,6 +24,7 @@ class EditPhone extends React.Component{
         //main
         brandmodel:'',
         brand:'',
+        image:'',
 
         //network
         network:'',
@@ -119,6 +120,7 @@ class EditPhone extends React.Component{
                 this.setState({currentBrandModel:data.brandmodel});
                 this.setState({brand:data.brand});
                 this.setState({currentBrand:data.brand});
+                this.setState({image:data.image});
 
                 //network
                 this.setState({network:data.network});
@@ -230,6 +232,7 @@ class EditPhone extends React.Component{
                 id:this.state.id,
                 brandmodel:this.state.brandmodel,
                 brand:this.state.brand,
+                image:this.state.image,
 
                 //network
                 network:this.state.network,

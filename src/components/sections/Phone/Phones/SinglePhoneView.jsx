@@ -2,7 +2,7 @@ import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Card, Col, Row, Table} from "react-bootstrap";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 import Lightbox from "react-image-lightbox";
 
 class SinglePhoneView extends React.Component{

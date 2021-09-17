@@ -2,7 +2,7 @@ import React from "react";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import {Col, Form, Row, Button, Card} from "react-bootstrap";
 import PhoneService from "../../../../services/PhoneService";
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 
 class PhoneBrandFilterPublished extends React.Component{
     constructor(props) {

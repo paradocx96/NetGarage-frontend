@@ -58,13 +58,14 @@ class LaptopDashboard extends Component {
             }).catch(error =>
                 console.log(error.message)
             );
+
+        console.log(this.state.selectedId);
     }
 
     // TODO: Assign values to State variables
     handleCheckBox = (event) => {
         this.state.selectedId.push(event.target.id);
         console.log(this.state.selectedId);
-        // this.setState({selectedId: event.target.id});
     }
 
     // TODO: Function for confirm delete operation
@@ -95,16 +96,22 @@ class LaptopDashboard extends Component {
     // TODO: Function for Delete
     handleDeleteSelected = async () => {
 
-        console.log(this.state.selectedId);
-        // await ServiceLaptop.deleteLaptopById(id)
-        //     .then(response => response.data)
-        //     .then((data) => {
-        //         console.log(data)
-        //     }).catch(error => {
-        //         console.log(error.message);
-        //     });
+        const formData = new FormData();
+        formData.append("ids", this.state.selectedId);
 
-        await this.componentDidMount();
+        console.log('FORM DATA: ', formData);
+
+        setTimeout(async () => {
+            await ServiceLaptop.deleteLaptopSelected(formData)
+                .then(response => response.data)
+                .then((data) => {
+                    console.log(data)
+                }).catch(error => {
+                    console.log(error.message);
+                });
+
+            await this.componentDidMount();
+        }, 2000);
     }
 
     //TODO: Function for activate

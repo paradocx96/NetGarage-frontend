@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {storage} from "../../../../firebase/FirebaseLaptop";
 import {useParams} from "react-router-dom";
 import PhoneService from "../../../../services/PhoneService";
-import data from "bootstrap/js/src/dom/data";
+
 import {Button, Form, ProgressBar} from "react-bootstrap";
 
 function PhoneMainImageUpload(props){

@@ -25,6 +25,7 @@ class EditPhone extends React.Component{
         brandmodel:'',
         brand:'',
         image:'',
+        publishstatus:'',
 
         //network
         network:'',
@@ -121,6 +122,7 @@ class EditPhone extends React.Component{
                 this.setState({brand:data.brand});
                 this.setState({currentBrand:data.brand});
                 this.setState({image:data.image});
+                this.setState({publishstatus:data.publishstatus});
 
                 //network
                 this.setState({network:data.network});
@@ -233,6 +235,7 @@ class EditPhone extends React.Component{
                 brandmodel:this.state.brandmodel,
                 brand:this.state.brand,
                 image:this.state.image,
+                publishstatus:this.state.publishstatus,
 
                 //network
                 network:this.state.network,

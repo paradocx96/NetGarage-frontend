@@ -26,6 +26,9 @@ class ViewAllPhonesInternal extends React.Component{
         })
     }
 
+    navigateToSinglePhoneView = (event, id) =>{
+        window.location = `/phones/viewSinglePhone/${id}`;
+    }
 
 
     render() {
@@ -37,7 +40,8 @@ class ViewAllPhonesInternal extends React.Component{
                         <h3>No records at this time</h3>:
                         this.state.phones.map((e) => (
                             <div>
-                            <Card className={'bg-transparent'}>
+                            <Card className={'bg-transparent'}
+                                  onClick={event => this.navigateToSinglePhoneView(this,e.id)}>
                                 <Card.Header className={'bg-success text-white'}>{e.brandmodel}</Card.Header>
 
                                 <Card.Body>

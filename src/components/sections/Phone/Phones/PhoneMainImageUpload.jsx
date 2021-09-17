@@ -37,7 +37,7 @@ function PhoneMainImageUpload(props){
 
     const handleUpload = async () => {
         const uploadTask = storage.ref(`images/phone/${image.name}`).put(image);
-        uploadTask.on(
+        await uploadTask.on(
             "state_changed",
             snapshot => {
                 const progress =Math.round(
@@ -54,13 +54,30 @@ function PhoneMainImageUpload(props){
                     .then(url => {
                         //console.log(url);
                         setUrl(url);
+                        saveImageUrl(url);
                         console.log(url)
                     });
             }
         );
+
+
     };
 
     const saveImageUrl = (url) =>{
+
+        let imageUpdateRequest={
+            id:params.id,
+            url:url
+        }
+
+        PhoneService.updateImage(imageUpdateRequest)
+            .then(response => response.data)
+            .then((data) => {
+                if (data != null){
+                    console.log("Updated image url");
+                    alert("Uploaded the image and Updated image URL");
+                }
+            })
 
     }
 
@@ -79,6 +96,11 @@ function PhoneMainImageUpload(props){
                 <br/>
                 <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>
             </Form.Group>
+
+            <br/>
+            <img style={{width: "500px"}}
+                 src={url || "http://via.placeholder.com/100"}
+                 alt="firebase-image" />
         </div>
     )
 }

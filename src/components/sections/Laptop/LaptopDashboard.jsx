@@ -37,7 +37,6 @@ class LaptopDashboard extends Component {
 
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDeactivate = this.handleDeactivate.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.submitDelete = this.submitDelete.bind(this);
     }
@@ -90,11 +89,6 @@ class LaptopDashboard extends Component {
             })
 
         await this.componentDidMount();
-    }
-
-    //TODO: Function for Edit
-    handleEdit = async (id) => {
-
     }
 
     // TODO: Function for Delete
@@ -198,8 +192,9 @@ class LaptopDashboard extends Component {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Button onClick={this.handleEdit.bind(this, item.id)}
-                                                    className="btn-primary">Edit</Button>
+                                            <Link to={`/laptops-admin-edit/`+ item.id} className={'btn btn-primary'}>
+                                                Edit
+                                            </Link>
                                         </td>
                                         <td>
                                             <Button onClick={this.submitDelete.bind(this, item.id)}

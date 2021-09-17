@@ -44,6 +44,7 @@ import LaptopMainImageUpload from "./components/sections/Laptop/LaptopMainImageU
 import LaptopImageViewAdmin from "./components/sections/Laptop/LaptopImageViewAdmin";
 import LaptopHomepageSingleView from "./components/sections/Laptop/LaptopHomepageSingleView";
 import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategories";
+import LaptopEdit from "./components/sections/Laptop/LaptopEdit";
 
 
 //DASHBOARD
@@ -56,6 +57,7 @@ import AddPhone from "./components/sections/Phone/Phones/AddPhone";
 import DeletePhones from "./components/sections/Phone/Phones/DeletePhones";
 import EditPhone from "./components/sections/Phone/Phones/EditPhone";
 import PhoneMainImageUpload from "./components/sections/Phone/Phones/PhoneMainImageUpload";
+
 
 
 function App() {
@@ -119,6 +121,7 @@ function App() {
                     <Route path="/laptops-admin-main-image-upload/:lid" component={LaptopMainImageUpload}/>
                     <Route path="/laptops-admin-image-view/:lid" component={LaptopImageViewAdmin}/>
                     <Route path="/laptops-admin-categories" component={LaptopSubCategories}/>
+                    <Route path="/laptops-admin-edit/:lid" component={LaptopEdit}/>
 
 
                     {/* DASHBOARD */}

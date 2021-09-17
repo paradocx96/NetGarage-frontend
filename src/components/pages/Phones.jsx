@@ -43,6 +43,7 @@ class Phones extends React.Component{
                         <Link to={'/phones/deletePhones'}> Delete Phones</Link> <br />
                         <Link to={'/phones/filter/publishedBrandFilter'}> Phone Brand Filter Published</Link> <br />
                         <Link to={'/phones/filter/publishedChipsetFilter'}> Phone Chipset Filter Published</Link> <br />
+                        <Link to={'/phones/filter/publishedOsFilter'}> Phone OS Filter Published</Link> <br />
                     </Col>
                 </Row>
 

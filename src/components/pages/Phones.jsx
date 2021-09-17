@@ -41,6 +41,7 @@ class Phones extends React.Component{
                         <Link to={'/phones/viewAllPhonesInternal1'}> View All Phones </Link> <br />
                         <Link to={'/phones/addPhone'}> Add Phone</Link> <br />
                         <Link to={'/phones/deletePhones'}> Delete Phones</Link> <br />
+                        <Link to={'/phones/filter/publishedBrandFilter'}> Phone Brand Filter Published</Link> <br />
                     </Col>
                 </Row>
 

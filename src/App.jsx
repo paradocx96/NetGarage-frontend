@@ -59,6 +59,7 @@ import PhoneMainImageUpload from "./components/sections/Phone/Phones/PhoneMainIm
 import ViewAllPhonesInternal from "./components/sections/Phone/Phones/ViewAllPhonesInternal";
 import ViewAllPhonesInternal2 from "./components/sections/Phone/Phones/ViewAllPhonesInternal2";
 import SinglePhoneView from "./components/sections/Phone/Phones/SinglePhoneView";
+import PhoneBrandFilterPublished from "./components/sections/Phone/Phones/PhoneBrandFilterPublished";
 
 
 function App() {
@@ -113,6 +114,9 @@ function App() {
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>
                     <Route path="/phones/uploadMainImage/:id" exact component={PhoneMainImageUpload}/>
                     <Route path="/phones/viewSinglePhone/:id" exact component={SinglePhoneView}/>
+
+                    {/*Phone Filters*/}
+                    <Route path="/phones/filter/publishedBrandFilter" exact component={PhoneBrandFilterPublished}/>
 
 
 

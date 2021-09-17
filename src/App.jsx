@@ -56,6 +56,8 @@ import AddPhone from "./components/sections/Phone/Phones/AddPhone";
 import DeletePhones from "./components/sections/Phone/Phones/DeletePhones";
 import EditPhone from "./components/sections/Phone/Phones/EditPhone";
 import PhoneMainImageUpload from "./components/sections/Phone/Phones/PhoneMainImageUpload";
+import ViewAllPhonesInternal from "./components/sections/Phone/Phones/ViewAllPhonesInternal";
+import ViewAllPhonesInternal2 from "./components/sections/Phone/Phones/ViewAllPhonesInternal2";
 
 
 function App() {
@@ -102,7 +104,9 @@ function App() {
                     <Route path="/phone/brand/deleteBrand" component={DeleteBrands}/>
 
                     {/*phones*/}
-                    <Route path="/phones/viewAllPhones" exact component={PhoneActions}/>
+                    <Route path="/phones/phoneActions" exact component={PhoneActions}/>
+                    <Route path="/phones/viewAllPhonesInternal1" exact component={ViewAllPhonesInternal}/>
+                    <Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
                     <Route path="/phones/deletePhones" exact component={DeletePhones}/>
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>

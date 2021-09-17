@@ -36,7 +36,9 @@ class Phones extends React.Component{
                     </Col>
 
                     <Col>
-                        <Link to={'/phones/viewAllPhones'}> View All Phones</Link> <br />
+                        <Link to={'/phones/phoneActions'}> Phone Actions</Link> <br />
+                        {/*<Link to={'/phones/viewAllPhonesInternal'}> View All Phones</Link> <br />*/}
+                        <Link to={'/phones/viewAllPhonesInternal1'}> View All Phones </Link> <br />
                         <Link to={'/phones/addPhone'}> Add Phone</Link> <br />
                         <Link to={'/phones/deletePhones'}> Delete Phones</Link> <br />
                     </Col>

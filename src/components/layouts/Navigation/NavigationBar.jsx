@@ -22,8 +22,8 @@ class NavigationBar extends Component {
 
                             <Nav className="me-auto">
                                 <NavDropdown title="PHONE" id="collasible-nav-dropdown">
-                                    <Link to={'/phones'} className={'dropdown-item'}>Phones</Link>
-                                    <Link to={'/phones'} className={'dropdown-item'}>Phones Finder</Link>
+                                    <Link to={'/phones/main'} className={'dropdown-item'}>Phones</Link>
+                                    <Link to={'/phones/main'} className={'dropdown-item'}>Phones Finder</Link>
                                     {/*<NavDropdown.Item href="/phones/chipsets/viewAll">Mobile Finder</NavDropdown.Item>*/}
                                 </NavDropdown>
 

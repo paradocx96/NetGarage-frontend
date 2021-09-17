@@ -1,12 +1,18 @@
 import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Button, Table} from "react-bootstrap";
+import Toast1 from "../../../Toasts/Toast1";
 
 class PhoneActions extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = this.initialState;
+        this.state.showpublished = false;
+        this.state.showunbpublished = false;;
+
+        this.publishPhone = this.publishPhone.bind(this);
+        this.unpublishPhone = this.unpublishPhone.bind(this);
     }
 
     initialState={
@@ -32,10 +38,61 @@ class PhoneActions extends React.Component{
         window.location = `/phones/uploadMainImage/${id}`;
     }
 
+    publishPhone = (event,id) => {
+        PhoneService.publishPhone(id)
+            .then(response => response.data)
+            .then((data) => {
+                if (data != null){
+                    this.setState({"showpublished":true});
+                    setTimeout(() => this.setState({"showpublished":false}),3000);
+                    this.componentDidMount();
+                }
+            })
+    }
+
+    unpublishPhone = (event,id) => {
+        PhoneService.unpublishPhone(id)
+            .then(response => response.data)
+            .then((data) => {
+                if (data != null){
+                    this.setState({"showunbpublished":true});
+                    setTimeout(() => this.setState({"showunbpublished":false}),3000);
+                    this.componentDidMount();
+                }
+            })
+    }
+
 
     render() {
         return (
             <div className={'container-fluid'}>
+
+                <div style={{"display": this.state.showpublished ? "block" : "none"}}>
+
+                    <Toast1
+
+                        children={{
+                            show: this.state.showpublished,
+                            message: "Phone published successfully",
+                            type: 'success'
+                        }}
+                    />
+
+                </div>
+
+                <div style={{"display": this.state.showunbpublished ? "block" : "none"}}>
+
+                    <Toast1
+
+                        children={{
+                            show: this.state.showunbpublished,
+                            message: "Phone unpublished successfully",
+                            type: 'secondary'
+                        }}
+                    />
+
+                </div>
+
                 <h2>All Phones</h2>
 
                 <Table striped bordered hover variant={'light'}>
@@ -44,7 +101,8 @@ class PhoneActions extends React.Component{
                         <td>Id</td>
                         <td>Brand and Model</td>
                         <td>Brand</td>
-                        <td>Network</td>
+                        <td>Status</td>
+                       {/* <td>Network</td>*/}
                         {/*<td>SIM</td>*/}
                     </tr>
                     </thead>
@@ -59,7 +117,8 @@ class PhoneActions extends React.Component{
                                     <td>{e.id}</td>
                                     <td>{e.brandmodel}</td>
                                     <td>{e.brand}</td>
-                                    <td>{e.network}</td>
+                                    <td>{e.publishstatus}</td>
+                                    {/*<td>{e.network}</td>*/}
                                     {/*<td>{e.sim}</td>*/}
 
                                     <td>
@@ -67,6 +126,22 @@ class PhoneActions extends React.Component{
                                                 onClick={event => this.navigateToEdit(this,e.id)}
                                         >
                                             Edit
+                                        </Button>
+                                    </td>
+
+                                    <td>
+                                        <Button className={'btn btn-success'}
+                                                onClick={event => this.publishPhone(this,e.id)}
+                                        >
+                                            Publish
+                                        </Button>
+                                    </td>
+
+                                    <td>
+                                        <Button className={'btn btn-secondary'}
+                                                onClick={event => this.unpublishPhone(this,e.id)}
+                                        >
+                                            Unpublish
                                         </Button>
                                     </td>
 

@@ -44,5 +44,14 @@ class PhoneService extends Component{
         return axios.put(BACKEND_BASE_URL + PHONE_URL + "updateImage",updateRequest);
     }
 
+    //publish a phone entry
+    publishPhone(id){
+        return axios.put(BACKEND_BASE_URL + PHONE_URL + "publishPhone/" + id);
+    }
+
+    unpublishPhone(id){
+        return axios.put(BACKEND_BASE_URL + PHONE_URL + "unpublishPhone/" + id);
+    }
+
 }
 export default new PhoneService();

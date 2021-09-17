@@ -48,7 +48,7 @@ import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategorie
 
 //DASHBOARD
 import Dashboard from "./components/pages/Dashboard";
-import ViewAllPhones from "./components/sections/Phone/Phones/ViewAllPhones";
+import PhoneActions from "./components/sections/Phone/Phones/PhoneActions";
 import AddBrand from "./components/sections/Phone/Brands/AddBrand";
 import ViewAllBrands from "./components/sections/Phone/Brands/ViewAllBrands";
 import DeleteBrands from "./components/sections/Phone/Brands/DeleteBrands";
@@ -102,7 +102,7 @@ function App() {
                     <Route path="/phone/brand/deleteBrand" component={DeleteBrands}/>
 
                     {/*phones*/}
-                    <Route path="/phones/viewAllPhones" exact component={ViewAllPhones}/>
+                    <Route path="/phones/viewAllPhones" exact component={PhoneActions}/>
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
                     <Route path="/phones/deletePhones" exact component={DeletePhones}/>
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>

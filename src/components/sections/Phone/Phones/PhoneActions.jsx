@@ -2,7 +2,7 @@ import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Button, Table} from "react-bootstrap";
 
-class ViewAllPhones extends React.Component{
+class PhoneActions extends React.Component{
 
     constructor(props) {
         super(props);
@@ -90,4 +90,4 @@ class ViewAllPhones extends React.Component{
 
 }
 
-export default ViewAllPhones;
+export default PhoneActions;

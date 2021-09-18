@@ -117,6 +117,8 @@ class PhoneBrandFilterPublished extends React.Component{
                 {
                     this.state.filterInitiated === false ?
                         <h5>Filter to get results</h5>:
+                        this.state.phones.length === 0?
+                            <div>No results</div>:
                         this.state.phones.map((e) => (
 
                             <div>

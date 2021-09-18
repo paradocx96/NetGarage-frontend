@@ -64,6 +64,7 @@ import PhoneBrandFilterPublished from "./components/sections/Phone/Phones/PhoneB
 import PhoneChipsetFilterPublished from "./components/sections/Phone/Phones/PhoneChipsetFilterPublished";
 import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFilterPublished";
 import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
+import ComparePhones from "./components/sections/Phone/Phones/ComparePhones";
 
 
 
@@ -125,6 +126,7 @@ function App() {
                     <Route path="/phones/filter/publishedChipsetFilter" exact component={PhoneChipsetFilterPublished}/>
                     <Route path="/phones/filter/publishedOsFilter" exact component={PhoneOsFilterPublished}/>
                     <Route path="/phones/filter/publishedFilterMain" exact component={PhoneMainFilterPublished}/>
+                    <Route path="/phones/compare" exact component={ComparePhones}/>
 
 
 

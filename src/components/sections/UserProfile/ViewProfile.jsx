@@ -8,12 +8,13 @@ import Input from "react-validation/build/input";
 import Form from "react-validation/build/form";
 //import {Link} from "react-router-dom"
 import ServiceUser from "../../../services/ServiceUser";
-import CommonCheckAuth from "../../../services/CommonCheckAuth";
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import {confirmAlert} from "react-confirm-alert";
+import {Button} from "react-bootstrap";
 
 
 class ViewProfile extends Component {
@@ -25,6 +26,8 @@ class ViewProfile extends Component {
     // TODO: Initializing state values and functions
     constructor(props) {
         super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
 
         this.state = {
             currentUser: undefined,
@@ -40,6 +43,7 @@ class ViewProfile extends Component {
         if (user) {
             this.setState({
                 currentUser: user,
+                id:user.id,
                 username: user.username,
                 password: user.email,
                 email: user.email,
@@ -47,6 +51,48 @@ class ViewProfile extends Component {
 
         }
     }
+
+    // TODO: Function for Delete
+    handleDelete = async (id) => {
+        ServiceUser.deleteAccount(id).then(
+            () => {
+                ServiceUser.logout();
+                this.props.history.push("/");
+                window.location.reload();
+            },
+            error => {
+                const resMessage = (error.response && error.response.data.message && error.response.data) || error.message || error.toString();
+                console.log(resMessage);
+            }
+        );
+
+        await this.componentDidMount();
+    }
+
+    // TODO: Function for confirm delete operation
+    submitDelete = (id) => {
+        confirmAlert({
+            title: 'Confirm to delete?',
+            message: 'Are you sure to delete this account?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDelete(id);
+                        console.log('Delete Operation Proceed!');
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
+        });
+    };
 
     // TODO: Display Website
     render() {
@@ -98,6 +144,9 @@ class ViewProfile extends Component {
                             <div className="form-group d-grid gap-2">
                                 <Link to="/edit-profile" className="btn btn-primary"> Edit </Link>
                             </div>
+                            <div className="form-group d-grid gap-2">
+                                <Button onClick={this.submitDelete.bind(this, this.state.id)} className="btn-danger">Delete</Button>
+                            </div>
                           </div>
                     </Form>
 
@@ -107,4 +156,4 @@ class ViewProfile extends Component {
     }
 }
 
-export default CommonCheckAuth(ViewProfile);
+export default withRouter(ViewProfile);

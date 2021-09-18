@@ -50,6 +50,11 @@ class StudentService extends Component{
     logout() {
         localStorage.removeItem("user");
     }
+
+    //TODO: Delete user account
+    deleteAccount(id) {
+        return axios.delete(API_STUDENT_BACKEND_URL + "delete-account/" + id);
+    }
 }
 
 export default new StudentService();

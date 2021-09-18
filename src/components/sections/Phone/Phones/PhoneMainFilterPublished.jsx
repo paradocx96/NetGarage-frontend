@@ -3,6 +3,7 @@ import {Form} from "react-bootstrap";
 import PhoneBrandFilterPublished from "./PhoneBrandFilterPublished";
 import PhoneOsFilterPublished from "./PhoneOsFilterPublished";
 import PhoneChipsetFilterPublished from "./PhoneChipsetFilterPublished";
+import SearchPhones from "./SearchPhones";
 
 
 
@@ -27,10 +28,10 @@ class PhoneMainFilterPublished extends React.Component{
             <div className={'container-fluid'}>
 
 
-                <h2>Filter Phones</h2>
+                <h2>Find Phones</h2>
                 <Form >
                     <Form.Group>
-                        <Form.Label>Filter By</Form.Label>
+
 
                         <Form.Control
                             as={"select"}
@@ -39,9 +40,10 @@ class PhoneMainFilterPublished extends React.Component{
                             value={this.state.filterOption}
                             onChange={this.onChange}
                         >
-                            <option value={'brand'}>Brand</option>
-                            <option value={'os'}>OS</option>
-                            <option value={'chipset'}>Chipset</option>
+                            <option value={'brand'}>Filter By Brand</option>
+                            <option value={'os'}>Filter By OS</option>
+                            <option value={'chipset'}>Filter By Chipset</option>
+                            <option value={'search'}>Search Phones</option>
                         </Form.Control>
                     </Form.Group>
                 </Form>
@@ -52,6 +54,8 @@ class PhoneMainFilterPublished extends React.Component{
                             <PhoneBrandFilterPublished />:
                             this.state.filterOption === 'os'?
                                 <PhoneOsFilterPublished /> :
+                                this.state.filterOption === 'search'?
+                                    <SearchPhones />:
                                 <PhoneChipsetFilterPublished />
                     }
                 </div>

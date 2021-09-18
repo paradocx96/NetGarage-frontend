@@ -77,5 +77,9 @@ class PhoneService extends Component{
         return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPublishedPhonesByOs/" + os);
     }
 
+    getPhoneByName(name){
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getPhoneByName/" + name);
+    }
+
 }
 export default new PhoneService();

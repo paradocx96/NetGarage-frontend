@@ -38,4 +38,8 @@ export default new class ServiceLaptop {
     updateLaptop(value) {
         return axios.put(URL + "/update/", value);
     }
+
+    updateLaptopImage(value) {
+        return axios.put(URL + "/update-image/", value);
+    }
 }

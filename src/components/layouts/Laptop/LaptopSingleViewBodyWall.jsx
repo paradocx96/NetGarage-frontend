@@ -3,7 +3,7 @@ import {Card, Col, Container, Row} from "react-bootstrap";
 
 import LaptopWall from '../../../assets/images/Laptop/LaptopWall.jpg';
 
-class LaptopBodyWall extends Component {
+class LaptopSingleViewBodyWall extends Component {
 
     divBack = {
         backgroundColor : '#212121',
@@ -21,7 +21,7 @@ class LaptopBodyWall extends Component {
                 <Container style={this.divBack}>
                     <Row>
                         <Col sm={4}>
-                            <h1>Laptops</h1>
+                            <h1>Laptop Specification</h1>
                         </Col>
                         <Col sm={8}>
                             <Card>
@@ -38,4 +38,4 @@ class LaptopBodyWall extends Component {
     }
 }
 
-export default LaptopBodyWall;
+export default LaptopSingleViewBodyWall;

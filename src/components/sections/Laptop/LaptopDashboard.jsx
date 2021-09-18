@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Button, Container, Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopDashboardBodyWall from "../../layouts/Laptop/LaptopDashboardBodyWall";
-import ServiceLaptop from "../../../services/ServiceLaptop";
-import {Link} from "react-router-dom";
 
 class LaptopDashboard extends Component {
 
@@ -37,7 +37,6 @@ class LaptopDashboard extends Component {
 
         this.handleActivate = this.handleActivate.bind(this);
         this.handleDeactivate = this.handleDeactivate.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.submitDelete = this.submitDelete.bind(this);
     }
@@ -90,11 +89,6 @@ class LaptopDashboard extends Component {
             })
 
         await this.componentDidMount();
-    }
-
-    //TODO: Function for Edit
-    handleEdit = async (id) => {
-
     }
 
     // TODO: Function for Delete
@@ -154,6 +148,7 @@ class LaptopDashboard extends Component {
                             <th> </th>
                             <th> </th>
                             <th> </th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -165,7 +160,12 @@ class LaptopDashboard extends Component {
                                 :
                                 this.state.laptopList.map((item) => (
                                     <tr key={item.id}>
-                                        <td>#</td>
+                                        <td>
+                                            <img style={{width: "100px"}}
+                                                src={item.image || "http://via.placeholder.com/50"}
+                                                alt="firebase-image"
+                                            />
+                                        </td>
                                         <td>{item.brand + ' ' + item.name}</td>
                                         <td>{item.status}</td>
                                         <td>
@@ -177,8 +177,13 @@ class LaptopDashboard extends Component {
                                                     className="btn-warning">Unpublished</Button>
                                         </td>
                                         <td>
+                                            <Link to={`/laptops-admin-main-image-upload/`+ item.id} className={'btn btn-light'}>
+                                                Upload Main Image
+                                            </Link>
+                                        </td>
+                                        <td>
                                             <Link to={`/laptops-admin-image-upload/`+ item.id} className={'btn btn-light'}>
-                                                Upload Image
+                                                Upload Gallery Images
                                             </Link>
                                         </td>
                                         <td>
@@ -187,8 +192,9 @@ class LaptopDashboard extends Component {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Button onClick={this.handleEdit.bind(this, item.id)}
-                                                    className="btn-primary">Edit</Button>
+                                            <Link to={`/laptops-admin-edit/`+ item.id} className={'btn btn-primary'}>
+                                                Edit
+                                            </Link>
                                         </td>
                                         <td>
                                             <Button onClick={this.submitDelete.bind(this, item.id)}

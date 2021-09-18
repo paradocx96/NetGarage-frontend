@@ -16,23 +16,23 @@ class NavigationBar extends Component {
             <div>
                 <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
                     <Container>
-                        <Navbar.Brand href="/">HOME</Navbar.Brand>
+                        <Link to={'/'} className={'navbar-brand'}>HOME</Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
 
                             <Nav className="me-auto">
-                                <NavDropdown title="Phones" id="collasible-nav-dropdown">
-                                    <Link to={'/phones'} className={'dropdown-item'}>Phones</Link>
-                                    <Link to={'/phones'} className={'dropdown-item'}>Phones Finder</Link>
+                                <NavDropdown title="PHONE" id="collasible-nav-dropdown">
+                                    <Link to={'/phones/main'} className={'dropdown-item'}>Phones</Link>
+                                    <Link to={'/phones/filter/publishedFilterMain'} className={'dropdown-item'}>Phones Finder</Link>
                                     {/*<NavDropdown.Item href="/phones/chipsets/viewAll">Mobile Finder</NavDropdown.Item>*/}
                                 </NavDropdown>
 
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="/laptops">Laptop</NavDropdown.Item>
-                                    <NavDropdown.Item href="#">Laptop Finder</NavDropdown.Item>
+                                    <Link to={'/laptops'} className={'dropdown-item'}>Laptop</Link>
+                                    <Link to={'/laptops'} className={'dropdown-item'}>Laptop Finder</Link>
                                 </NavDropdown>
 
-                                <Nav.Link href="/contact">CONTACT</Nav.Link>
+                                <Link to={'/contact'} className={'nav-link'} >CONTACT</Link>
                             </Nav>
 
                         </Navbar.Collapse>

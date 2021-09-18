@@ -16,6 +16,8 @@ import Contact from "./components/pages/Contact";
 //USER
 import Login from "./components/pages/Login";
 import Registration from "./components/pages/Registration";
+import ForgotPassword from "./components/pages/ForgotPassword";
+import ResetPassword from "./components/sections/ForgotPassword/ResetPassword";
 import ViewProfile from "./components/pages/ViewProfile";
 import EditProfile from "./components/pages/EditProfile";
 
@@ -38,11 +40,31 @@ import Laptop from "./components/pages/Laptop";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
 import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
 import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
+import LaptopMainImageUpload from "./components/sections/Laptop/LaptopMainImageUpload";
 import LaptopImageViewAdmin from "./components/sections/Laptop/LaptopImageViewAdmin";
+import LaptopHomepageSingleView from "./components/sections/Laptop/LaptopHomepageSingleView";
+import LaptopSubCategories from "./components/sections/Laptop/LaptopSubCategories";
+import LaptopEdit from "./components/sections/Laptop/LaptopEdit";
 
 
 //DASHBOARD
 import Dashboard from "./components/pages/Dashboard";
+import PhoneActions from "./components/sections/Phone/Phones/PhoneActions";
+import AddBrand from "./components/sections/Phone/Brands/AddBrand";
+import ViewAllBrands from "./components/sections/Phone/Brands/ViewAllBrands";
+import DeleteBrands from "./components/sections/Phone/Brands/DeleteBrands";
+import AddPhone from "./components/sections/Phone/Phones/AddPhone";
+import DeletePhones from "./components/sections/Phone/Phones/DeletePhones";
+import EditPhone from "./components/sections/Phone/Phones/EditPhone";
+import PhoneMainImageUpload from "./components/sections/Phone/Phones/PhoneMainImageUpload";
+import ViewAllPhonesInternal from "./components/sections/Phone/Phones/ViewAllPhonesInternal";
+import ViewAllPhonesInternal2 from "./components/sections/Phone/Phones/ViewAllPhonesInternal2";
+import SinglePhoneView from "./components/sections/Phone/Phones/SinglePhoneView";
+import PhoneBrandFilterPublished from "./components/sections/Phone/Phones/PhoneBrandFilterPublished";
+import PhoneChipsetFilterPublished from "./components/sections/Phone/Phones/PhoneChipsetFilterPublished";
+import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFilterPublished";
+import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
+
 
 
 function App() {
@@ -61,31 +83,61 @@ function App() {
                     {/* USER  */}
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Registration}/>
+                    <Route path="/forgot-password" component={ForgotPassword}/>
+                    <Route path="/reset-password/:id" component={ResetPassword}/>
                     <Route path="/view-profile" component={ViewProfile}/>
                     <Route path="/edit-profile" component={EditProfile}/>
 
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
-                    <Route path="/phones" component={Phones}/>
+                    <Route path="/phones/main" component={Phones}/>
+
+                    {/*Phone chipset*/}
                     <Route path="/chipsets/viewAll" component={ViewAllChipsets}/>
                     <Route path="/chipsets/addChipset" component={AddChipset}/>
                     <Route path="/chipsets/deleteChipset" component={DeleteChipset}/>
                     <Route path="/chipsets/editChipset/:id" component={EditChipset}/>
 
+                    {/*Phone OS*/}
                     <Route path="/phone/os/viewAll" component={ViewAllOS}/>
                     <Route path="/phone/os/addOS" component={AddOS}/>
                     <Route path="/phone/os/deleteOS" component={DeleteOS}/>
                     <Route path="/phone/os/editOs/:id" component={EditOS}/>
 
+                    {/* Phone Brand*/}
+                    <Route path="/phone/brand/addBrand" component={AddBrand}/>
+                    <Route path="/phone/brand/viewAll" component={ViewAllBrands}/>
+                    <Route path="/phone/brand/deleteBrand" component={DeleteBrands}/>
+
+                    {/*phones*/}
+                    <Route path="/phones/phoneActions" exact component={PhoneActions}/>
+                    <Route path="/phones/viewAllPhonesInternal1" exact component={ViewAllPhonesInternal}/>
+                    <Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>
+                    <Route path="/phones/addPhone" exact component={AddPhone}/>
+                    <Route path="/phones/deletePhones" exact component={DeletePhones}/>
+                    <Route path="/phones/editPhone/:id" exact component={EditPhone}/>
+                    <Route path="/phones/uploadMainImage/:id" exact component={PhoneMainImageUpload}/>
+                    <Route path="/phones/viewSinglePhone/:id" exact component={SinglePhoneView}/>
+
+                    {/*Phone Filters*/}
+                    <Route path="/phones/filter/publishedBrandFilter" exact component={PhoneBrandFilterPublished}/>
+                    <Route path="/phones/filter/publishedChipsetFilter" exact component={PhoneChipsetFilterPublished}/>
+                    <Route path="/phones/filter/publishedOsFilter" exact component={PhoneOsFilterPublished}/>
+                    <Route path="/phones/filter/publishedFilterMain" exact component={PhoneMainFilterPublished}/>
+
 
 
                     {/* LAPTOP */}
                     <Route path="/laptops" component={Laptop}/>
+                    <Route path="/laptops-view/:id" component={LaptopHomepageSingleView}/>
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
                     <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
+                    <Route path="/laptops-admin-main-image-upload/:lid" component={LaptopMainImageUpload}/>
                     <Route path="/laptops-admin-image-view/:lid" component={LaptopImageViewAdmin}/>
+                    <Route path="/laptops-admin-categories" component={LaptopSubCategories}/>
+                    <Route path="/laptops-admin-edit/:lid" component={LaptopEdit}/>
 
 
                     {/* DASHBOARD */}

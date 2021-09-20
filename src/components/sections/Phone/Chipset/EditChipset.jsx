@@ -7,6 +7,8 @@ import Toast2 from "../../../Toasts/Toast2";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class EditChipset extends React.Component{
     constructor(props) {
@@ -18,6 +20,16 @@ class EditChipset extends React.Component{
         this.onChange = this.onChange.bind(this);
         this.updateChipset = this.updateChipset.bind(this);
         this.checkBrandModelAvailability = this.checkBrandModelAvailability.bind(this);
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
+
+        if (this.state.currentUser != null){
+            this.state.loggedIn = 'yes';
+        }
+        else {
+            this.state.loggedIn = 'no';
+        }
 
     }
     initialState={
@@ -111,6 +123,11 @@ class EditChipset extends React.Component{
         const {brandmodel, cpu, gpu, lithography} =  this.state;
         return (
             <div>
+                {
+                    this.state.loggedIn === 'no'?
+                        <Redirect to={'login'}/>:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 {/*<h2>Chipset id : {this.state.id}</h2>*/}
@@ -214,4 +231,4 @@ class EditChipset extends React.Component{
     }
 
 }
-export default CommonCheckAuth(EditChipset) ;
+export default EditChipset ;

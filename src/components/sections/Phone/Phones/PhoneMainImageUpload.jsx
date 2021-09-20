@@ -89,6 +89,8 @@ function PhoneMainImageUpload(props){
 
             <ProgressBar animated={true} now={progress} />
 
+            <br/>
+
             <Form.Group>
                 <Form.Label>Select Phone Main Image</Form.Label>
                 <Form.Control type="file" required onChange={handleChange}/>
@@ -98,7 +100,7 @@ function PhoneMainImageUpload(props){
             </Form.Group>
 
             <br/>
-            <img style={{width: "500px"}}
+            <img style={{width: "100px"}}
                  src={url || "http://via.placeholder.com/100"}
                  alt="firebase-image" />
         </div>

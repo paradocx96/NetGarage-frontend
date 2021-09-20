@@ -7,6 +7,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Alert, Button, Card, Form} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class EditPhone extends React.Component{
     constructor(props) {
@@ -1008,4 +1009,4 @@ class EditPhone extends React.Component{
 
 }
 
-export default EditPhone;
+export default CommonCheckAuth(EditPhone);

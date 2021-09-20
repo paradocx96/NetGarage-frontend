@@ -3,6 +3,7 @@ import PhoneService from "../../../../services/PhoneService";
 import {Button, Table} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class PhoneActions extends React.Component{
 
@@ -169,4 +170,4 @@ class PhoneActions extends React.Component{
 
 }
 
-export default PhoneActions;
+export default CommonCheckAuth(PhoneActions);

@@ -5,6 +5,7 @@ import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class ViewAllPhonesInternal extends React.Component{
 
@@ -100,4 +101,4 @@ class ViewAllPhonesInternal extends React.Component{
 
 }
 
-export default ViewAllPhonesInternal;
+export default CommonCheckAuth(ViewAllPhonesInternal);

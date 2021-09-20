@@ -7,6 +7,7 @@ import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import {Card, Col, Form, Row, Button, Alert} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class AddPhone extends React.Component{
@@ -975,4 +976,4 @@ class AddPhone extends React.Component{
     }
 }
 
-export default AddPhone;
+export default CommonCheckAuth(AddPhone);

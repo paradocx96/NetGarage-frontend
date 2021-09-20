@@ -5,6 +5,7 @@ import PhoneService from "../../../../services/PhoneService";
 // import data from "bootstrap/js/src/dom/data";
 import {Button, Form, ProgressBar} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 function PhoneMainImageUpload(props){
 
@@ -112,4 +113,4 @@ function PhoneMainImageUpload(props){
     )
 }
 
-export default PhoneMainImageUpload;
+export default CommonCheckAuth(PhoneMainImageUpload);

@@ -46,4 +46,16 @@ export default new class ServiceLaptop {
     deleteLaptopSelected(value) {
         return axios.delete(URL + "/delete-selected/", value);
     }
+
+    getLaptopByBrand(brand) {
+        return axios.get(URL + "/get-by-brand/" + brand);
+    }
+
+    getLaptopByRamCapacity(ram) {
+        return axios.get(URL + "/get-by-ram/" + ram);
+    }
+
+    getLaptopByProcessorName(processor) {
+        return axios.get(URL + "/get-by-processor/" + processor);
+    }
 }

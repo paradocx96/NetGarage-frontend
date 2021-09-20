@@ -2,6 +2,7 @@ import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Button, Table} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class PhoneActions extends React.Component{
 
@@ -65,6 +66,8 @@ class PhoneActions extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard/>
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.showpublished ? "block" : "none"}}>
@@ -158,6 +161,7 @@ class PhoneActions extends React.Component{
                     </tbody>
                 </Table>
 
+            </div>
             </div>
         );
     }

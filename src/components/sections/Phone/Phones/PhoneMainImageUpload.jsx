@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import PhoneService from "../../../../services/PhoneService";
 // import data from "bootstrap/js/src/dom/data";
 import {Button, Form, ProgressBar} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 function PhoneMainImageUpload(props){
 
@@ -82,6 +83,9 @@ function PhoneMainImageUpload(props){
     }
 
     return(
+        <div>
+            <NavigationBarDashboard/>
+
         <div className={'container-fluid'}>
             <h1>Image Upload</h1>
             <h3>ID : {params.id}</h3>
@@ -103,6 +107,7 @@ function PhoneMainImageUpload(props){
             <img style={{width: "100px"}}
                  src={url || "http://via.placeholder.com/100"}
                  alt="firebase-image" />
+        </div>
         </div>
     )
 }

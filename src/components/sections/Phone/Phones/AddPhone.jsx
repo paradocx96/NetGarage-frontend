@@ -6,6 +6,7 @@ import PhoneBrandService from "../../../../services/PhoneBrandService";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import {Card, Col, Form, Row, Button} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 
 class AddPhone extends React.Component{
@@ -333,6 +334,8 @@ class AddPhone extends React.Component{
         }
             =  this.state;
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
 
@@ -948,6 +951,7 @@ class AddPhone extends React.Component{
 
                     <br/>
                 </Form>
+            </div>
             </div>
         );
     }

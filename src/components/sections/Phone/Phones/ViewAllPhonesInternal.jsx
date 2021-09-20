@@ -4,6 +4,7 @@ import {Card, Col, Row} from "react-bootstrap";
 import Lightbox from "react-image-lightbox";
 import 'react-image-lightbox/style.css';
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class ViewAllPhonesInternal extends React.Component{
 
@@ -42,6 +43,8 @@ class ViewAllPhonesInternal extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 <h2>All Phones</h2>
                 {
@@ -89,6 +92,7 @@ class ViewAllPhonesInternal extends React.Component{
                             </div>
                         ))
                 }
+            </div>
             </div>
         );
     }

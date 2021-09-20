@@ -6,6 +6,7 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Alert, Button, Card, Form} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class EditPhone extends React.Component{
     constructor(props) {
@@ -357,6 +358,8 @@ class EditPhone extends React.Component{
         }
             =  this.state;
         return (
+            <div>
+                <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 {/*<div style={{"display": this.state.show ? "block" : "none"}}>
 
@@ -998,6 +1001,7 @@ class EditPhone extends React.Component{
 
 
                 <br/>
+            </div>
             </div>
         );
     }

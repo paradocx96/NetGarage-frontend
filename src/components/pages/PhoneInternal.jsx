@@ -2,6 +2,7 @@ import React from "react";
 import NavigationBarDashboard from "../layouts/Navigation/NavigationBarDashboard";
 import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 class PhoneInternal extends React.Component{
     constructor(props) {
@@ -90,4 +91,4 @@ class PhoneInternal extends React.Component{
     }
 
 }
-export default PhoneInternal;
+export default CommonCheckAuth(PhoneInternal) ;

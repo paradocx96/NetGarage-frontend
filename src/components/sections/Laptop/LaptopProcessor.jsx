@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {confirmAlert} from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 
@@ -16,6 +18,8 @@ class LaptopProcessor extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onNameHandle = this.onNameHandle.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
     }
 
     // TODO: Initializing default values
@@ -66,6 +70,44 @@ class LaptopProcessor extends Component {
     onReset = () => {
         this.setState(() => this.initialState)
     }
+
+    // TODO: Function for Delete
+    handleDelete = async (id) => {
+        await ServiceLaptopProcessor.deleteLaptopProcessorById(id)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data)
+            }).catch(error => {
+                console.log(error.message);
+            });
+
+        await this.componentDidMount();
+    }
+
+    // TODO: Function for confirm delete operation
+    submitDelete = (id) => {
+        confirmAlert({
+            title: 'Confirm to delete!',
+            message: 'Are you sure to delete this Processor?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        this.handleDelete(id);
+                        console.log('Delete Operation Proceed!');
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        console.log('Delete Operation Canceled!');
+                    }
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true
+        });
+    };
 
     render() {
         return (
@@ -123,7 +165,7 @@ class LaptopProcessor extends Component {
                                             </td>
                                             <td>
                                                 <Button
-                                                    // onClick={this.submitDelete.bind(this, item.id)}
+                                                    onClick={this.submitDelete.bind(this, item.id)}
                                                     className="btn-danger">Delete</Button>
                                             </td>
                                         </tr>

@@ -6,6 +6,8 @@ import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+
 class EditChipset extends React.Component{
     constructor(props) {
         super(props);
@@ -212,4 +214,4 @@ class EditChipset extends React.Component{
     }
 
 }
-export default EditChipset;
+export default CommonCheckAuth(EditChipset) ;

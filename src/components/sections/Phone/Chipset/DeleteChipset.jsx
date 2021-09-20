@@ -5,6 +5,7 @@ import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../../../Toasts/Toast1";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class DeleteChipset extends React.Component {
@@ -138,4 +139,4 @@ class DeleteChipset extends React.Component {
     }
 
 }
-export default DeleteChipset;
+export default CommonCheckAuth(DeleteChipset);

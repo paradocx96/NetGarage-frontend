@@ -5,6 +5,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import Toast2 from "../../../Toasts/Toast2";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class AddChipset extends React.Component{
     constructor(props) {
@@ -215,4 +216,4 @@ class AddChipset extends React.Component{
     }
 
 }
-export default AddChipset;
+export default CommonCheckAuth(AddChipset) ;

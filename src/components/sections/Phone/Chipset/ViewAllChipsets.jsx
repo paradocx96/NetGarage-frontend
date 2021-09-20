@@ -2,6 +2,7 @@ import React from "react";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import {Button, Table} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class ViewAllChipsets extends React.Component{
@@ -83,4 +84,4 @@ class ViewAllChipsets extends React.Component{
     }
 
 }
-export default ViewAllChipsets;
+export default CommonCheckAuth(ViewAllChipsets);

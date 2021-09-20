@@ -8,6 +8,8 @@ import Toast2 from "../../../Toasts/Toast2";
 import {Alert, Button, Card, Form} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class EditPhone extends React.Component{
     constructor(props) {
@@ -19,6 +21,16 @@ class EditPhone extends React.Component{
         this.updatePhone = this.updatePhone.bind(this);
         this.onChange = this.onChange.bind(this);
         this.checkPhoneAvailability = this.checkPhoneAvailability.bind(this);
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
+
+        if (this.state.currentUser != null){
+            this.state.loggedIn = 'yes';
+        }
+        else {
+            this.state.loggedIn = 'no';
+        }
 
     }
     initialState={
@@ -360,7 +372,13 @@ class EditPhone extends React.Component{
             =  this.state;
         return (
             <div>
+                {
+                    this.state.loggedIn === 'no'?
+                        <Redirect to={'login'}/>:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
+
             <div className={'container-fluid'}>
                 {/*<div style={{"display": this.state.show ? "block" : "none"}}>
 
@@ -1009,4 +1027,4 @@ class EditPhone extends React.Component{
 
 }
 
-export default CommonCheckAuth(EditPhone);
+export default EditPhone;

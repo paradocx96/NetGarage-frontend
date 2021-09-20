@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import '../../../assets/style/laptop/LaptopList.css';
 
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptop from "../../../services/ServiceLaptop";
-import {Link} from "react-router-dom";
 
 class LaptopFilterBrand extends Component {
 
@@ -12,7 +12,7 @@ class LaptopFilterBrand extends Component {
         super(props);
         this.state = {
             brandList: [],
-            brand: '',
+            brand: 'Brand',
             laptopList: '',
             filterInitiated: false
         }
@@ -72,6 +72,11 @@ class LaptopFilterBrand extends Component {
         minHeight: '400px'
     }
 
+    buttonColor = {
+        backgroundColor : '#4CAF50',
+        color: 'white'
+    }
+
     render() {
         return (
             <Container style={this.divBox}>
@@ -98,7 +103,7 @@ class LaptopFilterBrand extends Component {
                                 </Form.Control>
                             </Col>
                             <Col>
-                                <Button type="submit" className="btn-success">FIND</Button>
+                                <Button type="submit" className={'btn'} style={this.buttonColor}>FIND</Button>
                             </Col>
                         </Form.Group>
                     </Form>
@@ -112,7 +117,7 @@ class LaptopFilterBrand extends Component {
                             this.state.filterInitiated === false ?
                                 <h5>Filter to get results</h5> :
                                 this.state.laptopList.length === 0 ?
-                                    <p>No results</p> :
+                                    <h5>No results</h5> :
                                     this.state.laptopList.map((laptop) => (
                                         <Link to={`/laptops-view/` + laptop.id}
                                               key={laptop.id}

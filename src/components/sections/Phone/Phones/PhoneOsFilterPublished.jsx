@@ -116,7 +116,7 @@ class PhoneOsFilterPublished extends React.Component{
 
                             <div>
 
-                                <Card onClick={event => this.navigateToSinglePhoneView(this,e.id)}>
+                                <Card border={'success'} onClick={event => this.navigateToSinglePhoneView(this,e.id)}>
                                     <Card.Body>
                                         <Row>
                                             <Col>

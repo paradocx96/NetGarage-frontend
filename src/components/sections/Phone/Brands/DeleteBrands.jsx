@@ -3,6 +3,7 @@ import PhoneBrandService from "../../../../services/PhoneBrandService";
 import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import Toast1 from "../../../Toasts/Toast1";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class DeleteBrands extends React.Component{
     constructor(props) {
@@ -67,6 +68,7 @@ class DeleteBrands extends React.Component{
     render() {
         return (
             <div>
+                <NavigationBarDashboard />
                 <div style={{"display": this.state.show ? "block" : "none"}}>
 
                     <Toast1

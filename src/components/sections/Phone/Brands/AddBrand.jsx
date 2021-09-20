@@ -3,6 +3,7 @@ import PhoneBrandService from "../../../../services/PhoneBrandService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class AddBrand extends React.Component{
 
@@ -83,6 +84,9 @@ class AddBrand extends React.Component{
     render() {
         const {name} =  this.state;
         return (
+            <div>
+                <NavigationBarDashboard />
+
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -142,6 +146,7 @@ class AddBrand extends React.Component{
                     </Card>
                 </Form>
 
+            </div>
             </div>
         );
     }

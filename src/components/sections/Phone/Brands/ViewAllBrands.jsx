@@ -1,6 +1,7 @@
 import React from "react";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import {Button, Table} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class ViewAllBrands extends React.Component{
     constructor(props) {
@@ -30,6 +31,9 @@ class ViewAllBrands extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard />
+
             <div className={'container-fluid'}>
                 <h2>All Brands</h2>
 
@@ -49,19 +53,20 @@ class ViewAllBrands extends React.Component{
                                 <tr key={e.id}>
                                     <td>{e.name}</td>
 
-                                    <td>
+                                    {/*<td>
                                         <Button className={'btn btn-warning'}
                                                 onClick={ event => this.navigateToEdit(this,e.id)}
                                         >
                                             Edit
                                         </Button>
-                                    </td>
+                                    </td>*/}
                                 </tr>
                             ))
                     }
                     </tbody>
                 </Table>
 
+            </div>
             </div>
         );
     }

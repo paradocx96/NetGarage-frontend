@@ -1,6 +1,7 @@
 import React from "react";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import {Button, Table} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class ViewAllOS extends React.Component{
     constructor(props) {
@@ -32,6 +33,8 @@ class ViewAllOS extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
                 <h2>All OS</h2>
                 <Table striped bordered hover variant={'light'}>
@@ -64,6 +67,7 @@ class ViewAllOS extends React.Component{
                     }
                     </tbody>
                 </Table>
+            </div>
             </div>
         );
     }

@@ -3,6 +3,7 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 // import data from "bootstrap/js/src/dom/data";
 
 class EditOS extends React.Component{
@@ -94,6 +95,9 @@ class EditOS extends React.Component{
     render() {
         const {os} = this.state;
         return (
+            <div>
+
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -151,6 +155,7 @@ class EditOS extends React.Component{
                     </Card>
                 </Form>
 
+            </div>
             </div>
         );
     }

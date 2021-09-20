@@ -3,16 +3,65 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+import "../../../assets/style/AddFeedback.css"
+
+// TODO: Validating registration form fields
+const requiredField = data => {
+    if (!data) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+
 class AddFeedback extends Component {
+    backColor = {
+        'background-color' : '#4CAF50',
+        color: 'white'
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            deviceID:"",
+            userNickname:"",
+            userComment:""
+        };
+    }
+    onChangeUserNickname(event) {
+        this.setState({
+            userNickname: event.target.value
+        })
+    }
+
+    onChangeUserComment(event){
+        this.setState({
+            userComment: event.target.value
+        })
+    }
+
+    handleReset = e => {
+        this.setState({ userNickname:'', userComment:''})
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+
+        // TODO: Validate form fields
+        this.form.validateAll();
+    }
 
     // TODO: Display Website
     render() {
         return (
-            <div className="auth-wrapper-login">
-                <div className="auth-inner-login">
+            <div className="auth-wrapper-feedback">
+                <div className="auth-inner-feedback">
 
                     <Form onSubmit={this.handleSubmit} ref={check => {this.form = check; }}>
-                        <h3>Sign In</h3>
+                        <h3>Post Your Comment Here</h3>
                         <div className="form-group">
                             <label htmlFor="nickname">Your nick name(optional)</label>
                             <Input
@@ -21,7 +70,7 @@ class AddFeedback extends Component {
                                 className="form-control"
                                 name="userNickname"
                                 value={this.state.userNickname}
-                                onChange={this.onChangeNickname}
+                                onChange={this.onChangeUserNickname}
                             />
                         </div>
 
@@ -29,32 +78,38 @@ class AddFeedback extends Component {
 
                         <div className="form-group">
                             <label htmlFor="comment">Your comment</label>
-                            <Input
-                                type="text-area"
+                            <textarea
+                                type="text"
                                 placeholder="Enter Your comment"
                                 className="form-control"
                                 name="userComment"
                                 value={this.state.userComment}
-                                onChange={this.onChangeComment}
+                                onChange={this.onChangeUserComment}
                                 validations={[requiredField]}
+                                rows={"5"}
                             />
                         </div>
 
                         <br></br>
+                        <table>
+                                <tr>
+                                   <th>
+                                       <button className="btn btn-block" style={this.backColor}
+                                                disabled={this.state.loading}>
+                                            {this.state.loading && (
+                                                <span className="spinner-border spinner-border-sm"> </span>
+                                            )}
+                                            <span>&nbsp;Post&nbsp;</span>
+                                       </button>
+                                   </th>
 
-                        <div className="form-group d-grid gap-2">
-                            <button className="btn btn-block" style={this.backColor}
-                                    disabled={this.state.loading}>
-                                {this.state.loading && (
-                                    <span className="spinner-border spinner-border-sm"> </span>
-                                )}
-                                <span>Post</span>
-                            </button>
-                            <button className="btn btn-danger btn-block" onClick={this.handleReset}>
-                                <span>Reset</span>
-                            </button>
-                        </div>
-
+                                    <th>
+                                        <button className="btn btn-danger btn-block" onClick={this.handleReset}>
+                                            <span>Reset</span>
+                                        </button>
+                                    </th>
+                                </tr>
+                        </table>
                         {this.state.message && (
                             <div className="form-group">
                                 <div className="alert alert-danger text-center" role="alert">

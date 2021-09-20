@@ -20,7 +20,7 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import ResetPassword from "./components/sections/ForgotPassword/ResetPassword";
 import ViewProfile from "./components/pages/ViewProfile";
 import EditProfile from "./components/pages/EditProfile";
-
+import AddFeedback from "./components/pages/AddFeedback";
 
 //MOBILE
 import Mobile from "./components/pages/Mobile";
@@ -88,7 +88,7 @@ function App() {
                     <Route path="/reset-password/:id" component={ResetPassword}/>
                     <Route path="/view-profile" component={ViewProfile}/>
                     <Route path="/edit-profile" component={EditProfile}/>
-
+                    <Route path="/add-feedback" component={AddFeedback}/>
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>

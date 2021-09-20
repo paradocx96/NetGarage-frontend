@@ -42,6 +42,7 @@ class LaptopDashboard extends Component {
         this.handleDeactivate = this.handleDeactivate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.submitDelete = this.submitDelete.bind(this);
+        this.generateReport = this.generateReport.bind(this);
     }
 
     initialState = {
@@ -185,6 +186,10 @@ class LaptopDashboard extends Component {
         });
     };
 
+    generateReport = async () => {
+
+    }
+
     render() {
         return (
             <div style={this.divBack}>
@@ -262,7 +267,8 @@ class LaptopDashboard extends Component {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-edit/` + item.id} className={'btn btn-primary'}>
+                                            <Link to={`/laptops-admin-edit/` + item.id}
+                                                  className={'btn btn-primary'}>
                                                 Edit
                                             </Link>
                                         </td>
@@ -277,6 +283,8 @@ class LaptopDashboard extends Component {
                     </Table>
 
                     <div>
+                        <Button onClick={this.generateReport}
+                                className="btn-primary">Generate Report</Button>{'\u00A0'}
                         <Button onClick={this.submitDeleteSelected}
                                 className="btn-danger">Delete Selected</Button>
                     </div>

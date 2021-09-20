@@ -4,6 +4,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 // import data from "bootstrap/js/src/dom/data";
 
 class DeleteOS extends React.Component{
@@ -73,6 +74,8 @@ class DeleteOS extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -120,6 +123,7 @@ class DeleteOS extends React.Component{
                     </tbody>
                 </Table>
 
+            </div>
             </div>
         );
     }

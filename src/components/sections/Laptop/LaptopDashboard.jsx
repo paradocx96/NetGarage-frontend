@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Container, Form, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
+import FileDownload from "js-file-download";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
@@ -12,13 +13,6 @@ class LaptopDashboard extends Component {
 
     divBack = {
         backgroundColor: '#212121'
-    }
-
-    divSection = {
-        margin: '20px',
-        padding: '20px',
-        borderRadius: '25px',
-        backgroundColor: '#ffffff'
     }
 
     textStyleH1 = {
@@ -42,6 +36,7 @@ class LaptopDashboard extends Component {
         this.handleDeactivate = this.handleDeactivate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.submitDelete = this.submitDelete.bind(this);
+        this.generateReport = this.generateReport.bind(this);
     }
 
     initialState = {
@@ -185,6 +180,18 @@ class LaptopDashboard extends Component {
         });
     };
 
+    generateReport = async () => {
+        await ServiceLaptop.generateReportAllLaptops()
+            .then((response) => {
+                let headerLine = response.request.getResponseHeader('Content-Disposition');
+                let startFileNameIndex = headerLine.indexOf('=') + 1;
+                let endFileNameIndex = headerLine.lastIndexOf('"');
+                let filename = headerLine.substring(startFileNameIndex, endFileNameIndex);
+
+                FileDownload(response.data, filename + ".pdf");
+            });
+    }
+
     render() {
         return (
             <div style={this.divBack}>
@@ -199,13 +206,13 @@ class LaptopDashboard extends Component {
                             <th>#</th>
                             <th>Name</th>
                             <th>Status</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -229,7 +236,7 @@ class LaptopDashboard extends Component {
                                         </td>
                                         <td>
                                             <img style={{width: "100px"}}
-                                                 src={item.image || "http://via.placeholder.com/50"}
+                                                 src={item.image || "https://via.placeholder.com/50"}
                                                  alt="firebase-image"
                                             />
                                         </td>
@@ -262,7 +269,8 @@ class LaptopDashboard extends Component {
                                             </Link>
                                         </td>
                                         <td>
-                                            <Link to={`/laptops-admin-edit/` + item.id} className={'btn btn-primary'}>
+                                            <Link to={`/laptops-admin-edit/` + item.id}
+                                                  className={'btn btn-primary'}>
                                                 Edit
                                             </Link>
                                         </td>
@@ -277,6 +285,8 @@ class LaptopDashboard extends Component {
                     </Table>
 
                     <div>
+                        <Button onClick={this.generateReport}
+                                className="btn-primary">Generate Report</Button>{'\u00A0'}
                         <Button onClick={this.submitDeleteSelected}
                                 className="btn-danger">Delete Selected</Button>
                     </div>

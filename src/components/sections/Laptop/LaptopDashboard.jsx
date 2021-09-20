@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Button, Container, Form, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
+import FileDownload from "js-file-download";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
@@ -182,16 +183,9 @@ class LaptopDashboard extends Component {
     generateReport = async () => {
         await ServiceLaptop.generateReportAllLaptops()
             .then((response) => {
-                //get content disposition
-                let headerLine = response.request.getResponseHeader('Content-Disposition')
-
-                //set start at '=' sign of 'filename=' phrase
+                let headerLine = response.request.getResponseHeader('Content-Disposition');
                 let startFileNameIndex = headerLine.indexOf('=') + 1;
-
-                //set the last index at the end of the content disposition
                 let endFileNameIndex = headerLine.lastIndexOf('"');
-
-                //get the substring filename
                 let filename = headerLine.substring(startFileNameIndex, endFileNameIndex);
 
                 FileDownload(response.data, filename + ".pdf");

@@ -2,6 +2,7 @@ import React from "react";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import {Button, Table} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class ViewAllOS extends React.Component{
     constructor(props) {
@@ -74,4 +75,4 @@ class ViewAllOS extends React.Component{
 
 }
 
-export default ViewAllOS;
+export default CommonCheckAuth(ViewAllOS);

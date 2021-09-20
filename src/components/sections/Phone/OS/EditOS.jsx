@@ -4,6 +4,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 // import data from "bootstrap/js/src/dom/data";
 
 class EditOS extends React.Component{
@@ -161,4 +162,4 @@ class EditOS extends React.Component{
     }
 
 }
-export default EditOS;
+export default CommonCheckAuth(EditOS);

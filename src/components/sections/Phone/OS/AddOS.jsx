@@ -4,6 +4,7 @@ import Toast1 from "../../../Toasts/Toast1";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Toast2 from "../../../Toasts/Toast2";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 // import data from "bootstrap/js/src/dom/data";
 
 class AddOS extends React.Component{
@@ -162,4 +163,4 @@ class AddOS extends React.Component{
 
 }
 
-export default AddOS;
+export default CommonCheckAuth(AddOS) ;

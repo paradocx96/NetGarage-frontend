@@ -5,6 +5,7 @@ import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 // import data from "bootstrap/js/src/dom/data";
 
 class DeleteOS extends React.Component{
@@ -130,4 +131,4 @@ class DeleteOS extends React.Component{
 
 }
 
-export default DeleteOS;
+export default CommonCheckAuth(DeleteOS) ;

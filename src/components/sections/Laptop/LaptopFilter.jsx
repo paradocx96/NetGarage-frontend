@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, ButtonGroup, Container} from "react-bootstrap";
 
+import LaptopFinderBodyWall from "../../layouts/Laptop/LaptopFinderBodyWall";
+
 class LaptopFilter extends Component {
 
     constructor(props) {
@@ -16,12 +18,15 @@ class LaptopFilter extends Component {
         this.setState({filterOption: event.target.id});
     }
 
+    divBack = {
+        backgroundColor: '#212121'
+    }
+
     render() {
         return (
-            <div>
+            <div style={this.divBack}>
+                <LaptopFinderBodyWall/>
                 <Container>
-                    <h3>Laptop Filter</h3>
-
                     <ButtonGroup size="lg" className="mb-2">
                         <Button id={'brand'} onClick={this.onChange}>Filter By Brand</Button>
                         <Button id={'ram'} onClick={this.onChange}>Filter By RAM Capacity</Button>

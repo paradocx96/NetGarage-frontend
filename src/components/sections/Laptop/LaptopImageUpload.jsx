@@ -112,7 +112,7 @@ function LaptopImageUpload() {
                 <ProgressBar animated now={progress}/>
                 <br/>
                 <Form.Group controlId="formFileMultiple" className="mb-3">
-                    <Form.Label>Select Laptops Images</Form.Label>
+                    <Form.Label>Select Laptops Images</Form.Label><br/>
                     <Form.Control type="file" required multiple onChange={handleChange}/>
                 </Form.Group>
                 <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>{' '}

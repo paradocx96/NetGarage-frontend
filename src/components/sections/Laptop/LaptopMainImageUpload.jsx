@@ -107,7 +107,7 @@ function LaptopMainImageUpload(props) {
                 <ProgressBar animated now={progress}/>
                 <br/>
                 <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>Select Laptop Main Image</Form.Label>
+                    <Form.Label>Select Laptop Main Image</Form.Label><br/>
                     <Form.Control type="file" required onChange={handleChange}/>
                 </Form.Group>
                 <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>{' '}

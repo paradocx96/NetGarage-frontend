@@ -180,7 +180,22 @@ class LaptopDashboard extends Component {
     };
 
     generateReport = async () => {
+        await ServiceLaptop.generateReportAllLaptops()
+            .then((response) => {
+                //get content disposition
+                let headerLine = response.request.getResponseHeader('Content-Disposition')
 
+                //set start at '=' sign of 'filename=' phrase
+                let startFileNameIndex = headerLine.indexOf('=') + 1;
+
+                //set the last index at the end of the content disposition
+                let endFileNameIndex = headerLine.lastIndexOf('"');
+
+                //get the substring filename
+                let filename = headerLine.substring(startFileNameIndex, endFileNameIndex);
+
+                FileDownload(response.data, filename + ".pdf");
+            });
     }
 
     render() {

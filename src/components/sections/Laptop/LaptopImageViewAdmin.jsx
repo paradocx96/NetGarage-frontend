@@ -75,14 +75,18 @@ class LaptopImageViewAdmin extends Component {
                     <h5>Name : {this.state.lBrand + ' ' + this.state.lName}</h5>
 
                     <div>
-                        {this.state.imageList.map((url, i) => (
-                            <img
-                                key={i}
-                                style={{width: "500px"}}
-                                src={url || "http://via.placeholder.com/300"}
-                                alt="firebase-image"
-                            />
-                        ))}
+                        {
+                            this.state.imageList.length === 0 ?
+                                <h5>No results</h5> :
+                                this.state.imageList.map((url, i) => (
+                                    <img
+                                        key={i}
+                                        style={{width: "500px"}}
+                                        src={url || 'http://via.placeholder.com/300'}
+                                        alt="firebase-image"
+                                    />
+                                ))
+                        }
                     </div>
                 </Container>
                 <div style={this.divBox}/>

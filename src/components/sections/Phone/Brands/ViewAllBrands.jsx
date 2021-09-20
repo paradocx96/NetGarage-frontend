@@ -2,6 +2,7 @@ import React from "react";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import {Button, Table} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class ViewAllBrands extends React.Component{
     constructor(props) {
@@ -72,4 +73,4 @@ class ViewAllBrands extends React.Component{
     }
 
 }
-export default ViewAllBrands;
+export default CommonCheckAuth(ViewAllBrands);

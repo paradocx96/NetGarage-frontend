@@ -89,7 +89,7 @@ class Footer extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <p>© 2021 CODEWAVE. All Rights Reserved.<br/>MADE WITH ❤ BY CODEWAVE</p>
+                                <p>© 2021 NetGarage. All Rights Reserved.<br/>MADE WITH ❤ BY CODEWAVE</p>
                             </Col>
                         </Row>
                     </Container>

@@ -100,7 +100,7 @@ class PhoneActions extends React.Component{
 
                 <h2>All Phones</h2>
 
-                <Link to={'/phonePdf'}>Generate Report</Link>
+                {/*<Link to={'/phonePdf'}>Generate Report</Link>*/}
 
                 <Table striped bordered hover variant={'light'}>
                     <thead>

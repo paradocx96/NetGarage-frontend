@@ -26,6 +26,7 @@ class NavigationBarDashboard extends Component {
                                     <Link to={'/phoneInternal'} className={'dropdown-item'}>Phones</Link>
                                     <Link to={'/phones/addPhone'} className={'dropdown-item'}>Add Phones</Link>
                                     <Link to={'/phones/phoneActions'} className={'dropdown-item'}>Phone Actions</Link>
+                                    <Link to={'/phonePdf'} className={'dropdown-item'}>Reports</Link>
                                 </NavDropdown>
 
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">

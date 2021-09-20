@@ -4,6 +4,7 @@ import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 class EditChipset extends React.Component{
     constructor(props) {
@@ -107,6 +108,8 @@ class EditChipset extends React.Component{
     render() {
         const {brandmodel, cpu, gpu, lithography} =  this.state;
         return (
+            <div>
+                <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 {/*<h2>Chipset id : {this.state.id}</h2>*/}
                 <h2>Edit Chipset</h2>
@@ -203,6 +206,7 @@ class EditChipset extends React.Component{
                     </Card>
                 </Form>
 
+            </div>
             </div>
         );
     }

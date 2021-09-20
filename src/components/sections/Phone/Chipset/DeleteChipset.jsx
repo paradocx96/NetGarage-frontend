@@ -4,6 +4,7 @@ import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Toast1 from "../../../Toasts/Toast1";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 
 
 class DeleteChipset extends React.Component {
@@ -80,6 +81,7 @@ class DeleteChipset extends React.Component {
     {
             return (
                 <div>
+                    <NavigationBarDashboard />
 
                     <div style={{"display": this.state.show ? "block" : "none"}}>
 

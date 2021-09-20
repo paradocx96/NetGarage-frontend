@@ -37,6 +37,7 @@ import EditOS from "./components/sections/Phone/OS/EditOS";
 
 //LAPTOP
 import Laptop from "./components/pages/Laptop";
+import LaptopFilter from "./components/sections/Laptop/LaptopFilter";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
 import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
 import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
@@ -132,6 +133,7 @@ function App() {
 
                     {/* LAPTOP */}
                     <Route path="/laptops" component={Laptop}/>
+                    <Route path="/laptops-finder" component={LaptopFilter}/>
                     <Route path="/laptops-view/:id" component={LaptopHomepageSingleView}/>
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>

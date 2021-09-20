@@ -30,7 +30,7 @@ class NavigationBar extends Component {
 
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">
                                     <Link to={'/laptops'} className={'dropdown-item'}>Laptop</Link>
-                                    <Link to={'/laptops'} className={'dropdown-item'}>Laptop Finder</Link>
+                                    <Link to={'/laptops-finder'} className={'dropdown-item'}>Laptop Finder</Link>
                                 </NavDropdown>
 
                                 <Link to={'/contact'} className={'nav-link'} >CONTACT</Link>

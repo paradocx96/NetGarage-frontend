@@ -14,13 +14,6 @@ class LaptopDashboard extends Component {
         backgroundColor: '#212121'
     }
 
-    divSection = {
-        margin: '20px',
-        padding: '20px',
-        borderRadius: '25px',
-        backgroundColor: '#ffffff'
-    }
-
     textStyleH1 = {
         textAlign: 'center',
         marginBottom: '50px',
@@ -204,13 +197,13 @@ class LaptopDashboard extends Component {
                             <th>#</th>
                             <th>Name</th>
                             <th>Status</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -234,7 +227,7 @@ class LaptopDashboard extends Component {
                                         </td>
                                         <td>
                                             <img style={{width: "100px"}}
-                                                 src={item.image || "http://via.placeholder.com/50"}
+                                                 src={item.image || "https://via.placeholder.com/50"}
                                                  alt="firebase-image"
                                             />
                                         </td>

@@ -33,7 +33,7 @@ class Toast1 extends React.Component{
                                     'bg-primary text-white':
                                     this.props.children.type === 'danger'?
                                         'bg-danger text-white':
-                                        'bg-danger text-white'}`} closeButton={true}>
+                                        'bg-danger text-white'}`} closeButton={false}>
                         <strong className={'mr-auto'}>Warning</strong>
 
                     </Toast.Header>

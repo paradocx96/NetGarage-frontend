@@ -67,6 +67,7 @@ import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFi
 import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
 import ComparePhones from "./components/sections/Phone/Phones/ComparePhones";
 import PhoneInternal from "./components/pages/PhoneInternal";
+import PhonePdf from "./components/sections/Phone/Phones/PhonePdf";
 
 
 
@@ -96,6 +97,7 @@ function App() {
                     <Route path="/mobiles" component={Mobile}/>
                     <Route path="/phones/main" component={Phones}/>
                     <Route path="/phoneInternal" component={PhoneInternal}/>
+                    <Route path="/phonePdf" component={PhonePdf}/>
 
                     {/*Phone chipset*/}
                     <Route path="/chipsets/viewAll" component={ViewAllChipsets}/>

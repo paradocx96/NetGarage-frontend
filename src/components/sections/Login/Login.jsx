@@ -6,6 +6,7 @@ import Form from "react-validation/build/form";
 import { withRouter } from 'react-router-dom';
 import "../../../assets/style/Login.css";
 import ServiceUser from "../../../services/ServiceUser";
+import Footer from "../../layouts/Footer/Footer";
 
 // TODO: create to validate form fields
 const requiredField = data => {
@@ -95,6 +96,7 @@ class Login extends Component {
     // TODO: Display Website
     render() {
         return (
+            <div>
                 <div className="auth-wrapper-login">
                     <div className="auth-inner-login">
 
@@ -166,6 +168,8 @@ class Login extends Component {
                         </Form>
                     </div>
                 </div>
+                <Footer/>
+            </div>
         );
     }
 }

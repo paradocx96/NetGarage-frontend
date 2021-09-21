@@ -3,6 +3,7 @@ import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import LaptopSingleViewBodyWall from "../../layouts/Laptop/LaptopSingleViewBodyWall";
 import {Container, Table} from "react-bootstrap";
+import Footer from "../../layouts/Footer/Footer";
 
 class LaptopHomepageSingleView extends Component {
 
@@ -178,6 +179,7 @@ class LaptopHomepageSingleView extends Component {
                         </tbody>
                     </Table>
                 </Container>
+                <Footer/>
             </div>
         );
     }

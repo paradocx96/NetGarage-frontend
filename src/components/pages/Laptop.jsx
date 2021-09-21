@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+
 import LaptopBodyWall from "../layouts/Laptop/LaptopBodyWall";
 import LaptopListHomepage from "../sections/Laptop/LaptopListHomepage";
+import Footer from "../layouts/Footer/Footer";
 
 class Laptop extends Component {
 
@@ -13,6 +15,7 @@ class Laptop extends Component {
             <div style={this.divBack}>
                 <LaptopBodyWall/>
                 <LaptopListHomepage/>
+                <Footer/>
             </div>
         );
     }

@@ -3,6 +3,7 @@ import {Container} from "react-bootstrap";
 
 import Footer from "../layouts/Footer/Footer";
 import LaptopSlick from "../sections/Homepage/LaptopSlick";
+import PhoneSlick from "../sections/Homepage/PhoneSlick";
 
 class Homepage extends Component {
     render() {
@@ -10,6 +11,7 @@ class Homepage extends Component {
             <div>
                 <Container>
                     <LaptopSlick/>
+                    <PhoneSlick/>
                 </Container>
                 <Footer/>
             </div>

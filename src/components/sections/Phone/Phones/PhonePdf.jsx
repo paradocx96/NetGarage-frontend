@@ -5,7 +5,7 @@ import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDas
 import {Button} from "react-bootstrap";
 import PhoneService from "../../../../services/PhoneService";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
-import data from "bootstrap/js/src/dom/data";
+// import data from "bootstrap/js/src/dom/data";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";

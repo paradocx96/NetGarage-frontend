@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import {Link} from "react-router-dom";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../../../assets/style/laptop/LaptopList.css';
 
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
@@ -75,11 +76,17 @@ class LaptopSlick extends Component {
                             this.state.laptopList.map((laptop) => (
                                 <Link to={`/laptops-view/` + laptop.id} key={laptop.id} style={{textDecoration: 'none'}}>
                                     <div>
-                                        <img style={{height: "280px"}} src={laptop.image} alt={'LaptopImage'}/>
+                                        <img style={{height: "230px"}} src={laptop.image} alt={'LaptopImage'}/>
                                         <div>
                                             <h5>{laptop.brand + ' ' + laptop.name + ' ' + laptop.graphicmodel}</h5>
                                         </div>
                                     </div>
+                                    {/*<div className="cardItem">*/}
+                                    {/*    <img style={{height: "280px"}} src={laptop.image} alt={'LaptopImage'}/>*/}
+                                    {/*    <div className="content">*/}
+                                    {/*        <h5>{laptop.brand + ' ' + laptop.name + ' ' + laptop.graphicmodel}</h5>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                 </Link>
                             ))
                     }

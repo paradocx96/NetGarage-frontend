@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import jsPDF from "jspdf";
+import autoTable from 'jspdf-autotable';
 import '../../../assets/style/laptop/LaptopList.css';
 
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
@@ -19,6 +21,7 @@ class LaptopFilterBrand extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onSelectBrand = this.onSelectBrand.bind(this);
+        this.generateLaptopBrandReport = this.generateLaptopBrandReport.bind(this);
     }
 
     componentDidMount = async () => {
@@ -52,6 +55,32 @@ class LaptopFilterBrand extends Component {
             );
     }
 
+    // TODO: Generate Laptop Brands PDF
+    generateLaptopBrandReport = () => {
+        const document = new jsPDF();
+        const tableColumn = ["BRAND", "NAME", "PROCESSOR", "MEMORY", "YEAR"];
+        const tableRows = [];
+
+        this.state.laptopList.map((item) => {
+            const value = [
+                item.brand,
+                item.name + ' ' + item.graphicmodel,
+                item.processorname,
+                item.ramcapacity,
+                item.year
+            ];
+            tableRows.push(value);
+        });
+
+        document.autoTable(tableColumn, tableRows, {startY: 20});
+
+        const date = Date().split(" ");
+        const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
+
+        document.text(`Laptops List for ${this.state.brand}`, 14, 15);
+        document.save(`laptops_report_for_${this.state.brand}_${dateStr}.pdf`);
+    }
+
     divBox = {
         color: '#ffffff'
     }
@@ -73,7 +102,7 @@ class LaptopFilterBrand extends Component {
     }
 
     buttonColor = {
-        backgroundColor : '#4CAF50',
+        backgroundColor: '#4CAF50',
         color: 'white'
     }
 
@@ -103,7 +132,14 @@ class LaptopFilterBrand extends Component {
                                 </Form.Control>
                             </Col>
                             <Col>
-                                <Button type="submit" className={'btn'} style={this.buttonColor}>FIND</Button>
+                                <Button type="submit" className={'btn'} style={this.buttonColor}>FIND</Button>{'\u00A0'}{'\u00A0'}
+                                {
+                                    this.state.laptopList.length === 0 ? (
+                                        <p> </p>
+                                    ) : (
+                                        <Button onClick={this.generateLaptopBrandReport} className={'btn btn-primary'}>Download Report</Button>
+                                    )
+                                }
                             </Col>
                         </Form.Group>
                     </Form>

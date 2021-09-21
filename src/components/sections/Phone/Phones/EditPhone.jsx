@@ -5,7 +5,11 @@ import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
-import {Button, Card, Form} from "react-bootstrap";
+import {Alert, Button, Card, Form} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class EditPhone extends React.Component{
     constructor(props) {
@@ -17,6 +21,16 @@ class EditPhone extends React.Component{
         this.updatePhone = this.updatePhone.bind(this);
         this.onChange = this.onChange.bind(this);
         this.checkPhoneAvailability = this.checkPhoneAvailability.bind(this);
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
+
+        if (this.state.currentUser != null){
+            this.state.loggedIn = 'yes';
+        }
+        else {
+            this.state.loggedIn = 'no';
+        }
 
     }
     initialState={
@@ -357,8 +371,16 @@ class EditPhone extends React.Component{
         }
             =  this.state;
         return (
+            <div>
+                {
+                    this.state.loggedIn === 'no'?
+                        <Redirect to={'login'}/>:
+                        <div></div>
+                }
+                <NavigationBarDashboard/>
+
             <div className={'container-fluid'}>
-                <div style={{"display": this.state.show ? "block" : "none"}}>
+                {/*<div style={{"display": this.state.show ? "block" : "none"}}>
 
                     <Toast1
 
@@ -382,7 +404,9 @@ class EditPhone extends React.Component{
                         }}
                     />
 
-                </div>
+                </div>*/}
+
+
 
                 <h2>Update Phone</h2>
                 <Form onSubmit={this.updatePhone}>
@@ -959,11 +983,44 @@ class EditPhone extends React.Component{
 
                     <br/>
 
+                    <div>
+                        {
+                            this.state.show === true?
+                                <Alert  variant={'success'} dismissible={false}>
+                                    <Alert.Heading>Success</Alert.Heading>
+                                    <p>Successfully updated phone</p>
+
+                                </Alert>:
+                                this.state.showNotAvailable === true?
+                                    <Alert  variant={'warning'} dismissible={false}>
+                                        <Alert.Heading>Warning</Alert.Heading>
+                                        <p>Phone brand and model is already taken</p>
+
+                                    </Alert> :
+                                <div></div>
+                        }
+                    </div>
+
+                    {/*<div>
+                        {
+                            this.state.showNotAvailable === true?
+                                <Alert  variant={'warning'} dismissible={false}>
+                                    <Alert.Heading>Warning</Alert.Heading>
+                                    <p>Phone brand and model is already taken</p>
+
+                                </Alert>:
+                                <div></div>
+                        }
+                    </div>*/}
+
                     <Button type={'submit'} className={'btn btn-success'}>Save Changes</Button>
 
                 </Form>
 
+
+
                 <br/>
+            </div>
             </div>
         );
     }

@@ -3,6 +3,8 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Toast2 from "../../../Toasts/Toast2";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 // import data from "bootstrap/js/src/dom/data";
 
 class AddOS extends React.Component{
@@ -91,6 +93,8 @@ class AddOS extends React.Component{
     render() {
         const {os} = this.state;
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -153,9 +157,10 @@ class AddOS extends React.Component{
                 </Form>
 
             </div>
+            </div>
         );
     }
 
 }
 
-export default AddOS;
+export default CommonCheckAuth(AddOS) ;

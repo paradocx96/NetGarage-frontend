@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from "react-router-dom";
 
 class NavigationBarDashboard extends Component {
 
@@ -20,8 +21,12 @@ class NavigationBarDashboard extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
 
                             <Nav className="me-auto">
-                                <NavDropdown title="MOBILE" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#">MOBILE</NavDropdown.Item>
+                                <NavDropdown title="Phones" id="collasible-nav-dropdown">
+                                    {/*<NavDropdown.Item href="#">MOBILE</NavDropdown.Item>*/}
+                                    <Link to={'/phoneInternal'} className={'dropdown-item'}>Phones</Link>
+                                    <Link to={'/phones/addPhone'} className={'dropdown-item'}>Add Phones</Link>
+                                    <Link to={'/phones/phoneActions'} className={'dropdown-item'}>Phone Actions</Link>
+                                    <Link to={'/phonePdf'} className={'dropdown-item'}>Reports</Link>
                                 </NavDropdown>
 
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">

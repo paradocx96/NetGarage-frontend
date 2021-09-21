@@ -4,6 +4,8 @@ import {Button} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import Toast2 from "../../../Toasts/Toast2";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 class AddChipset extends React.Component{
     constructor(props) {
@@ -103,6 +105,9 @@ class AddChipset extends React.Component{
     render() {
         const {brandAndModel, cpu, gpu, lithography} =  this.state;
         return (
+
+            <div>
+                <NavigationBarDashboard />
             <div className={'container'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -206,8 +211,9 @@ class AddChipset extends React.Component{
                 </Form>
 
             </div>
+            </div>
         );
     }
 
 }
-export default AddChipset;
+export default CommonCheckAuth(AddChipset) ;

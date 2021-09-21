@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Card, Col, Row} from "react-bootstrap";
 import Lightbox from "react-image-lightbox";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 function ViewAllPhonesInternal2(props){
 
@@ -64,4 +65,4 @@ function ViewAllPhonesInternal2(props){
     )
 }
 
-export default ViewAllPhonesInternal2;
+export default CommonCheckAuth(ViewAllPhonesInternal2);

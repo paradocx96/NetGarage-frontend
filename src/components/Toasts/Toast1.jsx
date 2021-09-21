@@ -35,7 +35,7 @@ class Toast1 extends React.Component{
                                         'bg-danger text-white':
                                         this.props.children.type === 'secondary'?
                                             'bg-secondary text-white':
-                                            'bg-danger text-white'}`} closeButton={true}>
+                                            'bg-danger text-white'}`} closeButton={false}>
                         <strong className={'mr-auto'}>Success</strong>
 
                     </Toast.Header>

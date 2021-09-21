@@ -130,7 +130,7 @@ class LaptopFilterBrand extends Component {
                                 </Form.Control>
                             </Col>
                             <Col>
-                                <Button type="submit" className={'btn'} style={this.buttonColor}>FIND</Button>{'\u00A0'}
+                                <Button type="submit" className={'btn'} style={this.buttonColor}>FIND</Button>{'\u00A0'}{'\u00A0'}
                                 {
                                     this.state.laptopList.length === 0 ? (
                                         <p> </p>

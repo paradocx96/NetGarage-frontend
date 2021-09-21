@@ -58,13 +58,15 @@ class LaptopFilterBrand extends Component {
     // TODO: Generate Laptop Brands PDF
     generateLaptopBrandReport = () => {
         const document = new jsPDF();
-        const tableColumn = ["BRAND", "NAME", "YEAR"];
+        const tableColumn = ["BRAND", "NAME", "PROCESSOR", "MEMORY", "YEAR"];
         const tableRows = [];
 
         this.state.laptopList.map((item) => {
             const value = [
                 item.brand,
                 item.name + ' ' + item.graphicmodel,
+                item.processorname,
+                item.ramcapacity,
                 item.year
             ];
             tableRows.push(value);

@@ -67,8 +67,6 @@ class Contact extends Component {
                                         <Card.Body>
                                             <Card.Title>Address</Card.Title>
                                             <Card.Text>NetGarage,</Card.Text>
-                                            <Card.Text>Xxxxxxxxxxxxxxxxxx,</Card.Text>
-                                            <Card.Text>Xxxxxxxxxxxxxx,</Card.Text>
                                             <Card.Text>Sri Lanka.</Card.Text>
                                         </Card.Body>
                                     </Card>

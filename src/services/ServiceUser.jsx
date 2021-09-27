@@ -34,7 +34,7 @@ class StudentService extends Component{
             password
         }).then(response =>{
             if(response.data.accessToken){
-                localStorage.setItem("user", JSON.stringify(response.data));
+                sessionStorage.setItem("user", JSON.stringify(response.data));
                 console.log(JSON.stringify(response.data));
             }
             console.log(response.data);
@@ -43,12 +43,12 @@ class StudentService extends Component{
     }
     //TODO: Get current user
     getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));
+        return JSON.parse(sessionStorage.getItem('user'));
     }
 
     //TODO: Remove current user
     logout() {
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
     }
 
     //TODO: Delete user account

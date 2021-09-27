@@ -34,15 +34,14 @@ class Footer extends Component {
                                 <h4>NetGarage</h4>
                                 <br/>
                                 <h6>Address</h6>
-                                <p>Xxxxxxxxxxxxxxxxxxxx,<br/>
-                                    xxxxxxxxxxxxxxxxxxxxxx,<br/>
+                                <p>NetGarage,<br/>
                                     Sri Lanka</p>
                                 <h6>Telephone</h6>
                                 <p>+94xxxxxxxxx</p>
                                 <h6>Fax</h6>
                                 <p>+94xxxxxxxxx</p>
                                 <h6>Email</h6>
-                                <p>netgarage@email.lk</p>
+                                <p>info@netgarage.lk</p>
                             </Col>
                             <Col>
                                 <h4>Quick links</h4>

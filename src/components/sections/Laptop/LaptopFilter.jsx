@@ -5,6 +5,7 @@ import LaptopFinderBodyWall from "../../layouts/Laptop/LaptopFinderBodyWall";
 import LaptopFilterBrand from "./LaptopFilterBrand";
 import LaptopFilterRam from "./LaptopFilterRam";
 import LaptopFilterProcessor from "./LaptopFilterProcessor";
+import Footer from "../../layouts/Footer/Footer";
 
 class LaptopFilter extends Component {
 
@@ -59,6 +60,7 @@ class LaptopFilter extends Component {
                         </div>
                     </Container>
                 </div>
+                <Footer/>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import AuthHeader from "./AuthHeader";
 
 const BACKEND_BASE_URL = "http://localhost:5000";
 const CHIPSET_URL = "/api/phone/chipset/";
@@ -12,7 +13,8 @@ class PhoneChipsetService extends Component{
 
     //method to add chipset
     addChipset(chipset){
-        return axios.post(BACKEND_BASE_URL + CHIPSET_URL + "addChipset", chipset);
+        return axios.post(BACKEND_BASE_URL + CHIPSET_URL + "addChipset", chipset ,
+            {headers: AuthHeader()});
     }
 
     //method to get all chipsets
@@ -24,21 +26,25 @@ class PhoneChipsetService extends Component{
 
     //method to get chipset by id
     getChipsetById(id){
-        return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "getChipsetById/" + id);
+        return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "getChipsetById/" + id ,
+            {headers: AuthHeader()});
     }
 
     //method to delete chipset
     deleteChipset(id){
-        return axios.delete(BACKEND_BASE_URL + CHIPSET_URL + "deleteChipset/" + id);
+        return axios.delete(BACKEND_BASE_URL + CHIPSET_URL + "deleteChipset/" + id ,
+            {headers: AuthHeader()});
     }
 
     //method to update chipset
     updateChipset(newChipset){
-        return axios.put(BACKEND_BASE_URL + CHIPSET_URL + "updateChipset",newChipset);
+        return axios.put(BACKEND_BASE_URL + CHIPSET_URL + "updateChipset",newChipset ,
+            {headers: AuthHeader()});
     }
 
     isBrandModelAvailable(brandModel){
-        return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "isChipsetAvailable/" + brandModel);
+        return axios.get(BACKEND_BASE_URL + CHIPSET_URL + "isChipsetAvailable/" + brandModel ,
+            {headers: AuthHeader()});
     }
 
     getChipsetByBrandModel (brandModel){

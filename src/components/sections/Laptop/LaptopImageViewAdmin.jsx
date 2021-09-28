@@ -4,6 +4,7 @@ import {Container} from "react-bootstrap";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopImageViewAdmin extends Component {
 
@@ -90,6 +91,7 @@ class LaptopImageViewAdmin extends Component {
                     </div>
                 </Container>
                 <div style={this.divBox}/>
+                <FooterAdmin/>
             </div>
         );
     }

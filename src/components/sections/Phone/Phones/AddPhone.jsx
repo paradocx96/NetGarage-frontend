@@ -8,6 +8,8 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import {Card, Col, Form, Row, Button, Alert} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 
 class AddPhone extends React.Component{
@@ -16,6 +18,15 @@ class AddPhone extends React.Component{
         this.state = this.initialState;
         this.state.show = false;
         this.state.showNotAvailable = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
+
+        console.log("Current user: ", currentUser.roles);
+
+        if(currentUser.roles == 'ROLE_ADMIN'){
+            console.log("User is admin")
+        }
 
         this.onChange = this.onChange.bind(this);
         this.resetForm = this.resetForm.bind(this);
@@ -336,6 +347,14 @@ class AddPhone extends React.Component{
             =  this.state;
         return (
             <div>
+
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN" &&
+                        this.state.currentUser.roles != "ROLE_EDITOR"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
+
                 <NavigationBarDashboard />
             <div className={'container-fluid'}>
                {/* <div style={{"display": this.state.show ? "block" : "none"}}>

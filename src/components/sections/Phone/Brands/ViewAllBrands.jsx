@@ -3,11 +3,16 @@ import PhoneBrandService from "../../../../services/PhoneBrandService";
 import {Button, Table} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class ViewAllBrands extends React.Component{
     constructor(props) {
         super(props);
         this.state = this.initialState;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.navigateToEdit = this.navigateToEdit.bind(this);
 
@@ -33,6 +38,11 @@ class ViewAllBrands extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard />
 
             <div className={'container-fluid'}>

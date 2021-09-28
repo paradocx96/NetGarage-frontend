@@ -783,4 +783,4 @@ class LaptopEdit extends Component {
     }
 }
 
-export default CommonCheckAuth(LaptopEdit);
+export default LaptopEdit;

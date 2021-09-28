@@ -5,6 +5,8 @@ import Toast1 from "../../../Toasts/Toast1";
 import {Table, Button} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 
 class DeletePhones extends React.Component{
@@ -13,6 +15,9 @@ class DeletePhones extends React.Component{
 
         this.state = this.initialState;
         this.state.show = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.requestDelete = this.requestDelete.bind(this);
         this.performDelete = this.performDelete.bind(this);
@@ -79,6 +84,11 @@ class DeletePhones extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
 

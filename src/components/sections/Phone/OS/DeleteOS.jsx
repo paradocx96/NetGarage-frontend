@@ -6,6 +6,8 @@ import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 // import data from "bootstrap/js/src/dom/data";
 
 class DeleteOS extends React.Component{
@@ -13,6 +15,9 @@ class DeleteOS extends React.Component{
         super(props);
         this.state = this.initialState;
         this.state.show = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.requestDelete = this.requestDelete.bind(this);
         this.performDelete = this.performDelete.bind(this);
@@ -76,6 +81,11 @@ class DeleteOS extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard />
             <div className={'container-fluid'}>
 

@@ -377,6 +377,12 @@ class EditPhone extends React.Component{
                         <Redirect to={'login'}/>:
                         <div></div>
                 }
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN" &&
+                    this.state.currentUser.roles != "ROLE_EDITOR"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
 
             <div className={'container-fluid'}>

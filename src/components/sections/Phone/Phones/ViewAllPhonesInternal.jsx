@@ -6,6 +6,8 @@ import 'react-image-lightbox/style.css';
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class ViewAllPhonesInternal extends React.Component{
 
@@ -13,6 +15,9 @@ class ViewAllPhonesInternal extends React.Component{
         super(props);
         this.state = this.initialState;
         this.state.isOpen = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.getChipsetNameForId = this.getChipsetNameForId.bind(this);
 
@@ -45,6 +50,11 @@ class ViewAllPhonesInternal extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 <h2>All Phones</h2>

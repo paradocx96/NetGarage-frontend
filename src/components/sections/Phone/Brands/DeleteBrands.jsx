@@ -5,12 +5,17 @@ import {confirmAlert} from "react-confirm-alert";
 import Toast1 from "../../../Toasts/Toast1";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class DeleteBrands extends React.Component{
     constructor(props) {
         super(props);
         this.state = this.initialState;
         this.state.show = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
     }
 
@@ -69,6 +74,11 @@ class DeleteBrands extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard />
                 <div style={{"display": this.state.show ? "block" : "none"}}>
 

@@ -128,6 +128,11 @@ class EditChipset extends React.Component{
                         <Redirect to={'login'}/>:
                         <div></div>
                 }
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
             <div className={'container-fluid'}>
                 {/*<h2>Chipset id : {this.state.id}</h2>*/}

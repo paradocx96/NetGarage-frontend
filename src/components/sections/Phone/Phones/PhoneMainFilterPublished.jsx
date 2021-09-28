@@ -4,6 +4,7 @@ import PhoneBrandFilterPublished from "./PhoneBrandFilterPublished";
 import PhoneOsFilterPublished from "./PhoneOsFilterPublished";
 import PhoneChipsetFilterPublished from "./PhoneChipsetFilterPublished";
 import SearchPhones from "./SearchPhones";
+import Footer from "../../../layouts/Footer/Footer";
 
 
 
@@ -25,6 +26,7 @@ class PhoneMainFilterPublished extends React.Component{
 
     render() {
         return (
+            <div>
             <div className={'container-fluid'}>
 
 
@@ -59,6 +61,12 @@ class PhoneMainFilterPublished extends React.Component{
                                 <PhoneChipsetFilterPublished />
                     }
                 </div>
+
+                <br/> <br/> <br/>
+
+
+            </div>
+                <Footer />
             </div>
         );
     }

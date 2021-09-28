@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Card, Col, Form, Row, Table} from "react-bootstrap";
 
 import PhoneService from "../../../../services/PhoneService";
+import Footer from "../../../layouts/Footer/Footer";
 
 class ComparePhones extends React.Component{
     constructor(props) {
@@ -860,6 +861,9 @@ class ComparePhones extends React.Component{
 
                     </Col>
                 </Row>
+
+                <br/> <br/> <br/> <br/> <br/> <br/>
+                <Footer />
             </div>
         );
     }

@@ -18,7 +18,8 @@ class PhoneService extends Component{
     }
     //method to get all phone entries
     getAllPhones(){
-        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getAllPhones");
+        return axios.get(BACKEND_BASE_URL + PHONE_URL + "getAllPhones",
+            {headers: AuthHeader()});
     }
 
     //method to get phone by id

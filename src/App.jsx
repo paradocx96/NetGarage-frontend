@@ -68,6 +68,7 @@ import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMa
 import ComparePhones from "./components/sections/Phone/Phones/ComparePhones";
 import PhoneInternal from "./components/pages/PhoneInternal";
 import PhonePdf from "./components/sections/Phone/Phones/PhonePdf";
+import NoPermission from "./components/pages/NoPermission";
 
 
 
@@ -82,6 +83,7 @@ function App() {
                     <Route exact path="/" component={Homepage}/>
                     <Route path="/page-not-found" component={Error404}/>
                     <Route path="/contact" component={Contact}/>
+                    <Route path="/no-permission" component={NoPermission}/>
 
 
                     {/* USER  */}
@@ -95,7 +97,7 @@ function App() {
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
-                    <Route path="/phones/main" component={Phones}/>
+                   {/* <Route path="/phones/main" component={Phones}/>*/}
                     <Route path="/phoneInternal" component={PhoneInternal}/>
                     <Route path="/phonePdf" component={PhonePdf}/>
 
@@ -119,7 +121,7 @@ function App() {
                     {/*phones*/}
                     <Route path="/phones/phoneActions" exact component={PhoneActions}/>
                     <Route path="/phones/viewAllPhonesInternal1" exact component={ViewAllPhonesInternal}/>
-                    <Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>
+                    {/*<Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>*/}
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
                     <Route path="/phones/deletePhones" exact component={DeletePhones}/>
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>

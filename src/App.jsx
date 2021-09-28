@@ -68,6 +68,7 @@ import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMa
 import ComparePhones from "./components/sections/Phone/Phones/ComparePhones";
 import PhoneInternal from "./components/pages/PhoneInternal";
 import PhonePdf from "./components/sections/Phone/Phones/PhonePdf";
+import NoPermission from "./components/pages/NoPermission";
 
 
 
@@ -82,6 +83,7 @@ function App() {
                     <Route exact path="/" component={Homepage}/>
                     <Route path="/page-not-found" component={Error404}/>
                     <Route path="/contact" component={Contact}/>
+                    <Route path="/no-permission" component={NoPermission}/>
 
 
                     {/* USER  */}

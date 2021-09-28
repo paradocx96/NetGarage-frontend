@@ -10,6 +10,7 @@ import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopUpdateBodyWall from "../../layouts/Laptop/LaptopUpdateBodyWall";
 import LaptopImageUploadEdit from "./LaptopImageUploadEdit";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopEdit extends Component {
 
@@ -773,6 +774,7 @@ class LaptopEdit extends Component {
                         </section>
                     </Form>
                 </section>
+                <FooterAdmin/>
             </div>
         );
     }

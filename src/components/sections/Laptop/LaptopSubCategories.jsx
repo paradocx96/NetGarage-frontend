@@ -7,6 +7,7 @@ import LaptopBrand from "./LaptopBrand";
 import LaptopProcessor from "./LaptopProcessor";
 import LaptopOs from "./LaptopOS";
 import LaptopGraphic from "./LaptopGraphic";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopSubCategories extends Component {
 
@@ -35,6 +36,7 @@ class LaptopSubCategories extends Component {
                         <LaptopGraphic/>
                     </Tab>
                 </Tabs>
+                <FooterAdmin/>
             </div>
         );
     }

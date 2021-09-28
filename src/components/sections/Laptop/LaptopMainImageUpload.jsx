@@ -6,6 +6,7 @@ import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 function LaptopMainImageUpload(props) {
 
@@ -122,6 +123,7 @@ function LaptopMainImageUpload(props) {
                 <div style={divBox}/>
             </Container>
             <div style={divBox}/>
+            <FooterAdmin/>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import {Card, Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 import NavigationBarDashboard from "../layouts/Navigation/NavigationBarDashboard";
-import Footer from "../layouts/Footer/Footer";
+import FooterAdmin from "../layouts/Footer/FooterAdmin";
 
 class Dashboard extends Component {
 
@@ -22,8 +22,8 @@ class Dashboard extends Component {
         margin: '20px',
         padding: '20px',
         borderRadius: '25px',
-        backgroundColor: '#ffffff',
-        minHeight: '200px',
+        backgroundColor: '#212121',
+        minHeight: '490px',
         textAlign: 'center'
     }
 
@@ -41,7 +41,7 @@ class Dashboard extends Component {
                             <div className={'row'}>
                                 <div className={'col'}>
                                     <Link to={'/phones/addPhone'} style={{textDecoration: 'none'}}>
-                                        <Card>
+                                        <Card className={''}>
                                             <Card.Body>
                                                 <Card.Title>ADD NEW PHONE</Card.Title>
                                             </Card.Body>
@@ -99,7 +99,7 @@ class Dashboard extends Component {
                         </section>
                     </div>
                 </Container>
-                <Footer/>
+                <FooterAdmin/>
             </div>
         );
     }

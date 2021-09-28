@@ -8,6 +8,7 @@ import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopDashboardBodyWall from "../../layouts/Laptop/LaptopDashboardBodyWall";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopDashboard extends Component {
 
@@ -292,6 +293,7 @@ class LaptopDashboard extends Component {
                     </div>
                 </Container>
                 <div style={this.divBox}/>
+                <FooterAdmin/>
             </div>
         );
     }

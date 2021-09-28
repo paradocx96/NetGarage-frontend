@@ -8,6 +8,7 @@ import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
 import ServiceLaptopOS from "../../../services/ServiceLaptopOS";
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopAdd extends Component {
 
@@ -709,6 +710,7 @@ class LaptopAdd extends Component {
 
                 </Form>
                 <div style={this.divBox}/>
+                <FooterAdmin/>
             </div>
         );
     }

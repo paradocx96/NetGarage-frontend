@@ -26,4 +26,8 @@ export default new class ServiceLaptopOS {
     updateLaptopOS(value) {
         return axios.put(URL + "/update", value,{headers: AuthHeader()});
     }
+
+    checkAvailable(value) {
+        return axios.get(URL + "/check/" + value, {headers: AuthHeader()});
+    }
 }

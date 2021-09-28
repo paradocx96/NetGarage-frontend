@@ -26,4 +26,8 @@ export default new class ServiceLaptopProcessor {
     updateLaptopProcessor(value) {
         return axios.put(URL + "/update", value,{headers: AuthHeader()});
     }
+
+    checkAvailable(value) {
+        return axios.get(URL + "/check/" + value, {headers: AuthHeader()});
+    }
 }

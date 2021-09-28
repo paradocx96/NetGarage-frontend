@@ -16,7 +16,9 @@ class LaptopFilterBrand extends Component {
             brandList: [],
             brand: 'Brand',
             laptopList: '',
-            filterInitiated: false
+            filterInitiated: false,
+            show: false,
+            showNotAvailable: false
         }
 
         this.onSubmit = this.onSubmit.bind(this);

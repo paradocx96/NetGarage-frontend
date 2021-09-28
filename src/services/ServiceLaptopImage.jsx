@@ -1,5 +1,6 @@
 import axios from "axios";
 import connection from "./connecction.json";
+import AuthHeader from "./AuthHeader";
 
 const SERVICE_URL = "/laptop-image";
 const URL = connection.remoteAddress + SERVICE_URL;
@@ -13,7 +14,7 @@ export default new class ServiceLaptopImage {
     //     "user" : ""
     //  }
     postLaptopImage(value) {
-        return axios.post(URL + "/add", value);
+        return axios.post(URL + "/add", value,{headers: AuthHeader()});
     }
 
     getLaptopImage() {
@@ -35,7 +36,7 @@ export default new class ServiceLaptopImage {
     //     "user" : ""
     //  }
     updateLaptopImageByLaptopId(value) {
-        return axios.put(URL + "/update", value);
+        return axios.put(URL + "/update", value,{headers: AuthHeader()});
     }
 
     // TODO: PUT IMAGE
@@ -45,10 +46,10 @@ export default new class ServiceLaptopImage {
     //     "user" : ""
     //  }
     updateLaptopMainImageByLaptopId(value) {
-        return axios.put(URL + "/update-main", value);
+        return axios.put(URL + "/update-main", value,{headers: AuthHeader()});
     }
 
     deleteLaptopImageByLaptopId(id) {
-        return axios.delete(URL + "/delete/" + id);
+        return axios.delete(URL + "/delete/" + id,{headers: AuthHeader()});
     }
 }

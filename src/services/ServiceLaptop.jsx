@@ -1,5 +1,6 @@
 import axios from "axios";
 import connection from "./connecction.json";
+import AuthHeader from "./AuthHeader";
 
 const SERVICE_URL = "/laptop";
 const URL = connection.remoteAddress + SERVICE_URL;
@@ -7,11 +8,11 @@ const URL = connection.remoteAddress + SERVICE_URL;
 export default new class ServiceLaptop {
 
     postLaptop(value) {
-        return axios.post(URL + "/add", value);
+        return axios.post(URL + "/add", value,{headers: AuthHeader()});
     }
 
     getLaptop() {
-        return axios.get(URL + "/get");
+        return axios.get(URL + "/get",{headers: AuthHeader()});
     }
 
     getLaptopByStatus(status) {
@@ -19,11 +20,11 @@ export default new class ServiceLaptop {
     }
 
     updateLaptopStatus(value) {
-        return axios.put(URL + "/update-status/", value);
+        return axios.put(URL + "/update-status/", value,{headers: AuthHeader()});
     }
 
     deleteLaptopById(id) {
-        return axios.delete(URL + "/delete/" + id);
+        return axios.delete(URL + "/delete/" + id,{headers: AuthHeader()});
     }
 
     getLaptopById(id) {
@@ -35,11 +36,11 @@ export default new class ServiceLaptop {
     }
 
     updateLaptop(value) {
-        return axios.put(URL + "/update/", value);
+        return axios.put(URL + "/update/", value,{headers: AuthHeader()});
     }
 
     updateLaptopImage(value) {
-        return axios.put(URL + "/update-image/", value);
+        return axios.put(URL + "/update-image/", value,{headers: AuthHeader()});
     }
 
     deleteLaptopSelected(value) {
@@ -59,6 +60,6 @@ export default new class ServiceLaptop {
     }
 
     generateReportAllLaptops() {
-        return axios.get(URL + "/report-all/");
+        return axios.get(URL + "/report-all/",{headers: AuthHeader()});
     }
 }

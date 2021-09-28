@@ -117,6 +117,12 @@ class EditOS extends React.Component{
                         <div></div>
                 }
 
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
+
                 <NavigationBarDashboard />
             <div className={'container-fluid'}>
 

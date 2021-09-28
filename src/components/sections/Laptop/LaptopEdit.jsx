@@ -11,6 +11,7 @@ import LaptopImageUploadEdit from "./LaptopImageUploadEdit";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopUpdateBodyWall from "../../layouts/Laptop/LaptopUpdateBodyWall";
 import FooterAdmin from "../../layouts/Footer/FooterAdmin";
+import ServiceUser from "../../../services/ServiceUser";
 
 class LaptopEdit extends Component {
 
@@ -46,6 +47,8 @@ class LaptopEdit extends Component {
             getOS: [],
             getProcessor: []
         }
+        this.state.currentUser = '';
+        this.state.currentUser = ServiceUser.getCurrentUser();
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -260,7 +263,7 @@ class LaptopEdit extends Component {
 
         let value = {
             id: this.state.lid,
-            user: "Admin",
+            user: this.state.currentUser.username,
             status: "Deactivate",
             name: this.state.name,
             type: this.state.type,

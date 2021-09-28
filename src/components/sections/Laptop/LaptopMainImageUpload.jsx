@@ -118,7 +118,7 @@ function LaptopMainImageUpload(props) {
                 <br/>
 
                 <img style={{width: "500px"}}
-                     src={url || "http://via.placeholder.com/100"}
+                     src={url || "https://via.placeholder.com/100"}
                      alt="firebase-image" />
 
                 <div style={divBox}/>

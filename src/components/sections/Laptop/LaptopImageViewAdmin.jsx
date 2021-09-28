@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Container} from "react-bootstrap";
-import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
@@ -84,7 +83,7 @@ class LaptopImageViewAdmin extends Component {
                                     <img
                                         key={i}
                                         style={{width: "500px"}}
-                                        src={url || 'http://via.placeholder.com/300'}
+                                        src={url || 'https://via.placeholder.com/300'}
                                         alt="firebase-image"
                                     />
                                 ))
@@ -98,4 +97,4 @@ class LaptopImageViewAdmin extends Component {
     }
 }
 
-export default CommonCheckAuth(LaptopImageViewAdmin);
+export default LaptopImageViewAdmin;

@@ -3,12 +3,14 @@ import {storage} from "../../../firebase/FirebaseLaptop";
 import {Button, Col, Container, Form, ProgressBar, Row} from "react-bootstrap";
 
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
+import ServiceUser from "../../../services/ServiceUser";
 
 function LaptopImageUploadEdit({LaptopId}) {
 
     const [images, setImages] = useState([]);
     const [urls, setUrls] = useState([]);
     const [progress, setProgress] = useState(0);
+    const [currentUser, setCurrentUser] = useState(ServiceUser.getCurrentUser());
 
     const handleChange = (e) => {
         for (let i = 0; i < e.target.files.length; i++) {
@@ -55,7 +57,7 @@ function LaptopImageUploadEdit({LaptopId}) {
         const value = {
             lid: LaptopId,
             link: urls,
-            user: 'Admin'
+            user: currentUser.username
         }
 
         console.log(value);
@@ -96,7 +98,7 @@ function LaptopImageUploadEdit({LaptopId}) {
                                 <img
                                     key={i}
                                     style={{width: "100px"}}
-                                    src={url || "http://via.placeholder.com/50"}
+                                    src={url || "https://via.placeholder.com/50"}
                                     alt="New-Laptop-Images"
                                 />
                             ))}

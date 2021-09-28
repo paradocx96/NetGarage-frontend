@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {storage} from "../../../../firebase/FirebaseLaptop";
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
 import PhoneService from "../../../../services/PhoneService";
 // import data from "bootstrap/js/src/dom/data";
 import {Button, Form, ProgressBar} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
 
 function PhoneMainImageUpload(props){
 
@@ -14,13 +15,17 @@ function PhoneMainImageUpload(props){
     const [progress, setProgress] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [brandmodel, setBrandModel] = useState("");
+    const [currentUser, setCurrentUser] = useState(ServiceUser.getCurrentUser());
 
     useEffect( async  () => {
         await PhoneService.getPhoneById(params.id)
             .then(response => response.data)
             .then((data) => {
                 setBrandModel(data.brandmodel);
-            })
+            }).catch(error => {
+                console.log("Cannot get phone by ID. Error: ",error);
+            });
+        console.log("Current user roles:",currentUser.roles);
     });
 
     const params = useParams();
@@ -85,6 +90,10 @@ function PhoneMainImageUpload(props){
 
     return(
         <div>
+            {
+                currentUser.roles != "ROLE_ADMIN" && currentUser.roles != "ROLE_EDITOR"?
+                    <Redirect to={'/no-permission'} />: <div></div>
+            }
             <NavigationBarDashboard/>
 
         <div className={'container-fluid'}>

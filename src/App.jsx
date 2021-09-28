@@ -97,7 +97,7 @@ function App() {
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
-                    <Route path="/phones/main" component={Phones}/>
+                   {/* <Route path="/phones/main" component={Phones}/>*/}
                     <Route path="/phoneInternal" component={PhoneInternal}/>
                     <Route path="/phonePdf" component={PhonePdf}/>
 
@@ -121,7 +121,7 @@ function App() {
                     {/*phones*/}
                     <Route path="/phones/phoneActions" exact component={PhoneActions}/>
                     <Route path="/phones/viewAllPhonesInternal1" exact component={ViewAllPhonesInternal}/>
-                    <Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>
+                    {/*<Route path="/phones/viewAllPhonesInternal" exact component={ViewAllPhonesInternal2}/>*/}
                     <Route path="/phones/addPhone" exact component={AddPhone}/>
                     <Route path="/phones/deletePhones" exact component={DeletePhones}/>
                     <Route path="/phones/editPhone/:id" exact component={EditPhone}/>

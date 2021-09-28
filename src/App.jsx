@@ -37,6 +37,7 @@ import EditOS from "./components/sections/Phone/OS/EditOS";
 
 //LAPTOP
 import Laptop from "./components/pages/Laptop";
+import LaptopFilter from "./components/sections/Laptop/LaptopFilter";
 import LaptopAdd from "./components/sections/Laptop/LaptopAdd";
 import LaptopDashboard from "./components/sections/Laptop/LaptopDashboard";
 import LaptopImageUpload from "./components/sections/Laptop/LaptopImageUpload";
@@ -65,6 +66,8 @@ import PhoneChipsetFilterPublished from "./components/sections/Phone/Phones/Phon
 import PhoneOsFilterPublished from "./components/sections/Phone/Phones/PhoneOsFilterPublished";
 import PhoneMainFilterPublished from "./components/sections/Phone/Phones/PhoneMainFilterPublished";
 import ComparePhones from "./components/sections/Phone/Phones/ComparePhones";
+import PhoneInternal from "./components/pages/PhoneInternal";
+import PhonePdf from "./components/sections/Phone/Phones/PhonePdf";
 
 
 
@@ -93,6 +96,8 @@ function App() {
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
                     <Route path="/phones/main" component={Phones}/>
+                    <Route path="/phoneInternal" component={PhoneInternal}/>
+                    <Route path="/phonePdf" component={PhonePdf}/>
 
                     {/*Phone chipset*/}
                     <Route path="/chipsets/viewAll" component={ViewAllChipsets}/>
@@ -132,6 +137,7 @@ function App() {
 
                     {/* LAPTOP */}
                     <Route path="/laptops" component={Laptop}/>
+                    <Route path="/laptops-finder" component={LaptopFilter}/>
                     <Route path="/laptops-view/:id" component={LaptopHomepageSingleView}/>
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>

@@ -85,7 +85,7 @@ class SearchPhones extends React.Component{
                             <div>No results</div>:
                             this.state.phones.map((e) => (
                                 <div>
-                                    <Card onClick={event => this.navigateToSinglePhoneView(this,e.id)}>
+                                    <Card border={'success'} onClick={event => this.navigateToSinglePhoneView(this,e.id)}>
                                         <Card.Body>
                                             <Row>
                                                 <Col>

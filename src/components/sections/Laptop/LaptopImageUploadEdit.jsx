@@ -78,7 +78,7 @@ function LaptopImageUploadEdit({LaptopId}) {
                     <Col sm={6}>
                         <Form>
                             <Form.Group controlId="formFileMultiple" className="mb-3">
-                                <Form.Label>Select Laptops Images</Form.Label>
+                                <Form.Label>Select Laptops Images</Form.Label><br/>
                                 <Form.Control type="file" required multiple onChange={handleChange}/>
                             </Form.Group>
                             <Form.Group controlId="ProgressBar" className="mb-3">

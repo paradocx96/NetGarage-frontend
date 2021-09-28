@@ -4,6 +4,8 @@ import {useParams} from "react-router-dom";
 import PhoneService from "../../../../services/PhoneService";
 // import data from "bootstrap/js/src/dom/data";
 import {Button, Form, ProgressBar} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 function PhoneMainImageUpload(props){
 
@@ -82,12 +84,17 @@ function PhoneMainImageUpload(props){
     }
 
     return(
+        <div>
+            <NavigationBarDashboard/>
+
         <div className={'container-fluid'}>
             <h1>Image Upload</h1>
             <h3>ID : {params.id}</h3>
             <h3>Name : {brandmodel}</h3>
 
             <ProgressBar animated={true} now={progress} />
+
+            <br/>
 
             <Form.Group>
                 <Form.Label>Select Phone Main Image</Form.Label>
@@ -98,11 +105,12 @@ function PhoneMainImageUpload(props){
             </Form.Group>
 
             <br/>
-            <img style={{width: "500px"}}
+            <img style={{width: "100px"}}
                  src={url || "http://via.placeholder.com/100"}
                  alt="firebase-image" />
+        </div>
         </div>
     )
 }
 
-export default PhoneMainImageUpload;
+export default CommonCheckAuth(PhoneMainImageUpload);

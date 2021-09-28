@@ -2,6 +2,9 @@ import React from "react";
 import PhoneService from "../../../../services/PhoneService";
 import {Button, Table} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import {Link} from "react-router-dom";
 
 class PhoneActions extends React.Component{
 
@@ -65,6 +68,8 @@ class PhoneActions extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard/>
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.showpublished ? "block" : "none"}}>
@@ -94,6 +99,8 @@ class PhoneActions extends React.Component{
                 </div>
 
                 <h2>All Phones</h2>
+
+                {/*<Link to={'/phonePdf'}>Generate Report</Link>*/}
 
                 <Table striped bordered hover variant={'light'}>
                     <thead>
@@ -159,10 +166,11 @@ class PhoneActions extends React.Component{
                 </Table>
 
             </div>
+            </div>
         );
     }
 
 
 }
 
-export default PhoneActions;
+export default CommonCheckAuth(PhoneActions);

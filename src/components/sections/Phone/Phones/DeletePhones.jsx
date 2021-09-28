@@ -3,6 +3,8 @@ import PhoneService from "../../../../services/PhoneService";
 import {confirmAlert} from "react-confirm-alert";
 import Toast1 from "../../../Toasts/Toast1";
 import {Table, Button} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class DeletePhones extends React.Component{
@@ -77,6 +79,7 @@ class DeletePhones extends React.Component{
     render() {
         return (
             <div>
+                <NavigationBarDashboard/>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
 
                     <Toast1
@@ -129,4 +132,4 @@ class DeletePhones extends React.Component{
 
 }
 
-export default DeletePhones;
+export default CommonCheckAuth(DeletePhones);

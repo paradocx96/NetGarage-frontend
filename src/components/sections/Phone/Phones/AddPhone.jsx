@@ -5,7 +5,9 @@ import Toast2 from "../../../Toasts/Toast2";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import PhoneOSService from "../../../../services/PhoneOSService";
-import {Card, Col, Form, Row, Button} from "react-bootstrap";
+import {Card, Col, Form, Row, Button, Alert} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class AddPhone extends React.Component{
@@ -333,8 +335,10 @@ class AddPhone extends React.Component{
         }
             =  this.state;
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
-                <div style={{"display": this.state.show ? "block" : "none"}}>
+               {/* <div style={{"display": this.state.show ? "block" : "none"}}>
 
                     <Toast1
 
@@ -358,7 +362,7 @@ class AddPhone extends React.Component{
                         }}
                     />
 
-                </div>
+                </div>*/}
                 <h2>Add Phone</h2>
                 <Form onReset={this.resetForm} onSubmit={this.submitPhone}>
                 <Card className={'bg-transparent'}>
@@ -931,6 +935,24 @@ class AddPhone extends React.Component{
                     <br/>
 
                     <div>
+                        {
+                            this.state.show === true?
+                                <Alert  variant={'success'} dismissible={false}>
+                                    <Alert.Heading>Success</Alert.Heading>
+                                    <p>Successfully added phone</p>
+
+                                </Alert>:
+                                this.state.showNotAvailable === true?
+                                    <Alert  variant={'warning'} dismissible={false}>
+                                        <Alert.Heading>Warning</Alert.Heading>
+                                        <p>Phone brand and model is already taken</p>
+
+                                    </Alert> :
+                                    <div></div>
+                        }
+                    </div>
+
+                    <div>
 
                         <Row>
                             <Col>
@@ -949,8 +971,9 @@ class AddPhone extends React.Component{
                     <br/>
                 </Form>
             </div>
+            </div>
         );
     }
 }
 
-export default AddPhone;
+export default CommonCheckAuth(AddPhone);

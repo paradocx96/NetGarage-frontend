@@ -3,6 +3,10 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import Toast2 from "../../../Toasts/Toast2";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 // import data from "bootstrap/js/src/dom/data";
 
 class EditOS extends React.Component{
@@ -15,6 +19,17 @@ class EditOS extends React.Component{
         this.onChange = this.onChange.bind(this);
         this.updateOS = this.updateOS.bind(this);
         this.checkOSAvailability = this.checkOSAvailability.bind(this);
+
+        //check whether the user is logged in
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
+
+        if (this.state.currentUser != null){
+            this.state.loggedIn = 'yes';
+        }
+        else {
+            this.state.loggedIn = 'no';
+        }
 
     }
 
@@ -94,6 +109,15 @@ class EditOS extends React.Component{
     render() {
         const {os} = this.state;
         return (
+            <div>
+
+                {
+                    this.state.loggedIn === 'no'?
+                        <Redirect to={'login'}/>:
+                        <div></div>
+                }
+
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -151,6 +175,7 @@ class EditOS extends React.Component{
                     </Card>
                 </Form>
 
+            </div>
             </div>
         );
     }

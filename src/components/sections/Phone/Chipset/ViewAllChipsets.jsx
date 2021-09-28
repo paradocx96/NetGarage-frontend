@@ -1,6 +1,8 @@
 import React from "react";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import {Button, Table} from "react-bootstrap";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 
 
 class ViewAllChipsets extends React.Component{
@@ -34,6 +36,8 @@ class ViewAllChipsets extends React.Component{
 
     render() {
         return (
+            <div>
+                <NavigationBarDashboard />
             <div className={'container-fluid'}>
 
                 <h2>All Chipsets</h2>
@@ -75,8 +79,9 @@ class ViewAllChipsets extends React.Component{
                 </Table>
 
             </div>
+            </div>
         );
     }
 
 }
-export default ViewAllChipsets;
+export default CommonCheckAuth(ViewAllChipsets);

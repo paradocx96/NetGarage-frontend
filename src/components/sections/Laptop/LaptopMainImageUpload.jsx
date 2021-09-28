@@ -6,6 +6,7 @@ import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 function LaptopMainImageUpload(props) {
 
@@ -107,7 +108,7 @@ function LaptopMainImageUpload(props) {
                 <ProgressBar animated now={progress}/>
                 <br/>
                 <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>Select Laptop Main Image</Form.Label>
+                    <Form.Label>Select Laptop Main Image</Form.Label><br/>
                     <Form.Control type="file" required onChange={handleChange}/>
                 </Form.Group>
                 <Button onClick={handleUpload} className={'btn-primary'}>Upload</Button>{' '}
@@ -122,6 +123,7 @@ function LaptopMainImageUpload(props) {
                 <div style={divBox}/>
             </Container>
             <div style={divBox}/>
+            <FooterAdmin/>
         </div>
     );
 }

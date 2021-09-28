@@ -1,9 +1,8 @@
 import axios from "axios";
+import connection from "./connecction.json";
 
-// const API_BASE_URL = "http://localhost:5000";
-const API_BASE_URL_REMOTE = "https://netgarage-api.herokuapp.com";
 const SERVICE_URL = "/laptop-processor";
-const URL = API_BASE_URL_REMOTE + SERVICE_URL;
+const URL = connection.remoteAddress + SERVICE_URL;
 
 export default new class ServiceLaptopProcessor {
 

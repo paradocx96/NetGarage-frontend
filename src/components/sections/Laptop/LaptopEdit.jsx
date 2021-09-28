@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
-
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
 import ServiceLaptopOS from "../../../services/ServiceLaptopOS";
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
 
+import LaptopImageUploadEdit from "./LaptopImageUploadEdit";
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopUpdateBodyWall from "../../layouts/Laptop/LaptopUpdateBodyWall";
-import LaptopImageUploadEdit from "./LaptopImageUploadEdit";
 import FooterAdmin from "../../layouts/Footer/FooterAdmin";
+import ServiceUser from "../../../services/ServiceUser";
 
 class LaptopEdit extends Component {
 
@@ -46,6 +47,8 @@ class LaptopEdit extends Component {
             getOS: [],
             getProcessor: []
         }
+        this.state.currentUser = '';
+        this.state.currentUser = ServiceUser.getCurrentUser();
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -260,7 +263,7 @@ class LaptopEdit extends Component {
 
         let value = {
             id: this.state.lid,
-            user: "Admin",
+            user: this.state.currentUser.username,
             status: "Deactivate",
             name: this.state.name,
             type: this.state.type,
@@ -780,4 +783,4 @@ class LaptopEdit extends Component {
     }
 }
 
-export default LaptopEdit;
+export default CommonCheckAuth(LaptopEdit);

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Container} from "react-bootstrap";
-
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopImageViewAdmin extends Component {
@@ -83,7 +83,7 @@ class LaptopImageViewAdmin extends Component {
                                     <img
                                         key={i}
                                         style={{width: "500px"}}
-                                        src={url || 'http://via.placeholder.com/300'}
+                                        src={url || 'https://via.placeholder.com/300'}
                                         alt="firebase-image"
                                     />
                                 ))

@@ -81,7 +81,7 @@ function App() {
                 <Switch>
                     {/* HOMEPAGE */}
                     <Route exact path="/" component={Homepage}/>
-                    <Route path="/page-not-found" component={Error404}/>
+                    <Route path="/error" component={Error404}/>
                     <Route path="/contact" component={Contact}/>
                     <Route path="/no-permission" component={NoPermission}/>
 
@@ -141,6 +141,9 @@ function App() {
                     <Route path="/laptops" component={Laptop}/>
                     <Route path="/laptops-finder" component={LaptopFilter}/>
                     <Route path="/laptops-view/:id" component={LaptopHomepageSingleView}/>
+
+
+                    {/* LAPTOP DASHBOARD */}
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
                     <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
@@ -154,7 +157,7 @@ function App() {
                     <Route path="/dashboard" component={Dashboard}/>
 
 
-                    <Redirect to="/page-not-found"/>
+                    <Redirect to="/error"/>
                 </Switch>
             </Router>
         </div>

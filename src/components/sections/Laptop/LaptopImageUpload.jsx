@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+import ServiceUser from "../../../services/ServiceUser";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
@@ -32,6 +34,7 @@ function LaptopImageUpload() {
     const [progress, setProgress] = useState(0);
     const [brand, setBrand] = useState('');
     const [name, setName] = useState('');
+    const [currentUser, setCurrentUser] = useState(ServiceUser.getCurrentUser());
 
     useEffect(async () => {
         await ServiceLaptop.getLaptopObjectById(params.lid)
@@ -89,7 +92,7 @@ function LaptopImageUpload() {
         const value = {
             lid: params.lid,
             link: urls,
-            user: 'Admin'
+            user: currentUser.username
         }
 
         await ServiceLaptopImage.postLaptopImage(value)
@@ -136,7 +139,7 @@ function LaptopImageUpload() {
                         <img
                             key={i}
                             style={{width: "500px"}}
-                            src={url || "http://via.placeholder.com/300"}
+                            src={url || "https://via.placeholder.com/300"}
                             alt="firebase-image"
                         />
                     ))}
@@ -149,4 +152,4 @@ function LaptopImageUpload() {
     );
 }
 
-export default LaptopImageUpload;
+export default CommonCheckAuth(LaptopImageUpload);

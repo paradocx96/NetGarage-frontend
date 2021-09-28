@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 import NavigationBarDashboard from "../layouts/Navigation/NavigationBarDashboard";
 import FooterAdmin from "../layouts/Footer/FooterAdmin";
@@ -105,4 +106,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default CommonCheckAuth(Dashboard);

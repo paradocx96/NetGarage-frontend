@@ -3,6 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
+import ServiceUser from "../../../services/ServiceUser";
 import "../../../assets/style/AddFeedback.css"
 
 // TODO: Validating registration form fields
@@ -24,9 +25,13 @@ class AddFeedback extends Component {
 
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReset = this.handleReset.bind(this);
+        this.onChangeUserNickname = this.onChangeUserNickname.bind(this);
+        this.onChangeUserComment = this.onChangeUserComment.bind(this);
 
         this.state = {
-            deviceID:"",
+            deviceID:"1000",
             userNickname:"",
             userComment:""
         };
@@ -44,7 +49,7 @@ class AddFeedback extends Component {
     }
 
     handleReset = e => {
-        this.setState({ userNickname:'', userComment:''})
+        this.setState({ userNickname:"", userComment:""})
     }
 
     handleSubmit(event){
@@ -52,6 +57,14 @@ class AddFeedback extends Component {
 
         // TODO: Validate form fields
         this.form.validateAll();
+
+        if (this.checkBtn.context._errors.length === 0) {
+            ServiceUser.addUserFeedback(this.state.deviceID, this.state.userNickname, this.state.userComment)
+                .then(response => {
+                    console.log(response.data);
+                });
+        }
+
     }
 
     // TODO: Display Website

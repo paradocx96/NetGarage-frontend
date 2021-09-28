@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Container} from "react-bootstrap";
-
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopImageViewAdmin extends Component {
@@ -97,4 +98,4 @@ class LaptopImageViewAdmin extends Component {
     }
 }
 
-export default LaptopImageViewAdmin;
+export default CommonCheckAuth(LaptopImageViewAdmin);

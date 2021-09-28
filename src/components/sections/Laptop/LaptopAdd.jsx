@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
-
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
 import ServiceLaptopOS from "../../../services/ServiceLaptopOS";
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
+
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
 import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopAdd extends Component {
@@ -716,4 +717,4 @@ class LaptopAdd extends Component {
     }
 }
 
-export default LaptopAdd;
+export default CommonCheckAuth(LaptopAdd);

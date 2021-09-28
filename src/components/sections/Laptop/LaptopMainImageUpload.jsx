@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import {useParams} from "react-router-dom";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
@@ -128,4 +129,4 @@ function LaptopMainImageUpload(props) {
     );
 }
 
-export default LaptopMainImageUpload;
+export default CommonCheckAuth(LaptopMainImageUpload);

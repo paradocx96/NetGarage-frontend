@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Tab, Tabs} from "react-bootstrap";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopSubCategoriesBodyWall from "../../layouts/Laptop/LaptopSubCategoriesBodyWall";
@@ -42,4 +43,4 @@ class LaptopSubCategories extends Component {
     }
 }
 
-export default LaptopSubCategories;
+export default CommonCheckAuth(LaptopSubCategories);

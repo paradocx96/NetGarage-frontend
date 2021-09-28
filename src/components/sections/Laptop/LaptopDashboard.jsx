@@ -3,8 +3,9 @@ import {Button, Container, Form, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import FileDownload from "js-file-download";
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopDashboardBodyWall from "../../layouts/Laptop/LaptopDashboardBodyWall";
@@ -299,4 +300,4 @@ class LaptopDashboard extends Component {
     }
 }
 
-export default LaptopDashboard;
+export default CommonCheckAuth(LaptopDashboard);

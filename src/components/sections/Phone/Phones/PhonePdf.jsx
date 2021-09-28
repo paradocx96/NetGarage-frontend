@@ -9,12 +9,17 @@ import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import PhoneBrandService from "../../../../services/PhoneBrandService";
 import PhoneOSService from "../../../../services/PhoneOSService";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class PhonePdf extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = this.initialState;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.generatePdfPhones = this.generatePdfPhones.bind(this);
         this.generatePdfBrands = this.generatePdfBrands.bind(this);
@@ -164,6 +169,11 @@ class PhonePdf extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
                 <br/> <br/>
                 <div className={'container-fluid d-grid gap-2'}>

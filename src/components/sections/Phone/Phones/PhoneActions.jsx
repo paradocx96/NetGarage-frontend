@@ -4,7 +4,8 @@ import {Button, Table} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
+import ServiceUser from "../../../../services/ServiceUser";
 
 class PhoneActions extends React.Component{
 
@@ -12,7 +13,10 @@ class PhoneActions extends React.Component{
         super(props);
         this.state = this.initialState;
         this.state.showpublished = false;
-        this.state.showunbpublished = false;;
+        this.state.showunbpublished = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.publishPhone = this.publishPhone.bind(this);
         this.unpublishPhone = this.unpublishPhone.bind(this);
@@ -69,6 +73,12 @@ class PhoneActions extends React.Component{
     render() {
         return (
             <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN" &&
+                    this.state.currentUser.roles != "ROLE_EDITOR"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
                 <NavigationBarDashboard/>
             <div className={'container-fluid'}>
 

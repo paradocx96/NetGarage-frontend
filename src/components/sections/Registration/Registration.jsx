@@ -13,7 +13,9 @@ import ServiceUser from "../../../services/ServiceUser";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
+import RegistrationBackground from "../../../assets/images/Registration/registrationBackground.jpg";
 import Footer from "../../layouts/Footer/Footer";
+
 
 
 // TODO: Validating registration form fields
@@ -176,13 +178,15 @@ export default class Register extends Component {
     // TODO: Display Website
     render() {
         return (
-            <div>
-                <div className="auth-wrapper-register">
-                    <div className="auth-inner-register">
+
+            <div style={{ backgroundImage: `url(${RegistrationBackground})`, backgroundSize: 'cover', overflow: 'hidden', }}>
+            <div className="auth-wrapper-register">
+                <div className="auth-inner-register">
 
                         <Form onSubmit={this.handleRegister} ref={check => {
                             this.form = check;
                         }}>
+
 
                             <h3 className={"text-dark"}>Sign Up</h3>
 
@@ -279,6 +283,7 @@ export default class Register extends Component {
                     </div>
                 </div>
                 <Footer/>
+            </div>
             </div>
         );
     }

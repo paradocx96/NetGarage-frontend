@@ -4,6 +4,9 @@ import {Card, Col, Row, Table} from "react-bootstrap";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 // import data from "bootstrap/js/src/dom/data";
 import Lightbox from "react-image-lightbox";
+import {Link} from "react-router-dom";
+import ViewFeedback from "../../UserFeedback/ViewFeedback";
+import AddFeedback from "../../UserFeedback/AddFeedback";
 
 class SinglePhoneView extends React.Component{
     constructor(props) {
@@ -81,7 +84,6 @@ class SinglePhoneView extends React.Component{
         return (
             <div className={'container-fluid'}>
                 <h2>{this.state.phone.brandmodel}</h2>
-
                 <Card>
                     <Card.Body className={'bg-success text-white'}>
                         <Row>
@@ -458,6 +460,25 @@ class SinglePhoneView extends React.Component{
                                 <td>{sar}</td>
                             </tr>
 
+                            </tbody>
+                        </Table>
+                    </Card.Body>
+                </Card>
+
+                <Card className={'bg-transparent'}>
+                    <Card.Header className={'bg-dark text-white text-center'} style={{fontSize:"30px", fontWeight: 'bold'}}>
+                        COMMENTS
+                    </Card.Header>
+
+                    <Card.Body>
+                        <Table striped bordered hover variant={'light'}>
+                            <tbody>
+                            <tr>
+                                <td><ViewFeedback parentDeviceID = {this.state.id}/></td>
+                            </tr>
+                            <tr>
+                                <td><AddFeedback parentDeviceID = {this.state.id}/></td>
+                            </tr>
                             </tbody>
                         </Table>
                     </Card.Body>

@@ -64,6 +64,11 @@ class StudentService extends Component{
             comment
         });
     }
+
+    //TODO: Get user feedback ID
+    getFeedbackByDeviceID(id) {
+        return axios.get(API_STUDENT_BACKEND_URL+"get-feedback-by-deviceId/" + id);
+    }
 }
 
 export default new StudentService();

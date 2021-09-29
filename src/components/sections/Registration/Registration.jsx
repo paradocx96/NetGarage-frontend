@@ -17,7 +17,6 @@ import RegistrationBackground from "../../../assets/images/Registration/registra
 import Footer from "../../layouts/Footer/Footer";
 
 
-
 // TODO: Validating registration form fields
 const requiredField = data => {
     if (!data) {
@@ -178,10 +177,13 @@ export default class Register extends Component {
     // TODO: Display Website
     render() {
         return (
-
-            <div style={{ backgroundImage: `url(${RegistrationBackground})`, backgroundSize: 'cover', overflow: 'hidden', }}>
-            <div className="auth-wrapper-register">
-                <div className="auth-inner-register">
+            <div style={{
+                backgroundImage: `url(${RegistrationBackground})`,
+                backgroundSize: 'cover',
+                overflow: 'hidden',
+            }}>
+                <div className="auth-wrapper-register">
+                    <div className="auth-inner-register">
 
                         <Form onSubmit={this.handleRegister} ref={check => {
                             this.form = check;
@@ -283,7 +285,6 @@ export default class Register extends Component {
                     </div>
                 </div>
                 <Footer/>
-            </div>
             </div>
         );
     }

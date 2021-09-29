@@ -55,6 +55,20 @@ class StudentService extends Component{
     deleteAccount(id) {
         return axios.delete(API_STUDENT_BACKEND_URL + "delete-account/" + id);
     }
+
+    //TODO: Add user feedback
+    addUserFeedback(deviceID,nickName,comment){
+        return axios.post(API_STUDENT_BACKEND_URL+"add-feedback",{
+            deviceID,
+            nickName,
+            comment
+        });
+    }
+
+    //TODO: Get user feedback ID
+    getFeedbackByDeviceID(id) {
+        return axios.get(API_STUDENT_BACKEND_URL+"get-feedback-by-deviceId/" + id);
+    }
 }
 
 export default new StudentService();

@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import {Carousel, Container, Tab, Table, Tabs} from "react-bootstrap";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
-
+import { withRouter } from 'react-router-dom';
 import LaptopSingleViewBodyWall from "../../layouts/Laptop/LaptopSingleViewBodyWall";
 import Footer from "../../layouts/Footer/Footer";
+import AddFeedback from "../UserFeedback/AddFeedback";
+import ViewFeedback from "../UserFeedback/ViewFeedback";
 
 class LaptopHomepageSingleView extends Component {
 
@@ -66,13 +68,26 @@ class LaptopHomepageSingleView extends Component {
         }
     }
 
-    componentDidMount = async () => {
+    componentDidMount = async ()=>{
         const {match: {params}} = this.props;
+        await this.fetch(params.id);
+    }
+
+    componentDidUpdate = async () => {
+        const {match: {params}} = this.props;
+        const prevID = this.state.id
+        const currentID = params.id;
+        if(currentID && currentID !="" && prevID != currentID){
+            await this.fetch(currentID);
+        }
+    }
+
+    fetch = async (id)=>{
         this.setState({
-            id: params.id
+            id
         });
 
-        await ServiceLaptop.getLaptopObjectById(params.id)
+        await ServiceLaptop.getLaptopObjectById(id)
             .then(response => response.data)
             .then((data) => {
                 this.setState({LaptopList: data});
@@ -80,7 +95,7 @@ class LaptopHomepageSingleView extends Component {
                 console.log(error.message)
             );
 
-        await ServiceLaptopImage.getLaptopImageByLaptopId(params.id)
+        await ServiceLaptopImage.getLaptopImageByLaptopId(id)
             .then(response => {
                 this.setState({
                     imageList: response.data.link
@@ -315,6 +330,15 @@ class LaptopHomepageSingleView extends Component {
                                 </div>
                             </div>
                         </Tab>
+
+                        <Tab eventKey="addComment" title="COMMENTS">
+                            <div style={this.summaryBox}>
+                                <ViewFeedback parentDeviceID={this.state.id}/>
+                            </div>
+                            <div style={this.summaryBox}>
+                                <AddFeedback parentDeviceID={this.state.id}/>
+                            </div>
+                        </Tab>
                     </Tabs>
                 </Container>
                 <Footer/>
@@ -323,4 +347,4 @@ class LaptopHomepageSingleView extends Component {
     }
 }
 
-export default LaptopHomepageSingleView;
+export default withRouter(LaptopHomepageSingleView);

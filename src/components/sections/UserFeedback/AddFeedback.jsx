@@ -31,10 +31,25 @@ class AddFeedback extends Component {
         this.onChangeUserComment = this.onChangeUserComment.bind(this);
 
         this.state = {
-            deviceID:"1000",
+            deviceID: this.props.parentDeviceID,
             userNickname:"",
             userComment:""
         };
+    }
+
+    componentDidMount = async ()=>{
+        const {parentDeviceID} = this.props;
+        console.log(parentDeviceID);
+        this.setState({deviceID: parentDeviceID});
+    }
+
+    componentDidUpdate = async () => {
+        const {parentDeviceID} = this.props;
+        const prevID = this.state.deviceID;
+        if(parentDeviceID && parentDeviceID !="" && parentDeviceID != prevID){
+            console.log(parentDeviceID);
+            this.setState({deviceID: parentDeviceID});
+        }
     }
     onChangeUserNickname(event) {
         this.setState({
@@ -62,6 +77,15 @@ class AddFeedback extends Component {
             ServiceUser.addUserFeedback(this.state.deviceID, this.state.userNickname, this.state.userComment)
                 .then(response => {
                     console.log(response.data);
+                    console.log(this.state.deviceID);
+                    const URI = window.location.href = window.location.href + "#uncontrolled-tab-example-tabpane-addComment";
+
+                    console.log(window.location);
+
+                    window.location.replace(URI);
+                    this.handleReset();
+                    //history.push(URI);
+
                 });
         }
 
@@ -70,6 +94,7 @@ class AddFeedback extends Component {
     // TODO: Display Website
     render() {
         return (
+
             <div className="auth-wrapper-feedback">
                 <div className="auth-inner-feedback">
 

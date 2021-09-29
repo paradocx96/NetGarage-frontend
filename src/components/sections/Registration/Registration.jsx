@@ -13,6 +13,7 @@ import ServiceUser from "../../../services/ServiceUser";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
+import RegistrationBackground from "../../../assets/images/Registration/registrationBackground.jpg"
 
 
 // TODO: Validating registration form fields
@@ -175,6 +176,7 @@ export default class Register extends Component {
     render() {
         return (
 
+            <div style={{ backgroundImage: `url(${RegistrationBackground})`, backgroundSize: 'cover', overflow: 'hidden', }}>
             <div className="auth-wrapper-register">
                 <div className="auth-inner-register">
 
@@ -275,6 +277,7 @@ export default class Register extends Component {
                         />
                     </Form>
                 </div>
+            </div>
             </div>
         );
     }

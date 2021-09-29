@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import axios from "axios";
 import AuthHeader from "./AuthHeader";
+import connection from "./connecction.json";
 
-const BACKEND_BASE_URL = "http://localhost:5000";
+//const BACKEND_BASE_URL = "http://localhost:5000";
+const BACKEND_BASE_URL = "http://"+ connection.ipAddress +":" +connection.port;
 const OS_URL = "/api/phone/os/";
 
 class PhoneOSService extends Component{

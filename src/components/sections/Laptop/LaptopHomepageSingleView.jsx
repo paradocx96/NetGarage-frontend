@@ -107,6 +107,9 @@ class LaptopHomepageSingleView extends Component {
     }
 
     render() {
+        const urlSlices = window.location.href.split("#")
+        const activeKey = urlSlices.length>1?urlSlices.pop():undefined;
+        console.log(activeKey);
         return (
             <div style={this.divBack}>
                 <LaptopSingleViewBodyWall/>
@@ -125,7 +128,7 @@ class LaptopHomepageSingleView extends Component {
                     {/*    />*/}
                     {/*</div>*/}
 
-                    <Tabs defaultActiveKey="overview" id="uncontrolled-tab-example" className="mb-3 m-5">
+                    <Tabs activeKey={activeKey} defaultActiveKey="overview" id="uncontrolled-tab-example" className="mb-3 m-5">
                         <Tab eventKey="overview" title="OVERVIEW">
                             <div style={this.imageCaroBox}>
                                 <Carousel>

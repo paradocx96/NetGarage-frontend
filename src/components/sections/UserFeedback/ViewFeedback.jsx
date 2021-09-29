@@ -23,6 +23,8 @@ class ViewFeedback extends Component {
         const {parentDeviceID} = this.props;
         console.log(parentDeviceID);
         this.setState({deviceID: parentDeviceID});
+        await this.fetch(parentDeviceID);
+
     }
 
     componentDidUpdate = async () => {

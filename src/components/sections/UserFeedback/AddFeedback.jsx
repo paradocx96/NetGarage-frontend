@@ -78,14 +78,9 @@ class AddFeedback extends Component {
                 .then(response => {
                     console.log(response.data);
                     console.log(this.state.deviceID);
-                    const URI = window.location.href = window.location.href + "#uncontrolled-tab-example-tabpane-addComment";
-
-                    console.log(window.location);
-
-                    window.location.replace(URI);
+                    window.location.href = window.location.href + "#addComment";
+                    window.location.reload();
                     this.handleReset();
-                    //history.push(URI);
-
                 });
         }
 
@@ -123,7 +118,7 @@ class AddFeedback extends Component {
                                 name="userComment"
                                 value={this.state.userComment}
                                 onChange={this.onChangeUserComment}
-                                validations={[requiredField]}
+                                required
                                 rows={"5"}
                             />
                         </div>

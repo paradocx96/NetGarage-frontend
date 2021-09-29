@@ -37,7 +37,6 @@ class SinglePhoneView extends React.Component{
             });
 
 
-
         await PhoneChipsetService.getChipsetByBrandModel(this.state.phone.chipset)
             .then(response => response.data)
             .then((data) => {

@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom';
 import "../../../assets/style/Login.css";
 import ServiceUser from "../../../services/ServiceUser";
 
+import LoginImage from "../../../assets/images/Login/loginBackground2.jpg"
+
 // TODO: create to validate form fields
 const requiredField = data => {
 
@@ -23,7 +25,7 @@ class Login extends Component {
 
     backColor = {
         'background-color' : '#4CAF50',
-        color: 'white'
+        color: 'white',
     }
 
     // TODO: Initializing state values and functions
@@ -95,6 +97,7 @@ class Login extends Component {
     // TODO: Display Website
     render() {
         return (
+            <div style={{ backgroundImage: `url(${LoginImage})`, backgroundSize: 'cover', overflow: 'hidden', }}>
                 <div className="auth-wrapper-login">
                     <div className="auth-inner-login">
 
@@ -166,6 +169,7 @@ class Login extends Component {
                         </Form>
                     </div>
                 </div>
+            </div>
         );
     }
 }

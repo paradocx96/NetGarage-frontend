@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from "react-router-dom";
 
 class NavigationBar extends Component {
 
     backColor = {
-        'background-color' : '#4CAF50',
+        backgroundColor : '#4CAF50',
         color: 'white'
     }
 
@@ -15,22 +16,24 @@ class NavigationBar extends Component {
             <div>
                 <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
                     <Container>
-                        <Navbar.Brand href="/">HOME</Navbar.Brand>
+                        <Link to={'/'} className={'navbar-brand'}>HOME</Link>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
 
                             <Nav className="me-auto">
-                                <NavDropdown title="MOBILE" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="/mobiles">Mobile</NavDropdown.Item>
-                                    <NavDropdown.Item href="#">Mobile Finder</NavDropdown.Item>
+                                <NavDropdown title="PHONE" id="collasible-nav-dropdown">
+                                    {/*<Link to={'/phones/main'} className={'dropdown-item'}>Phones</Link>*/}
+                                    <Link to={'/phones/filter/publishedFilterMain'} className={'dropdown-item'}>Phones Finder</Link>
+                                    <Link to={'/phones/compare'} className={'dropdown-item'}>Compare Phones</Link>
+                                    {/*<NavDropdown.Item href="/phones/chipsets/viewAll">Mobile Finder</NavDropdown.Item>*/}
                                 </NavDropdown>
 
                                 <NavDropdown title="LAPTOP" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="/laptops">Laptop</NavDropdown.Item>
-                                    <NavDropdown.Item href="#">Laptop Finder</NavDropdown.Item>
+                                    <Link to={'/laptops'} className={'dropdown-item'}>Laptop</Link>
+                                    <Link to={'/laptops-finder'} className={'dropdown-item'}>Laptop Finder</Link>
                                 </NavDropdown>
 
-                                <Nav.Link href="/contact">CONTACT</Nav.Link>
+                                <Link to={'/contact'} className={'nav-link'} >CONTACT</Link>
                             </Nav>
 
                         </Navbar.Collapse>

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import LaptopBodyWall from "../sections/Laptop/LaptopBodyWall";
+
+import LaptopBodyWall from "../layouts/Laptop/LaptopBodyWall";
 import LaptopListHomepage from "../sections/Laptop/LaptopListHomepage";
+import Footer from "../layouts/Footer/Footer";
 
 class Laptop extends Component {
 
     divBack = {
-        'background-color': '#212121'
+        backgroundColor: '#212121'
     }
 
     render() {
@@ -13,6 +15,7 @@ class Laptop extends Component {
             <div style={this.divBack}>
                 <LaptopBodyWall/>
                 <LaptopListHomepage/>
+                <Footer/>
             </div>
         );
     }

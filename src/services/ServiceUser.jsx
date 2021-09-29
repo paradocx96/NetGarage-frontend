@@ -15,6 +15,46 @@ class StudentService extends Component{
             password
         });
     }
+    getUserByID(){
+        return axios.get(API_STUDENT_BACKEND_URL+"getUser-id/{id}")
+    }
+    updateUserAccount(id,email,username,password){
+        return axios.post(API_STUDENT_BACKEND_URL+"update-account",{
+            id,
+            email,
+            username,
+            password
+        });
+    }
+
+    //TODO: Function for Student Login
+    login(username,password){
+        return axios.post(API_STUDENT_BACKEND_URL+"sign-in",{
+            username,
+            password
+        }).then(response =>{
+            if(response.data.accessToken){
+                sessionStorage.setItem("user", JSON.stringify(response.data));
+                console.log(JSON.stringify(response.data));
+            }
+            console.log(response.data);
+            return response.data;
+        });
+    }
+    //TODO: Get current user
+    getCurrentUser() {
+        return JSON.parse(sessionStorage.getItem('user'));
+    }
+
+    //TODO: Remove current user
+    logout() {
+        sessionStorage.removeItem("user");
+    }
+
+    //TODO: Delete user account
+    deleteAccount(id) {
+        return axios.delete(API_STUDENT_BACKEND_URL + "delete-account/" + id);
+    }
 }
 
 export default new StudentService();

@@ -15,7 +15,7 @@ import "../../../assets/style/Registration.css";
 import {Link, withRouter} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import {Button} from "react-bootstrap";
-
+import ViewProfileBackground from "../../../assets/images/ViewProfile/viewProfileBackground.jpg"
 
 class ViewProfile extends Component {
     backColor = {
@@ -97,7 +97,7 @@ class ViewProfile extends Component {
     // TODO: Display Website
     render() {
         return (
-
+            <div style={{ backgroundImage: `url(${ViewProfileBackground})`, backgroundSize: 'cover', overflow: 'hidden', }}>
             <div className="auth-wrapper-register">
                 <div className="auth-inner-register">
                     <Form>
@@ -143,14 +143,13 @@ class ViewProfile extends Component {
                             <br/>
                             <div className="form-group d-grid gap-2">
                                 <Link to="/edit-profile" className="btn btn-primary"> Edit </Link>
-                            </div>
-                            <div className="form-group d-grid gap-2">
                                 <Button onClick={this.submitDelete.bind(this, this.state.id)} className="btn-danger">Delete</Button>
                             </div>
                           </div>
                     </Form>
 
                 </div>
+            </div>
             </div>
         );
     }

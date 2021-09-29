@@ -14,6 +14,7 @@ import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
+import EditProfileBackground from "../../../assets/images/EditProfile/editProfileBackground.jpg";
 
 
 // TODO: Validating registration form fields
@@ -193,7 +194,7 @@ class EditProfile extends Component {
     // TODO: Display Website
     render() {
         return (
-
+            <div style={{ backgroundImage: `url(${EditProfileBackground})`, backgroundSize: 'cover', overflow: 'hidden', }}>
             <div className="auth-wrapper-register">
                 <div className="auth-inner-register">
 
@@ -290,6 +291,7 @@ class EditProfile extends Component {
                         />
                     </Form>
                 </div>
+            </div>
             </div>
         );
     }

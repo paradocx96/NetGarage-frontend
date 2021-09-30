@@ -12,15 +12,12 @@ class HomepageCarousel extends Component {
             <div>
                 <Carousel variant="light">
                     <Carousel.Item>
-                        <Link to={`/phones/viewAllPhonesInternal1/`}>
+                        <Link to={`/phones/filter/publishedFilterMain`}>
                             <img
                                 className="d-block w-100"
                                 src={Image1}
                                 alt="First slide"
                             />
-                            {/*<Carousel.Caption>*/}
-                            {/*    <h1>LATEST PHONES</h1>*/}
-                            {/*</Carousel.Caption>*/}
                         </Link>
                     </Carousel.Item>
 
@@ -31,9 +28,6 @@ class HomepageCarousel extends Component {
                                 src={Image2}
                                 alt="Second slide"
                             />
-                            {/*<Carousel.Caption>*/}
-                            {/*    <h1>LATEST LAPTOPS</h1>*/}
-                            {/*</Carousel.Caption>*/}
                         </Link>
                     </Carousel.Item>
                 </Carousel>

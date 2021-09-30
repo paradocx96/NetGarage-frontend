@@ -24,10 +24,15 @@ class PhoneMainFilterPublished extends React.Component{
         this.setState({[event.target.name] : event.target.value});
     }
 
+    divBox = {
+        minHeight: '600px',
+        marginTop: '50px'
+    }
+
     render() {
         return (
             <div>
-            <div className={'container-fluid'}>
+            <div style={this.divBox} className={'container-fluid'}>
 
 
                 <h2>Find Phones</h2>

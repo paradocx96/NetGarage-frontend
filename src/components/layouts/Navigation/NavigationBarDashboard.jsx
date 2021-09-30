@@ -22,7 +22,6 @@ class NavigationBarDashboard extends Component {
 
                             <Nav className="me-auto">
                                 <NavDropdown title="Phones" id="collasible-nav-dropdown">
-                                    {/*<NavDropdown.Item href="#">MOBILE</NavDropdown.Item>*/}
                                     <Link to={'/phoneInternal'} className={'dropdown-item'}>Phones</Link>
                                     <Link to={'/phones/addPhone'} className={'dropdown-item'}>Add Phones</Link>
                                     <Link to={'/phones/phoneActions'} className={'dropdown-item'}>Phone Actions</Link>
@@ -36,7 +35,7 @@ class NavigationBarDashboard extends Component {
                                 </NavDropdown>
 
                                 <NavDropdown title="User" id="collasible-nav-dropdown">
-                                    <Link to="#" className={'dropdown-item'}>Users</Link>
+                                    <Link to="/view-all-users" className={'dropdown-item'}>Users</Link>
                                 </NavDropdown>
 
                             </Nav>

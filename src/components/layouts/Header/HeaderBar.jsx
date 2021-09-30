@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Container, Nav, Navbar} from "react-bootstrap";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Logo from './../../../assets/images/Header/netgarage.png';
+import LogoNew from './../../../assets/images/Header/logo.png';
 import ServiceUser from "../../../services/ServiceUser";
 import {Link} from "react-router-dom";
 import "react-icons/bs";
@@ -14,6 +15,7 @@ class HeaderBar extends Component {
         backgroundColor: '#4CAF50',
         color: 'white'
     }
+
     constructor(props) {
         super(props);
         this.logout = this.logout.bind(this);
@@ -24,6 +26,7 @@ class HeaderBar extends Component {
             editorDashboard: "",
         };
     }
+
     componentDidMount() {
         const user = ServiceUser.getCurrentUser();
         if (user) {
@@ -40,12 +43,18 @@ class HeaderBar extends Component {
     }
 
     render() {
-        const {currentUser,adminDashboard, editorDashboard,} = this.state;
+        const {currentUser, adminDashboard, editorDashboard,} = this.state;
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
                     <Container>
                         <Navbar.Brand href="/">
+                            <img
+                                src={LogoNew}
+                                height="60"
+                                className="d-inline-block align-top"
+                                alt="React Bootstrap logo"
+                            />
                             <img
                                 src={Logo}
                                 height="75"
@@ -57,17 +66,6 @@ class HeaderBar extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                             </Nav>
-
-                            {/*<Form className="d-flex">
-                                <FormControl
-                                    type="search"
-                                    placeholder="Search"
-                                    className="mr-2"
-                                    aria-label="Search"
-                                />
-                                <Button variant="outline-light">Search</Button>
-                            </Form>*/}
-
                             {/*<Form className="d-flex">*/}
                             {/*    <FormControl*/}
                             {/*        type="search"*/}
@@ -79,25 +77,21 @@ class HeaderBar extends Component {
                             {/*</Form>*/}
 
                             <Nav>
-                                {/*<Nav.Link href="/register">REGISTER</Nav.Link>*/}
-                                {/*<Nav.Link eventKey={2} href="/login">*/}
-                                {/*    LOGIN*/}
-                                {/*</Nav.Link>*/}
-
                                 {currentUser ? (
                                     <div className="navbar-nav ml-auto">
                                         {adminDashboard && (
                                             <li className="nav-item text-uppercase">
-                                                <Link to={'/dashboard'} className={'nav-link'} > Dashboard </Link>
+                                                <Link to={'/dashboard'} className={'nav-link'}> Dashboard </Link>
                                             </li>
                                         )}
                                         {editorDashboard && (
                                             <li className="nav-item">
-                                                <Link to={'/dashboard'} className={'nav-link'} > Dashboard </Link>
+                                                <Link to={'/dashboard'} className={'nav-link'}> Dashboard </Link>
                                             </li>
                                         )}
                                         <li className="nav-item text-uppercase">
-                                            <Link to={'/view-profile'} className={'nav-link BsBackspaceReverse'} > {currentUser.username}</Link>
+                                            <Link to={'/view-profile'}
+                                                  className={'nav-link BsBackspaceReverse'}> {currentUser.username}</Link>
                                         </li>
                                         <li className="nav-item text-uppercase">
                                             <a href="/" className="nav-link" onClick={this.logout}>
@@ -108,7 +102,8 @@ class HeaderBar extends Component {
                                 ) : (
                                     <div className="navbar-nav ml-auto">
                                         <li className="nav-item text-uppercase">
-                                            <Link to={"/register"} className="nav-link BsBackspaceReverse"> REGISTER </Link>
+                                            <Link to={"/register"}
+                                                  className="nav-link BsBackspaceReverse"> REGISTER </Link>
                                         </li>
                                         <li className="nav-item text-uppercase">
                                             <Link to={"/login"} className="nav-link"> LOGIN </Link>

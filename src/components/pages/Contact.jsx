@@ -66,7 +66,9 @@ class Contact extends Component {
                                     <Card>
                                         <Card.Body>
                                             <Card.Title>Address</Card.Title>
-                                            <Card.Text>NetGarage,</Card.Text>
+                                            <Card.Text>NetG HQ,</Card.Text>
+                                            <Card.Text>12/1, Wasantha road,</Card.Text>
+                                            <Card.Text>Gampaha,</Card.Text>
                                             <Card.Text>Sri Lanka.</Card.Text>
                                         </Card.Body>
                                     </Card>
@@ -76,9 +78,9 @@ class Contact extends Component {
                                     <Card>
                                         <Card.Body>
                                             <Card.Title>Telephone</Card.Title>
-                                            <Card.Text>+947122334</Card.Text>
+                                            <Card.Text>+94332212345</Card.Text>
                                             <Card.Title>Fax</Card.Title>
-                                            <Card.Text>+941122334</Card.Text>
+                                            <Card.Text>+94112212345</Card.Text>
                                         </Card.Body>
                                     </Card>
                                 </div>

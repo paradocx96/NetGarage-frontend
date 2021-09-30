@@ -77,11 +77,16 @@ class ComparePhones extends React.Component{
             })
     }
 
+    divBox = {
+        minHeight: '600px',
+        marginTop: '50px'
+    }
+
     render() {
         const {firstPhone, secondPhone, selectedFirstPhone, selectedSecondPhone} = this.state;
         return (
             <div>
-            <div className={'container-fluid'}>
+            <div style={this.divBox} className={'container-fluid'}>
                 <h3>Compare Phones</h3>
                 <Row>
                     <Col>
@@ -160,7 +165,7 @@ class ComparePhones extends React.Component{
                                             <Card.Body>
                                                 <img
                                                     width={'75'} height={'100'}
-                                                    src={this.state.displayPhone1.image || "http://via.placeholder.com/300x200"}
+                                                    src={this.state.displayPhone1.image || "https://via.placeholder.com/300x200"}
                                                     alt={'firebase-image'}
 
                                                 />
@@ -531,7 +536,7 @@ class ComparePhones extends React.Component{
                                 </Form.Group>
                             </Col>
                             <Col>
-                                <Button
+                                <Button className={'btn-secondary'}
                                     onClick={this.loadPhone2}
                                 >
                                     Load Phone

@@ -39,9 +39,9 @@ class Footer extends Component {
                                     Gampaha,<br/>
                                     Sri Lanka</p>
                                 <h6>Telephone</h6>
-                                <p>+947122334</p>
+                                <p>+94332212345</p>
                                 <h6>Fax</h6>
-                                <p>+941122334</p>
+                                <p>+94112212345</p>
                                 <h6>Email</h6>
                                 <p>info@netgarage.lk</p>
                             </Col>

@@ -20,6 +20,8 @@ class HeaderBar extends Component {
 
         this.state = {
             currentUser: undefined,
+            adminDashboard: "",
+            editorDashboard: "",
         };
     }
     componentDidMount() {
@@ -27,6 +29,8 @@ class HeaderBar extends Component {
         if (user) {
             this.setState({
                 currentUser: user,
+                adminDashboard: user.roles.includes("ROLE_ADMIN"),
+                editorDashboard: user.roles.includes("ROLE_EDITOR"),
             });
         }
     }
@@ -36,7 +40,7 @@ class HeaderBar extends Component {
     }
 
     render() {
-        const {currentUser} = this.state;
+        const {currentUser,adminDashboard, editorDashboard,} = this.state;
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" style={this.backColor} variant="dark">
@@ -82,6 +86,16 @@ class HeaderBar extends Component {
 
                                 {currentUser ? (
                                     <div className="navbar-nav ml-auto">
+                                        {adminDashboard && (
+                                            <li className="nav-item text-uppercase">
+                                                <Link to={'/dashboard'} className={'nav-link'} > Dashboard </Link>
+                                            </li>
+                                        )}
+                                        {editorDashboard && (
+                                            <li className="nav-item">
+                                                <Link to={'/dashboard'} className={'nav-link'} > Dashboard </Link>
+                                            </li>
+                                        )}
                                         <li className="nav-item text-uppercase">
                                             <Link to={'/view-profile'} className={'nav-link BsBackspaceReverse'} > {currentUser.username}</Link>
                                         </li>

@@ -4,7 +4,8 @@ import AuthHeader from "./AuthHeader";
 import connection from "./connecction.json";
 
 //const BACKEND_BASE_URL = "http://localhost:5000";
-const BACKEND_BASE_URL = "http://"+ connection.ipAddress +":" +connection.port;
+//const BACKEND_BASE_URL = "http://"+ connection.ipAddress +":" +connection.port;
+const BACKEND_BASE_URL = connection.remoteAddress;
 const CHIPSET_URL = "/api/phone/chipset/";
 
 class PhoneChipsetService extends Component{

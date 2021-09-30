@@ -6,6 +6,7 @@ import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDas
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 import {Link, Redirect} from "react-router-dom";
 import ServiceUser from "../../../../services/ServiceUser";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 
 class PhoneActions extends React.Component{
 
@@ -176,6 +177,9 @@ class PhoneActions extends React.Component{
                 </Table>
 
             </div>
+
+                <br/> <br/> <br/>
+                <FooterAdmin/>
             </div>
         );
     }

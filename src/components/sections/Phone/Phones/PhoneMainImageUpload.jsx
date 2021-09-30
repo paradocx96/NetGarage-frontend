@@ -7,6 +7,7 @@ import {Button, Form, ProgressBar} from "react-bootstrap";
 import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 import ServiceUser from "../../../../services/ServiceUser";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 
 function PhoneMainImageUpload(props){
 
@@ -118,6 +119,9 @@ function PhoneMainImageUpload(props){
                  src={url || "http://via.placeholder.com/100"}
                  alt="firebase-image" />
         </div>
+
+            <br/> <br/> <br/>
+            <FooterAdmin/>
         </div>
     )
 }

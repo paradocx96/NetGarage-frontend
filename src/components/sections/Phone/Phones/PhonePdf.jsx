@@ -11,6 +11,7 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 import ServiceUser from "../../../../services/ServiceUser";
 import {Redirect} from "react-router-dom";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 
 class PhonePdf extends React.Component{
 
@@ -190,6 +191,9 @@ class PhonePdf extends React.Component{
                         Generate Report on OS
                     </Button>
                 </div>
+
+                <br/> <br/> <br/>
+                <FooterAdmin/>
             </div>
         );
     }

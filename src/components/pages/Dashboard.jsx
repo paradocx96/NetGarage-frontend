@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import NavigationBarDashboard from "../layouts/Navigation/NavigationBarDashboard";
 import {Card, Col, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import CommonCheckAuth from "../../services/CommonCheckAuth";
 
 class Dashboard extends Component {
     render() {
@@ -40,4 +41,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default CommonCheckAuth(Dashboard);

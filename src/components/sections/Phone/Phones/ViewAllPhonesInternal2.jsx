@@ -3,6 +3,7 @@ import PhoneService from "../../../../services/PhoneService";
 import {Card, Col, Row} from "react-bootstrap";
 import Lightbox from "react-image-lightbox";
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 
 function ViewAllPhonesInternal2(props){
 
@@ -61,6 +62,9 @@ function ViewAllPhonesInternal2(props){
                         </Card>
                     ))
             }
+
+            <br/> <br/> <br/>
+            <FooterAdmin/>
         </div>
     )
 }

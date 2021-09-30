@@ -7,6 +7,7 @@ import Lightbox from "react-image-lightbox";
 import {Link} from "react-router-dom";
 import ViewFeedback from "../../UserFeedback/ViewFeedback";
 import AddFeedback from "../../UserFeedback/AddFeedback";
+import Footer from "../../../layouts/Footer/Footer";
 
 class SinglePhoneView extends React.Component{
     constructor(props) {
@@ -496,6 +497,7 @@ class SinglePhoneView extends React.Component{
                 }
 
 
+                <Footer/>
             </div>
         );
     }

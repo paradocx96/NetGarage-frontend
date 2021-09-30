@@ -3,7 +3,8 @@ import axios from "axios";
 import connection from "./connecction.json";
 import AuthHeader from "./AuthHeader";
 
-const BACKEND_BASE_URL = "http://"+ connection.ipAddress +":" +connection.port;
+//const BACKEND_BASE_URL = "http://"+ connection.ipAddress +":" +connection.port;
+const BACKEND_BASE_URL = connection.remoteAddress;
 const BRAND_URL = "/api/phone/brand/";
 
 class PhoneBrandService extends Component{

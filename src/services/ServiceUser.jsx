@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import connection from "./connecction.json";
 
-const API_STUDENT_BACKEND_URL = "http://localhost:5000/user/";
+//const API_STUDENT_BACKEND_URL = "http://localhost:5000/user/";
+const API_STUDENT_BACKEND_URL = connection.remoteAddress + "/user/";
 
 class StudentService extends Component{
     constructor(props) {

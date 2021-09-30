@@ -7,6 +7,7 @@ import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDas
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 import ServiceUser from "../../../../services/ServiceUser";
 import {Redirect} from "react-router-dom";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 
 class AddBrand extends React.Component{
 
@@ -159,6 +160,8 @@ class AddBrand extends React.Component{
                 </Form>
 
             </div>
+                <br/> <br/> <br/>
+                <FooterAdmin/>
             </div>
         );
     }

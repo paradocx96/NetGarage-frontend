@@ -76,9 +76,9 @@ class Contact extends Component {
                                     <Card>
                                         <Card.Body>
                                             <Card.Title>Telephone</Card.Title>
-                                            <Card.Text>+94xxxxxxxxx</Card.Text>
+                                            <Card.Text>+947122334</Card.Text>
                                             <Card.Title>Fax</Card.Title>
-                                            <Card.Text>+94xxxxxxxxx</Card.Text>
+                                            <Card.Text>+941122334</Card.Text>
                                         </Card.Body>
                                     </Card>
                                 </div>

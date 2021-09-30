@@ -7,6 +7,7 @@ import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDas
 import CommonCheckAuth from "../../../../services/CommonCheckAuth";
 import ServiceUser from "../../../../services/ServiceUser";
 import {Redirect} from "react-router-dom";
+import FooterAdmin from "../../../layouts/Footer/FooterAdmin";
 // import data from "bootstrap/js/src/dom/data";
 
 class EditOS extends React.Component{
@@ -182,6 +183,9 @@ class EditOS extends React.Component{
                 </Form>
 
             </div>
+
+                <br/> <br/> <br/>
+                <FooterAdmin/>
             </div>
         );
     }

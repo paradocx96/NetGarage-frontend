@@ -13,6 +13,8 @@ import ServiceUser from "../../../services/ServiceUser";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../../assets/style/Registration.css";
+import RegistrationBackground from "../../../assets/images/Registration/registrationBackground.jpg";
+import Footer from "../../layouts/Footer/Footer";
 
 
 // TODO: Validating registration form fields
@@ -71,7 +73,7 @@ const userConfirmPassword = (value, props) => {
 
 export default class Register extends Component {
     backColor = {
-        'background-color' : '#4CAF50',
+        'background-color': '#4CAF50',
         color: 'white'
     }
 
@@ -122,8 +124,9 @@ export default class Register extends Component {
     }
 
     handleReset = e => {
-        this.setState({ username: '', password: '',email:''})
+        this.setState({username: '', password: '', email: ''})
     }
+
     // TODO: Set Values for state variables
     handleRegister(event) {
         event.preventDefault();
@@ -174,107 +177,114 @@ export default class Register extends Component {
     // TODO: Display Website
     render() {
         return (
+            <div style={{
+                backgroundImage: `url(${RegistrationBackground})`,
+                backgroundSize: 'cover',
+                overflow: 'hidden',
+            }}>
+                <div className="auth-wrapper-register">
+                    <div className="auth-inner-register">
 
-            <div className="auth-wrapper-register">
-                <div className="auth-inner-register">
+                        <Form onSubmit={this.handleRegister} ref={check => {
+                            this.form = check;
+                        }}>
 
-                    <Form onSubmit={this.handleRegister} ref={check => {
-                        this.form = check;
-                    }}>
 
-                        <h3 className={"text-dark"}>Sign Up</h3>
+                            <h3 className={"text-dark"}>Sign Up</h3>
 
-                        {!this.state.successful && (
-                            <div>
+                            {!this.state.successful && (
+                                <div>
+                                    <div className="form-group">
+                                        <label htmlFor="email">Email</label>
+                                        <Input
+                                            type="text"
+                                            placeholder="Enter email"
+                                            className="form-control"
+                                            name="email"
+                                            value={this.state.email}
+                                            onChange={this.onChangeEmail}
+                                            validations={[requiredField, userEmail]}
+                                        />
+                                    </div>
+                                    <br></br>
+                                    <div className="form-group">
+                                        <label htmlFor="username">Username</label>
+                                        <Input
+                                            type="text"
+                                            placeholder="Enter username"
+                                            className="form-control"
+                                            name="username"
+                                            value={this.state.username}
+                                            onChange={this.onChangeUsername}
+                                            validations={[requiredField, userUsername]}
+                                        />
+                                    </div>
+                                    <br></br>
+                                    <div className="form-group">
+                                        <label htmlFor="password">Password</label>
+                                        <Input
+                                            type="password"
+                                            placeholder="Enter password"
+                                            className="form-control"
+                                            name="password"
+                                            value={this.state.password}
+                                            onChange={this.onChangePassword}
+                                            validations={[requiredField, userPassword]}
+                                        />
+                                    </div>
+                                    <br></br>
+                                    <div className="form-group">
+                                        <label htmlFor="confirmPassword">Confirm Password</label>
+                                        <Input
+                                            type="password"
+                                            placeholder="Re-enter password"
+                                            className="form-control"
+                                            name="confirmPassword"
+                                            expectedvalue={this.state.password}
+                                            value={this.state.confirmPassword}
+                                            onChange={this.onChangeConfirmPassword}
+                                            validations={[requiredField, userConfirmPassword]}
+                                        />
+                                    </div>
+                                    <br></br>
+                                    <div className="form-group d-grid gap-2">
+                                        <button className="btn btn-block" style={this.backColor}
+                                                disabled={this.state.loading}>
+                                            {this.state.loading && (
+                                                <span className="spinner-border spinner-border-sm"> </span>
+                                            )}
+                                            <span>Submit</span>
+                                        </button>
+                                        <button className="btn btn-danger btn-block" onClick={this.handleReset}>
+                                            <span>Reset</span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            )}
+                            <p className="forgot-password text-lg-end">
+                                Already registered ?<Link to="/login">sign in</Link>
+
+                            </p>
+                            <br></br>
+
+                            {this.state.message && (
                                 <div className="form-group">
-                                    <label htmlFor="email">Email</label>
-                                    <Input
-                                        type="text"
-                                        placeholder="Enter email"
-                                        className="form-control"
-                                        name="email"
-                                        value={this.state.email}
-                                        onChange={this.onChangeEmail}
-                                        validations={[requiredField, userEmail]}
-                                    />
+                                    <div
+                                        className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"}
+                                        role="alert">
+                                        {this.state.message}
+                                    </div>
                                 </div>
-                                <br></br>
-                                <div className="form-group">
-                                    <label htmlFor="username">Username</label>
-                                    <Input
-                                        type="text"
-                                        placeholder="Enter username"
-                                        className="form-control"
-                                        name="username"
-                                        value={this.state.username}
-                                        onChange={this.onChangeUsername}
-                                        validations={[requiredField, userUsername]}
-                                    />
-                                </div>
-                                <br></br>
-                                <div className="form-group">
-                                    <label htmlFor="password">Password</label>
-                                    <Input
-                                        type="password"
-                                        placeholder="Enter password"
-                                        className="form-control"
-                                        name="password"
-                                        value={this.state.password}
-                                        onChange={this.onChangePassword}
-                                        validations={[requiredField, userPassword]}
-                                    />
-                                </div>
-                                <br></br>
-                                <div className="form-group">
-                                    <label htmlFor="confirmPassword">Confirm Password</label>
-                                    <Input
-                                        type="password"
-                                        placeholder="Re-enter password"
-                                        className="form-control"
-                                        name="confirmPassword"
-                                        expectedvalue={this.state.password}
-                                        value={this.state.confirmPassword}
-                                        onChange={this.onChangeConfirmPassword}
-                                        validations={[requiredField, userConfirmPassword]}
-                                    />
-                                </div>
-                                <br></br>
-                                <div className="form-group d-grid gap-2">
-                                    <button className="btn btn-block" style={this.backColor}
-                                            disabled={this.state.loading}>
-                                        {this.state.loading && (
-                                            <span className="spinner-border spinner-border-sm"> </span>
-                                        )}
-                                        <span>Submit</span>
-                                    </button>
-                                    <button className="btn btn-danger btn-block" onClick={this.handleReset}>
-                                        <span>Reset</span>
-                                    </button>
-                                </div>
-
-                            </div>
-                        )}
-                        <p className="forgot-password text-lg-end">
-                            Already registered ?<Link to="/login">sign in</Link>
-
-                        </p>
-                        <br></br>
-
-                        {this.state.message && (
-                            <div className="form-group">
-                                <div
-                                    className={this.state.successful ? "alert alert-success text-center" : "alert alert-danger text-center"}
-                                    role="alert">
-                                    {this.state.message}
-                                </div>
-                            </div>
-                        )}
-                        <CheckButton style={{display: "none"}} ref={check => {
-                            this.checkBtn = check;
-                        }}
-                        />
-                    </Form>
+                            )}
+                            <CheckButton style={{display: "none"}} ref={check => {
+                                this.checkBtn = check;
+                            }}
+                            />
+                        </Form>
+                    </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

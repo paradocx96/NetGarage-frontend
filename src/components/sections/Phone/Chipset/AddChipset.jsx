@@ -4,6 +4,10 @@ import {Button} from "react-bootstrap";
 import Toast1 from "../../../Toasts/Toast1";
 import PhoneChipsetService from "../../../../services/PhoneChipsetService";
 import Toast2 from "../../../Toasts/Toast2";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 
 class AddChipset extends React.Component{
     constructor(props) {
@@ -11,6 +15,9 @@ class AddChipset extends React.Component{
         this.state = this.initialState;
         this.state.show = false;
         this.state.showNotAvailable = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.onChange = this.onChange.bind(this);
         this.submitChipset = this.submitChipset.bind(this);
@@ -103,6 +110,14 @@ class AddChipset extends React.Component{
     render() {
         const {brandAndModel, cpu, gpu, lithography} =  this.state;
         return (
+
+            <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
+                <NavigationBarDashboard />
             <div className={'container'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -206,8 +221,9 @@ class AddChipset extends React.Component{
                 </Form>
 
             </div>
+            </div>
         );
     }
 
 }
-export default AddChipset;
+export default CommonCheckAuth(AddChipset) ;

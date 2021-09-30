@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {Button, Col, Form, Row} from "react-bootstrap";
-
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
-import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
 import ServiceLaptopGraphic from "../../../services/ServiceLaptopGraphic";
 import ServiceLaptopOS from "../../../services/ServiceLaptopOS";
 import ServiceLaptopProcessor from "../../../services/ServiceLaptopProcessor";
+
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import LaptopAddBodyWall from "../../layouts/Laptop/LaptopAddBodyWall";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
+import ServiceUser from "../../../services/ServiceUser";
 
 class LaptopAdd extends Component {
 
@@ -42,6 +45,9 @@ class LaptopAdd extends Component {
             getOS: [],
             getProcessor: []
         }
+        this.state.currentUser = '';
+        this.state.currentUser = ServiceUser.getCurrentUser();
+
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -198,7 +204,7 @@ class LaptopAdd extends Component {
         event.preventDefault();
 
         let value = {
-            user: "Admin",
+            user: this.state.currentUser.username,
             status: "Deactivate",
             name: this.state.name,
             type: this.state.type,
@@ -709,9 +715,10 @@ class LaptopAdd extends Component {
 
                 </Form>
                 <div style={this.divBox}/>
+                <FooterAdmin/>
             </div>
         );
     }
 }
 
-export default LaptopAdd;
+export default CommonCheckAuth(LaptopAdd);

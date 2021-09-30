@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import connection from "./connecction.json";
 
-const API_STUDENT_BACKEND_URL = "http://localhost:5000/user/";
+//const API_STUDENT_BACKEND_URL = "http://localhost:5000/user/";
+const API_STUDENT_BACKEND_URL = connection.remoteAddress + "/user/";
 
 class StudentService extends Component{
     constructor(props) {
@@ -49,7 +51,7 @@ class StudentService extends Component{
             password
         }).then(response =>{
             if(response.data.accessToken){
-                localStorage.setItem("user", JSON.stringify(response.data));
+                sessionStorage.setItem("user", JSON.stringify(response.data));
                 console.log(JSON.stringify(response.data));
             }
             console.log(response.data);
@@ -58,14 +60,37 @@ class StudentService extends Component{
     }
     //TODO: Get current user
     getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));
+        return JSON.parse(sessionStorage.getItem('user'));
     }
 
     //TODO: Remove current user
     logout() {
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
     }
 
+    //TODO: Delete user account
+    deleteAccount(id) {
+        return axios.delete(API_STUDENT_BACKEND_URL + "delete-account/" + id);
+    }
+
+    //TODO: Add user feedback
+    addUserFeedback(deviceID,nickName,comment){
+        return axios.post(API_STUDENT_BACKEND_URL+"add-feedback",{
+            deviceID,
+            nickName,
+            comment
+        });
+    }
+
+    //TODO: Get user feedback ID
+    getFeedbackByDeviceID(id) {
+        return axios.get(API_STUDENT_BACKEND_URL+"get-feedback-by-deviceId/" + id);
+    }
+
+    //TODO: Get all users in the system
+    getAllUsers(){
+        return axios.get(API_STUDENT_BACKEND_URL+"get-all-users");
+    }
 }
 
 export default new StudentService();

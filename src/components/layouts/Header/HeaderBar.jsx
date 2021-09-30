@@ -3,7 +3,7 @@ import {Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} from "re
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Logo from './../../../assets/images/Header/logo.svg';
+import Logo from './../../../assets/images/Header/netgarage.png';
 import ServiceUser from "../../../services/ServiceUser";
 import {Link} from "react-router-dom";
 import "react-icons/bs";
@@ -44,18 +44,17 @@ class HeaderBar extends Component {
                         <Navbar.Brand href="/">
                             <img
                                 src={Logo}
-                                width="50"
-                                height="50"
+                                height="75"
                                 className="d-inline-block align-top"
                                 alt="React Bootstrap logo"
-                            />{' '}
-                            NetGarage
+                            />
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                             </Nav>
-                            <Form className="d-flex">
+
+                            {/*<Form className="d-flex">
                                 <FormControl
                                     type="search"
                                     placeholder="Search"
@@ -63,7 +62,18 @@ class HeaderBar extends Component {
                                     aria-label="Search"
                                 />
                                 <Button variant="outline-light">Search</Button>
-                            </Form>
+                            </Form>*/}
+
+                            {/*<Form className="d-flex">*/}
+                            {/*    <FormControl*/}
+                            {/*        type="search"*/}
+                            {/*        placeholder="Search"*/}
+                            {/*        className="mr-2"*/}
+                            {/*        aria-label="Search"*/}
+                            {/*    />*/}
+                            {/*    <Button variant="outline-light">Search</Button>*/}
+                            {/*</Form>*/}
+
                             <Nav>
                                 {/*<Nav.Link href="/register">REGISTER</Nav.Link>*/}
                                 {/*<Nav.Link eventKey={2} href="/login">*/}

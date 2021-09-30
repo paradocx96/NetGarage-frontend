@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Container} from "react-bootstrap";
-
-import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import ServiceLaptopImage from "../../../services/ServiceLaptopImage";
 import ServiceLaptop from "../../../services/ServiceLaptop";
+
+import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopImageViewAdmin extends Component {
 
@@ -75,17 +76,22 @@ class LaptopImageViewAdmin extends Component {
                     <h5>Name : {this.state.lBrand + ' ' + this.state.lName}</h5>
 
                     <div>
-                        {this.state.imageList.map((url, i) => (
-                            <img
-                                key={i}
-                                style={{width: "500px"}}
-                                src={url || "http://via.placeholder.com/300"}
-                                alt="firebase-image"
-                            />
-                        ))}
+                        {
+                            this.state.imageList.length === 0 ?
+                                <h5>No results</h5> :
+                                this.state.imageList.map((url, i) => (
+                                    <img
+                                        key={i}
+                                        style={{width: "500px"}}
+                                        src={url || 'https://via.placeholder.com/300'}
+                                        alt="firebase-image"
+                                    />
+                                ))
+                        }
                     </div>
                 </Container>
                 <div style={this.divBox}/>
+                <FooterAdmin/>
             </div>
         );
     }

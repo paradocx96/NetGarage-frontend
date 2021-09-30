@@ -3,6 +3,10 @@ import PhoneOSService from "../../../../services/PhoneOSService";
 import Toast1 from "../../../Toasts/Toast1";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Toast2 from "../../../Toasts/Toast2";
+import NavigationBarDashboard from "../../../layouts/Navigation/NavigationBarDashboard";
+import CommonCheckAuth from "../../../../services/CommonCheckAuth";
+import ServiceUser from "../../../../services/ServiceUser";
+import {Redirect} from "react-router-dom";
 // import data from "bootstrap/js/src/dom/data";
 
 class AddOS extends React.Component{
@@ -11,6 +15,9 @@ class AddOS extends React.Component{
         this.state =  this.initialState;
         this.state.show = false;
         this.state.showNotAvailable = false;
+
+        const currentUser = ServiceUser.getCurrentUser();
+        this.state.currentUser = currentUser;
 
         this.onChange = this.onChange.bind(this);
         this.submitOS = this.submitOS.bind(this);
@@ -91,6 +98,13 @@ class AddOS extends React.Component{
     render() {
         const {os} = this.state;
         return (
+            <div>
+                {
+                    this.state.currentUser.roles != "ROLE_ADMIN"?
+                        <Redirect to={"/no-permission"} />:
+                        <div></div>
+                }
+                <NavigationBarDashboard />
             <div className={'container'}>
 
                 <div style={{"display": this.state.show ? "block" : "none"}}>
@@ -153,9 +167,10 @@ class AddOS extends React.Component{
                 </Form>
 
             </div>
+            </div>
         );
     }
 
 }
 
-export default AddOS;
+export default CommonCheckAuth(AddOS) ;

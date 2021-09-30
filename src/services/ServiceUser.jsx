@@ -69,6 +69,11 @@ class StudentService extends Component{
     getFeedbackByDeviceID(id) {
         return axios.get(API_STUDENT_BACKEND_URL+"get-feedback-by-deviceId/" + id);
     }
+
+    //TODO: Get all users in the system
+    getAllUsers(){
+        return axios.get(API_STUDENT_BACKEND_URL+"get-all-users");
+    }
 }
 
 export default new StudentService();

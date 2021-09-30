@@ -55,7 +55,7 @@ class HeaderBar extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                             </Nav>
-                            <Form className="d-flex">
+                            {/*<Form className="d-flex">
                                 <FormControl
                                     type="search"
                                     placeholder="Search"
@@ -63,7 +63,7 @@ class HeaderBar extends Component {
                                     aria-label="Search"
                                 />
                                 <Button variant="outline-light">Search</Button>
-                            </Form>
+                            </Form>*/}
                             <Nav>
                                 {/*<Nav.Link href="/register">REGISTER</Nav.Link>*/}
                                 {/*<Nav.Link eventKey={2} href="/login">*/}

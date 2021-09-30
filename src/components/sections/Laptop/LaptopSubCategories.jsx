@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Tab, Tabs} from "react-bootstrap";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopSubCategoriesBodyWall from "../../layouts/Laptop/LaptopSubCategoriesBodyWall";
@@ -7,6 +8,7 @@ import LaptopBrand from "./LaptopBrand";
 import LaptopProcessor from "./LaptopProcessor";
 import LaptopOs from "./LaptopOS";
 import LaptopGraphic from "./LaptopGraphic";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 class LaptopSubCategories extends Component {
 
@@ -35,9 +37,10 @@ class LaptopSubCategories extends Component {
                         <LaptopGraphic/>
                     </Tab>
                 </Tabs>
+                <FooterAdmin/>
             </div>
         );
     }
 }
 
-export default LaptopSubCategories;
+export default CommonCheckAuth(LaptopSubCategories);

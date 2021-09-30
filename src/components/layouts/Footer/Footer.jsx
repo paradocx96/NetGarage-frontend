@@ -43,7 +43,7 @@ class Footer extends Component {
                                 <h6>Fax</h6>
                                 <p>+941122334</p>
                                 <h6>Email</h6>
-                                <p>netgarage@email.lk</p>
+                                <p>info@netgarage.lk</p>
                             </Col>
                             <Col>
                                 <h4>Quick links</h4>

@@ -20,7 +20,7 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import ResetPassword from "./components/sections/ForgotPassword/ResetPassword";
 import ViewProfile from "./components/pages/ViewProfile";
 import EditProfile from "./components/pages/EditProfile";
-
+import AddFeedback from "./components/pages/AddFeedback";
 
 //MOBILE
 import Mobile from "./components/pages/Mobile";
@@ -81,7 +81,7 @@ function App() {
                 <Switch>
                     {/* HOMEPAGE */}
                     <Route exact path="/" component={Homepage}/>
-                    <Route path="/page-not-found" component={Error404}/>
+                    <Route path="/error" component={Error404}/>
                     <Route path="/contact" component={Contact}/>
                     <Route path="/no-permission" component={NoPermission}/>
 
@@ -93,7 +93,7 @@ function App() {
                     <Route path="/reset-password/:id" component={ResetPassword}/>
                     <Route path="/view-profile" component={ViewProfile}/>
                     <Route path="/edit-profile" component={EditProfile}/>
-
+                    <Route path="/add-feedback" component={AddFeedback}/>
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
@@ -141,6 +141,9 @@ function App() {
                     <Route path="/laptops" component={Laptop}/>
                     <Route path="/laptops-finder" component={LaptopFilter}/>
                     <Route path="/laptops-view/:id" component={LaptopHomepageSingleView}/>
+
+
+                    {/* LAPTOP DASHBOARD */}
                     <Route path="/laptops-admin" component={LaptopDashboard}/>
                     <Route path="/laptops-admin-add" component={LaptopAdd}/>
                     <Route path="/laptops-admin-image-upload/:lid" component={LaptopImageUpload}/>
@@ -154,7 +157,7 @@ function App() {
                     <Route path="/dashboard" component={Dashboard}/>
 
 
-                    <Redirect to="/page-not-found"/>
+                    <Redirect to="/error"/>
                 </Switch>
             </Router>
         </div>

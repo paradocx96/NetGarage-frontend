@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
 import {confirmAlert} from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
 import ServiceLaptopBrand from "../../../services/ServiceLaptopBrand";
+import ServiceUser from "../../../services/ServiceUser";
+
+import Toast1 from "../../Toasts/Toast1";
+import Toast2 from "../../Toasts/Toast2";
+
 
 class LaptopBrand extends Component {
 
@@ -12,9 +15,11 @@ class LaptopBrand extends Component {
     constructor(props) {
         super(props);
         this.state = this.initialState;
-        this.state = {
-            getAllBrand: []
-        }
+        this.state.getAllBrand = [];
+        this.state.show = false;
+        this.state.showNotAvailable = false;
+        this.state.currentUser = '';
+        this.state.currentUser = ServiceUser.getCurrentUser();
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onReset = this.onReset.bind(this);
@@ -25,7 +30,8 @@ class LaptopBrand extends Component {
 
     // TODO: Initializing default values
     initialState = {
-        name: ''
+        name: '',
+        isAvailable: ''
     }
 
     componentDidMount = async () => {
@@ -47,24 +53,40 @@ class LaptopBrand extends Component {
     // TODO: Submit form values
     onSubmit = async (event) => {
         event.preventDefault();
+        await this.checkAvailability();
 
-        let value = {
-            name: this.state.name,
-            user: 'Admin'
+        if (this.state.isAvailable == 'available') {
+
+            let value = {
+                name: this.state.name,
+                user: this.state.currentUser.username
+            }
+
+            // TODO: Save value in database
+            await ServiceLaptopBrand.postLaptopBrand(value)
+                .then(response => response.data)
+                .then((data) => {
+                    if (data != null) {
+                        console.log("ID : ", data.id);
+                        this.setState({"show": true});
+                        setTimeout(() => this.setState({"show": false}), 3000);
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error.message);
+                });
+
+            setTimeout(() => {
+                this.onReset();
+                this.componentDidMount();
+            }, 2000);
+
+        } else if (this.state.isAvailable == 'unavailable') {
+            this.setState({"showNotAvailable": true});
+            setTimeout(() => this.setState({"showNotAvailable": false}), 3000);
+        } else {
+            console.log("ERROR OCCUR!!!");
         }
-
-        // TODO: Save value in database
-        await ServiceLaptopBrand.postLaptopBrand(value)
-            .then(response => response.data)
-            .then((data) => {
-                console.log(data);
-            })
-            .catch(function (error) {
-                console.log(error.message);
-            });
-
-        this.onReset();
-        await this.componentDidMount();
     }
 
     // TODO: Reset form values
@@ -110,9 +132,42 @@ class LaptopBrand extends Component {
         });
     };
 
+    checkAvailability = async () => {
+        await ServiceLaptopBrand.checkAvailable(this.state.name)
+            .then(response => response.data)
+            .then((data) => {
+                console.log(data);
+                if (data == true) {
+                    this.setState({isAvailable: "unavailable"});
+                } else {
+                    this.setState({isAvailable: "available"});
+                }
+            }).catch(error => {
+                console.log(error.message);
+            });
+    }
+
     render() {
         return (
             <div>
+                <div style={{"display": this.state.show ? "block" : "none"}}>
+                    <Toast1
+                        children={{
+                            show: this.state.show,
+                            message: "Brand added successfully.",
+                            type: 'success'
+                        }}
+                    />
+                </div>
+                <div style={{"display": this.state.showNotAvailable ? "block" : "none"}}>
+                    <Toast2
+                        children={{
+                            show: this.state.showNotAvailable,
+                            message: "Brand is already taken.",
+                            type: 'warning'
+                        }}
+                    />
+                </div>
                 <Container>
                     <h3>Laptop Brand</h3>
 
@@ -143,7 +198,6 @@ class LaptopBrand extends Component {
                                 <th>User</th>
                                 <th>Date & Time</th>
                                 <th> </th>
-                                <th> </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -159,11 +213,6 @@ class LaptopBrand extends Component {
                                             <td>{item.name}</td>
                                             <td>{item.user}</td>
                                             <td>{item.datetime}</td>
-                                            <td>
-                                                <Button
-                                                    // onClick={this.handleEdit.bind(this, item.id)}
-                                                    className="btn-primary">Edit</Button>
-                                            </td>
                                             <td>
                                                 <Button
                                                     onClick={this.submitDelete.bind(this, item.id)}

@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {Button, Container, Form, ProgressBar} from "react-bootstrap";
 import {storage} from '../../../firebase/FirebaseLaptop';
 import {useParams} from "react-router-dom";
+import CommonCheckAuth from "../../../services/CommonCheckAuth";
 import ServiceLaptop from "../../../services/ServiceLaptop";
 
 import NavigationBarDashboard from "../../layouts/Navigation/NavigationBarDashboard";
 import LaptopImageUploadBodyWall from "../../layouts/Laptop/LaptopImageUploadBodyWall";
+import FooterAdmin from "../../layouts/Footer/FooterAdmin";
 
 function LaptopMainImageUpload(props) {
 
@@ -116,14 +118,15 @@ function LaptopMainImageUpload(props) {
                 <br/>
 
                 <img style={{width: "500px"}}
-                     src={url || "http://via.placeholder.com/100"}
+                     src={url || "https://via.placeholder.com/100"}
                      alt="firebase-image" />
 
                 <div style={divBox}/>
             </Container>
             <div style={divBox}/>
+            <FooterAdmin/>
         </div>
     );
 }
 
-export default LaptopMainImageUpload;
+export default CommonCheckAuth(LaptopMainImageUpload);

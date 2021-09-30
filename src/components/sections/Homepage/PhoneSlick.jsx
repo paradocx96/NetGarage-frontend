@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import PhoneService from "../../../services/PhoneService";
 
 class PhoneSlick extends Component {
 
@@ -16,6 +17,14 @@ class PhoneSlick extends Component {
     }
 
     componentDidMount = async () => {
+
+        PhoneService.getPublishedPhones()
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({phoneList : data});
+            }).catch(error => {
+                console.log("Error in getting published phones. Error : ", error);
+        })
 
     }
 
@@ -60,6 +69,24 @@ class PhoneSlick extends Component {
         return (
             <div>
                 <Slider {...settings}>
+                    {
+                        this.state.phoneList.length === 0?
+                            <p>Loading...</p>:
+                            this.state.phoneList.map((e) => (
+                                <Link to={'/phones/viewSinglePhone/' + e.id} key={e.id}
+                                      style={{textDecoration: 'none'}}>
+                                    <div>
+                                        <center>
+                                            <img style={{height: "230px"}} src={e.image} alt={'PhoneImage'}/>
+                                        </center>
+
+                                        <div>
+                                            <h5>{ e.brandmodel }</h5>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))
+                    }
 
                 </Slider>
             </div>

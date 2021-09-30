@@ -23,6 +23,7 @@ class Homepage extends Component {
                     </section>
                     <section style={this.textStyle} className={'pt-5 pb-5'}>
                         <h2>LATEST PHONES</h2>
+                        <br/>
                         <PhoneSlick/>
                     </section>
                 </Container>

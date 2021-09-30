@@ -34,12 +34,14 @@ class Footer extends Component {
                                 <h4>NetGarage</h4>
                                 <br/>
                                 <h6>Address</h6>
-                                <p>NetGarage,<br/>
+                                <p>NetG HQ,<br/>
+                                    12/1, Wasantha road,<br/>
+                                    Gampaha,<br/>
                                     Sri Lanka</p>
                                 <h6>Telephone</h6>
-                                <p>+94xxxxxxxxx</p>
+                                <p>+947122334</p>
                                 <h6>Fax</h6>
-                                <p>+94xxxxxxxxx</p>
+                                <p>+941122334</p>
                                 <h6>Email</h6>
                                 <p>info@netgarage.lk</p>
                             </Col>
@@ -47,7 +49,7 @@ class Footer extends Component {
                                 <h4>Quick links</h4>
                                 <ul style={this.ulStyle}>
                                     <li>
-                                        <Link to={'/phones/viewAllPhonesInternal1'} style={this.linkStyle}>Phone</Link>
+                                        <Link to={'/phones/filter/publishedFilterMain'} style={this.linkStyle}>Phone</Link>
                                     </li>
                                     <li>
                                         <Link to={'/laptops'} style={this.linkStyle}>Laptop</Link>

@@ -8,6 +8,21 @@ class StudentService extends Component{
         super(props);
     }
 
+    //TODO: Forgot user password
+    forgotPassword(email){
+        return axios.post(API_STUDENT_BACKEND_URL+"forgot-password",{
+            email
+        });
+    }
+
+    //TODO: Reset user password
+    resetPassword(id,password) {
+        return axios.post(API_STUDENT_BACKEND_URL+"reset-password",{
+            id,
+            password
+        });
+    }
+
     register(email,username,password){
         return axios.post(API_STUDENT_BACKEND_URL+"sign-up",{
             email,
@@ -51,20 +66,6 @@ class StudentService extends Component{
         localStorage.removeItem("user");
     }
 
-    //TODO: Forgot user password
-    forgotPassword(email){
-        return axios.post(API_STUDENT_BACKEND_URL+"forgot-password",{
-            email
-        });
-    }
-
-    //TODO: Reset user password
-    resetPassword(id,password) {
-        return axios.post(API_STUDENT_BACKEND_URL+"reset-password",{
-            id,
-            password
-        });
-    }
 }
 
 export default new StudentService();

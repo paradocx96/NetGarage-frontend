@@ -80,6 +80,7 @@ class ComparePhones extends React.Component{
     render() {
         const {firstPhone, secondPhone, selectedFirstPhone, selectedSecondPhone} = this.state;
         return (
+            <div>
             <div className={'container-fluid'}>
                 <h3>Compare Phones</h3>
                 <Row>
@@ -863,6 +864,8 @@ class ComparePhones extends React.Component{
                 </Row>
 
                 <br/> <br/> <br/> <br/> <br/> <br/>
+
+            </div>
                 <Footer />
             </div>
         );

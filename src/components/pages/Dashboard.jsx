@@ -89,7 +89,7 @@ class Dashboard extends Component {
                                     </Link>
                                 </div>
                                 <div className={'col'}>
-                                    <Link to={'/'} style={{textDecoration: 'none'}}>
+                                    <Link to={'/view-all-users'} style={{textDecoration: 'none'}}>
                                         <Card>
                                             <Card.Body>
                                                 <Card.Title>CHECK USERS</Card.Title>

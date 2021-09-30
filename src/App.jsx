@@ -21,6 +21,7 @@ import ResetPassword from "./components/sections/ForgotPassword/ResetPassword";
 import ViewProfile from "./components/pages/ViewProfile";
 import EditProfile from "./components/pages/EditProfile";
 import AddFeedback from "./components/pages/AddFeedback";
+import ViewAllUsers from "./components/pages/ViewAllUsers";
 
 //MOBILE
 import Mobile from "./components/pages/Mobile";
@@ -94,6 +95,7 @@ function App() {
                     <Route path="/view-profile" component={ViewProfile}/>
                     <Route path="/edit-profile" component={EditProfile}/>
                     <Route path="/add-feedback" component={AddFeedback}/>
+                    <Route path="/view-all-users" component={ViewAllUsers}/>
 
                     {/* MOBILE */}
                     <Route path="/mobiles" component={Mobile}/>
